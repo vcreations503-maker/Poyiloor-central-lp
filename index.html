@@ -1,155 +1,573 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Poyiloor Central LP School, Kannur | Achieving Excellence Together</title>
-<meta name="description" content="Poyiloor Central LP School, Kannur, Kerala. Classes 1 to 5. Established 1928. Admissions open.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
-<style>
-:root{--green:#17503f;--green2:#0f3a2e;--gold:#f2b632;--ink:#1d2a26;--mist:#eef4f1;--white:#fff}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:17px}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
-header{background:var(--green2);color:var(--white)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;text-decoration:none}
-.logo{width:48px;height:48px;border-radius:50%;background:var(--gold);color:var(--green2);display:grid;place-items:center;font-weight:800;flex:none;overflow:hidden}
-.logo img{width:100%;height:100%;object-fit:cover}
-nav{display:flex;gap:16px;flex-wrap:wrap;font-weight:600;font-size:15px}
-nav a{text-decoration:none;opacity:.9}
-nav a:hover{opacity:1;text-decoration:underline}
-.hero{background:var(--green);color:var(--white);padding:56px 0 64px}
-.hero h1{font-size:clamp(34px,7vw,64px);line-height:1.08;margin:0 0 16px;font-weight:800;max-width:14ch}
-.hero p{font-size:19px;max-width:46ch;margin:0 0 28px;opacity:.95}
-.since{display:inline-block;background:var(--gold);color:var(--green2);font-weight:800;padding:4px 14px;border-radius:99px;margin-bottom:18px}
-.btn{display:inline-block;padding:13px 24px;border-radius:10px;font-weight:800;text-decoration:none;margin:0 10px 10px 0}
-.btn.gold{background:var(--gold);color:var(--green2)}
-.btn.line{border:2px solid var(--white);color:var(--white)}
-section{padding:52px 0}
-section.alt{background:var(--mist)}
-h2{font-size:clamp(26px,4vw,36px);margin:0 0 20px;line-height:1.2;color:var(--green2)}
-.strengths{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.strengths div{background:var(--white);border-left:6px solid var(--gold);padding:16px 18px;border-radius:0 10px 10px 0}
-.strengths h3{margin:0 0 6px;font-size:19px;color:var(--green)}
-.strengths p{margin:0}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-.photo{aspect-ratio:4/3;background:#cfdcd6;border-radius:10px;overflow:hidden;display:grid;place-items:center;text-align:center;color:#4a5f57;font-weight:600;padding:10px}
-.photo img{width:100%;height:100%;object-fit:cover}
-.admit{background:var(--green2);color:var(--white)}
-.admit h2{color:var(--white)}
-.admit .num{font-size:clamp(28px,6vw,44px);font-weight:800;color:var(--gold);margin:6px 0 18px}
-.portal{border:2px dashed var(--green);border-radius:12px;padding:22px;background:var(--white)}
-.contact dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:8px 18px}
-.contact dt{font-weight:800;color:var(--green)}
-.contact dd{margin:0}
-footer{background:var(--green2);color:var(--white);text-align:center;padding:22px 0;font-size:15px;opacity:.95}
-@media(max-width:560px){nav{display:none}.contact dl{grid-template-columns:1fr}.contact dd{margin-bottom:8px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Poyiloor Central LP School | Kannur</title>
+  <meta name="description" content="Poyiloor Central LP School, Kannur, Kerala. Classes 1 to 5. Established in 1928.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #17503f;
+      --dark-green: #0f3a2e;
+      --gold: #f2b632;
+      --ink: #1d2a26;
+      --mist: #eef4f1;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Nunito', sans-serif;
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: var(--dark-green);
+      color: white;
+    }
+
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: white;
+      overflow: hidden;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      background: var(--green);
+      color: white;
+      padding: 70px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .since {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark-green);
+      font-weight: 800;
+      padding: 5px 16px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.12;
+      margin: 0 0 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 5px solid var(--gold);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      margin: 0 8px 10px 0;
+    }
+
+    .btn.gold {
+      background: var(--gold);
+      color: var(--dark-green);
+    }
+
+    .btn.line {
+      border: 2px solid white;
+      color: white;
+    }
+
+    section {
+      padding: 60px 0;
+    }
+
+    section.alt {
+      background: var(--mist);
+    }
+
+    h2 {
+      font-size: clamp(27px, 4vw, 36px);
+      color: var(--dark-green);
+      margin: 0 0 22px;
+      line-height: 1.2;
+    }
+
+    .strengths {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .strengths div {
+      background: white;
+      border-left: 6px solid var(--gold);
+      padding: 22px;
+      border-radius: 10px;
+    }
+
+    .strengths h3 {
+      color: var(--green);
+      margin: 0 0 10px;
+    }
+
+    .strengths p {
+      margin: 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .photo {
+      background: var(--mist);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .photo p {
+      text-align: center;
+      font-weight: 800;
+      padding: 10px;
+      margin: 0;
+    }
+
+    .admit {
+      background: var(--dark-green);
+      color: white;
+    }
+
+    .admit h2 {
+      color: white;
+    }
+
+    .admit .num {
+      font-size: clamp(28px, 6vw, 44px);
+      font-weight: 800;
+      color: var(--gold);
+      margin: 12px 0 22px;
+    }
+
+    .portal {
+      border: 2px dashed var(--green);
+      background: white;
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .contact dl {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 12px 20px;
+      margin: 0;
+    }
+
+    .contact dt {
+      font-weight: 800;
+      color: var(--green);
+    }
+
+    .contact dd {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      background: var(--dark-green);
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 15px;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 700px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 45px 0;
+      }
+
+      header .wrap {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .brand {
+        text-align: center;
+      }
+
+      .contact dl {
+        grid-template-columns: 1fr;
+      }
+
+      .contact dd {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
- <div class="wrap">
-  <a class="brand" href="#top">
-   <!-- LOGO: replace the letters PC with <img src="logo.png" alt="School logo"> -->
-   <span class="logo">PC</span>
-   <span>Poyiloor Central LP School</span>
-  </a>
-  <nav aria-label="Main">
-   <a href="#about">About</a>
-   <a href="#gallery">Gallery</a>
-   <a href="#admission">Admission</a>
-   <a href="#portal">Student portal</a>
-   <a href="#contact">Contact</a>
-  </nav>
- </div>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="wrap">
+      <a class="brand" href="#top">
+        <span class="logo">
+          <img src="logo.png" alt="Poyiloor Central LP School Logo">
+        </span>
+        <span>POYILOOR CENTRAL LP SCHOOL</span>
+      </a>
 
-<main id="top">
- <div class="hero">
-  <div class="wrap">
-   <span class="since">Established 1928</span>
-   <h1>Achieving Excellence Together</h1>
-   <p>A school in Poyiloor, Kannur, for classes 1 to 5, where children learn to speak English with confidence and use technology wisely.</p>
-   <a class="btn gold" href="#admission">Admission open</a>
-   <a class="btn line" href="tel:+919072915659">Call 9072915659</a>
-  </div>
- </div>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#admission">Admission</a>
+        <a href="#portal">Student Portal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
- <section id="about">
-  <div class="wrap">
-   <h2>About our school</h2>
-   <p>Poyiloor Central LP School was established in 1928 under the Poyiloor Muslim Jamath. For almost a century, it has taught the children of our community from class 1 to class 5.</p>
-   <p>Every child is known by name here. Our teachers give each student personal attention, in the classroom and outside it.</p>
-  </div>
- </section>
+  <main id="top">
 
- <section class="alt">
-  <div class="wrap">
-   <h2>What your child will learn</h2>
-   <div class="strengths">
-    <div><h3>Speaking English</h3><p>Daily speaking practice so children are not afraid to talk in English.</p></div>
-    <div><h3>Knowing AI</h3><p>Children learn what AI is and how to use it safely and wisely.</p></div>
-    <div><h3>Strong basics</h3><p>Regular worksheets, reading cards and mock tests, including scholarship exam practice.</p></div>
-    <div><h3>Programs and events</h3><p>Celebrations, competitions and activities that build confidence.</p></div>
-   </div>
-  </div>
- </section>
+    <!-- HERO -->
+    <div class="hero">
+      <div class="wrap hero-grid">
 
- <section id="gallery">
-  <div class="wrap">
-   <h2>Life at our school</h2>
-   <div class="gallery">
-    <!-- PHOTOS: replace each box with <div class="photo"><img src="photo1.jpg" alt="Describe the photo"></div> -->
-    <div class="photo">Classroom photo</div>
-    <div class="photo">School event photo</div>
-    <div class="photo">Student activity photo</div>
-    <div class="photo">School building photo</div>
-   </div>
-  </div>
- </section>
+        <div>
+          <span class="since">Established 1928</span>
 
- <section class="admit" id="admission">
-  <div class="wrap">
-   <h2>Admission open for classes 1 to 5</h2>
-   <p>Call or message us to visit the school and meet our teachers.</p>
-   <div class="num">9072915659</div>
-   <a class="btn gold" href="tel:+919072915659">Call now</a>
-   <a class="btn line" href="https://wa.me/919072915659">WhatsApp us</a>
-  </div>
- </section>
+          <h1>Achieving Excellence Together</h1>
 
- <section id="portal">
-  <div class="wrap">
-   <h2>Student portal</h2>
-   <div class="portal">
-    <p><strong>Coming soon.</strong> Students will log in here for notes, worksheets, reading cards and mock tests.</p>
-   </div>
-  </div>
- </section>
+          <p>
+            Welcome to Poyiloor Central LP School,
+            Kannur, Kerala. A place where children
+            learn, explore, create and grow with
+            confidence.
+          </p>
 
- <section class="alt contact" id="contact">
-  <div class="wrap">
-   <h2>Contact us</h2>
-   <dl>
-    <dt>School</dt><dd>Poyiloor Central LP School</dd>
-    <dt>Address</dt><dd>Central Poyiloor, PO Poyiloor, Kannur, Kerala, 670693</dd>
-    <dt>School code</dt><dd>14537</dd>
-    <dt>Admission</dt><dd><a href="tel:+919072915659">9072915659</a></dd>
-    <dt>Email</dt><dd><a href="mailto:VCreations503@gmail.com">VCreations503@gmail.com</a></dd>
-   </dl>
-  </div>
- </section>
-</main>
+          <a class="btn gold" href="#admission">
+            Admission Open
+          </a>
 
-<footer>
- <div class="wrap">Poyiloor Central LP School · Established 1928 · Achieving Excellence Together</div>
-</footer>
+          <a class="btn line" href="tel:+919072915659">
+            Call Us
+          </a>
+        </div>
+
+        <div class="hero-image">
+          <img src="school-front.jpeg"
+               alt="Poyiloor Central LP School Building">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <h2>About Our School</h2>
+
+        <p>
+          Poyiloor Central LP School was established
+          in 1928 under the Poyiloor Muslim Jamath.
+          For almost a century, our school has been
+          providing quality education to children
+          from Classes 1 to 5.
+        </p>
+
+        <p>
+          Our dedicated teachers provide individual
+          attention to every child, encouraging
+          creativity, confidence and academic
+          excellence.
+        </p>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="alt" id="features">
+      <div class="wrap">
+        <h2>What Your Child Will Learn</h2>
+
+        <div class="strengths">
+
+          <div>
+            <h3>English Communication</h3>
+            <p>
+              Daily English speaking practice to
+              develop confidence and communication
+              skills.
+            </p>
+          </div>
+
+          <div>
+            <h3>AI & Technology</h3>
+            <p>
+              Introducing children to modern
+              technology and responsible AI learning.
+            </p>
+          </div>
+
+          <div>
+            <h3>Strong Academic Foundation</h3>
+            <p>
+              Reading cards, worksheets, regular
+              assessments and scholarship exam
+              preparation.
+            </p>
+          </div>
+
+          <div>
+            <h3>Activities & Celebrations</h3>
+            <p>
+              School festivals, competitions,
+              creative activities and cultural
+              programmes.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="wrap">
+
+        <h2>Life at Our School</h2>
+
+        <div class="gallery">
+
+          <div class="photo">
+            <img src="school-front.jpeg"
+                 alt="School Front"
+                 loading="lazy">
+            <p>Our School Building</p>
+          </div>
+
+          <div class="photo">
+            <img src="school-lawn.jpeg"
+                 alt="School Lawn"
+                 loading="lazy">
+            <p>Our School Campus</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ADMISSION -->
+    <section class="admit" id="admission">
+      <div class="wrap">
+
+        <h2>Admission Open – Classes 1 to 5</h2>
+
+        <p>
+          Join our school family. Contact us for
+          admission details and school visits.
+        </p>
+
+        <div class="num">9072915659</div>
+
+        <a class="btn gold" href="tel:+919072915659">
+          Call Now
+        </a>
+
+        <a class="btn line"
+           href="https://wa.me/919072915659"
+           target="_blank"
+           rel="noopener noreferrer">
+          WhatsApp Us
+        </a>
+
+      </div>
+    </section>
+
+    <!-- STUDENT PORTAL -->
+    <section id="portal">
+      <div class="wrap">
+
+        <h2>Student Portal</h2>
+
+        <div class="portal">
+          <p>
+            <strong>Coming Soon!</strong>
+          </p>
+
+          <p>
+            Students will be able to access
+            learning materials, worksheets,
+            reading cards, notes and mock tests.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="alt contact" id="contact">
+      <div class="wrap">
+
+        <h2>Contact Us</h2>
+
+        <dl>
+          <dt>School</dt>
+          <dd>Poyiloor Central LP School</dd>
+
+          <dt>Address</dt>
+          <dd>
+            Central Poyiloor, PO Poyiloor,
+            Kannur, Kerala – 670693
+          </dd>
+
+          <dt>School Code</dt>
+          <dd>14537</dd>
+
+          <dt>Phone</dt>
+          <dd>
+            <a href="tel:+919072915659">
+              9072915659
+            </a>
+          </dd>
+
+          <dt>Email</dt>
+          <dd>
+            <a href="mailto:VCreations503@gmail.com">
+              VCreations503@gmail.com
+            </a>
+          </dd>
+        </dl>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      © 2026 Poyiloor Central LP School
+      <p>
+        Established 1928 |
+        Achieving Excellence Together
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
