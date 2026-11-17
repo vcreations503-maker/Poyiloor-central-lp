@@ -1,5 +1,121 @@
-<!doctype html><html lang="ml"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Class 5 Mathematics Model Exam</title><style>body{font-family:system-ui,sans-serif;background:#f2f7f5;color:#183b32;margin:0}main{max-width:760px;margin:24px auto;padding:20px;background:white;border-radius:18px;box-shadow:0 8px 25px #1232}h1{font-size:1.5rem}header{background:#14543f;color:white;padding:20px;border-radius:14px}header p{margin:5px 0}.question{padding:16px 0;border-bottom:1px solid #ddd}.question label{display:block;margin:9px 0}input[type=text],input[type=number]{font-size:17px;padding:10px;width:min(95%,360px);border:1px solid #bbb;border-radius:8px}button{background:#176b4d;color:white;border:0;border-radius:9px;padding:12px 20px;font-size:17px;cursor:pointer}button:disabled{opacity:.5}.hidden{display:none}.wrong{color:#a32020}.correct{color:#12603a}.resultitem{padding:12px;border-bottom:1px solid #ddd}.clock{width:125px;height:125px;vertical-align:middle}.muted{color:#52635b}#timer{font-weight:800;font-size:22px}</style></head><body><main><header><strong>POYILOOR CENTRAL LP SCHOOL</strong><h1>Class 5 – Mathematics Model Exam</h1><p>30 Marks · 30 Minutes</p></header><section id="start"><p>Enter your name to begin / പേര് നൽകുക</p><input id="student" type="text" maxlength="70" placeholder="Student name" autocomplete="name"><p><button onclick="startExam()">Start Exam</button></p><p class="muted">The exam checks answers automatically. Results are displayed on this device; they are not yet sent to the teacher.</p></section><section id="exam" class="hidden"><p>Student: <strong id="studentDisplay"></strong> · Time left: <span id="timer">30:00</span></p><div id="questions"></div><p><button onclick="submitExam()">Submit Exam</button></p></section><section id="result" class="hidden"><h2 id="score"></h2><p id="summary"></p><div id="review"></div></section></main><script>
-const questions=[
+
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Class 5 Mathematics Model Exam</title>
+<style>
+body {
+  font-family: system-ui, sans-serif;
+  background: #f2f7f5;
+  color: #183b32;
+  margin: 0;
+}
+main {
+  max-width: 760px;
+  margin: 24px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px #1232;
+}
+header {
+  background: #14543f;
+  color: white;
+  padding: 20px;
+  border-radius: 14px;
+}
+h1 { font-size: 1.5rem; }
+header p { margin: 5px 0; }
+.question {
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+.question label { display: block; margin: 9px 0; }
+input[type=text] {
+  font-size: 17px;
+  padding: 10px;
+  width: min(95%, 360px);
+  border: 1px solid #bbb;
+  border-radius: 8px;
+}
+button {
+  background: #176b4d;
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 20px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.hidden { display: none; }
+.wrong { color: #a32020; }
+.correct { color: #12603a; }
+.resultitem {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+.muted { color: #52635b; }
+#timer { font-weight: 800; font-size: 22px; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<strong>POYILOOR CENTRAL LP SCHOOL</strong>
+<h1>Class 5 – Mathematics Model Exam</h1>
+<p>30 Marks · 30 Minutes</p>
+</header>
+
+<section id="start">
+<p>Enter your full name / മുഴുവൻ പേര് നൽകുക</p>
+<input id="student" type="text" maxlength="70"
+       placeholder="Student name" autocomplete="name">
+<p><button onclick="startExam()">Start Exam</button></p>
+<p class="muted">
+Your first attempt will be recorded for the Result Board.
+</p>
+</section>
+
+<section id="exam" class="hidden">
+<p>
+Student: <strong id="studentDisplay"></strong>
+<br>Time left: <span id="timer">30:00</span>
+</p>
+<div id="questions"></div>
+<p><button onclick="submitExam()">Submit Exam</button></p>
+</section>
+
+<section id="result" class="hidden">
+<h2 id="score"></h2>
+<p id="summary"></p>
+<p id="saveStatus" class="muted" role="status"></p>
+<p>
+<a id="boardLink" href="#" target="_blank"
+   rel="noopener" style="display:none">
+View Result Board
+</a>
+</p>
+<div id="review"></div>
+</section>
+</main>
+
+<iframe name="result_sink" title="Result submission"
+        style="display:none"></iframe>
+
+<form id="resultForm" method="POST"
+      target="result_sink" style="display:none">
+<input name="studentName" id="formName">
+<input name="examId" value="CLASS5_MATH_01">
+<input name="answers" id="formAnswers">
+</form>
+
+<script>
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwIv-gKzx2DyAixjNJ3P5949TCdY5ZhfqNoCUW5llGqw6jIXvoXqQYVJnY4h7dNGUsD/exec";
+
+const questions = [
 {q:'96 മിഠായികൾ 8 കുട്ടികൾക്ക് തുല്യമായി പങ്കിട്ടാൽ ഓരോരുത്തർക്കും എത്ര?',a:'12',m:2},
 {q:'ഒരു കടയിൽ 144 പെൻസിലുകൾ 12 വീതം പാക്കറ്റിലാക്കുന്നു. എത്ര പാക്കറ്റുകൾ?',a:'12',m:2},
 {q:'225 രൂപ 5 സുഹൃത്തുക്കൾ തുല്യമായി പങ്കിട്ടാൽ ഒരാൾക്ക് എത്ര രൂപ?',a:'45',m:2},
@@ -18,9 +134,168 @@ const questions=[
 {q:'11:45-ന് 30 മിനിറ്റ് കൂട്ടിയാൽ സമയം?',a:'12:15',m:2},
 {q:'2 ദിവസം = എത്ര മണിക്കൂർ?',a:'48',m:1}
 ];
-let deadline=0,timerId=null,submitted=false;const $=id=>document.getElementById(id);const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function startExam(){const name=$('student').value.trim();if(!name){alert('Please enter your name');return;}$('studentDisplay').textContent=name;$('start').classList.add('hidden');$('exam').classList.remove('hidden');$('questions').innerHTML=questions.map((x,i)=>`<div class="question"><strong>${i+1}. ${escapeHtml(x.q)} (${x.m} mark${x.m>1?'s':''})</strong>${x.options?x.options.map(o=>`<label><input type="radio" name="q${i}" value="${escapeHtml(o)}"> ${escapeHtml(o)}</label>`).join(''):`<p><input type="text" id="q${i}" aria-label="Answer for question ${i+1}" autocomplete="off" inputmode="text"></p>`}</div>`).join('');deadline=Date.now()+30*60*1000;updateTimer();timerId=setInterval(updateTimer,500)}
-function updateTimer(){const remain=Math.max(0,Math.ceil((deadline-Date.now())/1000));$('timer').textContent=`${String(Math.floor(remain/60)).padStart(2,'0')}:${String(remain%60).padStart(2,'0')}`;if(remain===0)submitExam(true)}
-function normalize(v){return String(v).trim().toLowerCase().replace(/\s+/g,'').replace(/[०-९]/g,c=>String('०१२३४५६७८९'.indexOf(c))).replace(/[൦-൯]/g,c=>String('൦൧൨൩൪൫൬൭൮൯'.indexOf(c)))}
-function submitExam(auto=false){if(submitted)return;if(!auto&&!confirm('Submit your exam?'))return;submitted=true;clearInterval(timerId);let score=0,correct=0;const results=questions.map((x,i)=>{const node=x.options?document.querySelector(`input[name=q${i}]:checked`):$(`q${i}`);const answer=node?node.value:'';const ok=normalize(answer)===normalize(x.a);if(ok){score+=x.m;correct++}return {x,i,answer,ok}});$('exam').classList.add('hidden');$('result').classList.remove('hidden');$('score').textContent=`${$('studentDisplay').textContent}: ${score} / 30`; $('summary').textContent=`${correct} correct · ${questions.length-correct} incorrect${auto?' · Time completed':''}`;$('review').innerHTML=results.map(({x,i,answer,ok})=>`<div class="resultitem"><strong>${i+1}. ${escapeHtml(x.q)}</strong><p class="${ok?'correct':'wrong'}">${ok?'✓ Correct':'✕ Incorrect'} · ${ok?x.m:0}/${x.m}</p><p>Your answer: ${escapeHtml(answer||'Not answered')}</p>${ok?'':`<p><strong>Correct answer: ${escapeHtml(x.a)}</strong></p>${x.explain?`<p>${escapeHtml(x.explain)}</p>`:''}`}</div>`).join('');window.scrollTo(0,0)}
-</script></body></html>
+
+let deadline = 0;
+let timerId = null;
+let submitted = false;
+
+const $ = id => document.getElementById(id);
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  }[c]));
+}
+
+function startExam() {
+  const name = $('student').value.trim();
+
+  if (!name) {
+    alert('Please enter your name');
+    return;
+  }
+
+  $('studentDisplay').textContent = name;
+  $('start').classList.add('hidden');
+  $('exam').classList.remove('hidden');
+
+  $('questions').innerHTML = questions.map((x,i) => `
+    <div class="question">
+      <strong>
+        ${i+1}. ${escapeHtml(x.q)}
+        (${x.m} mark${x.m>1?'s':''})
+      </strong>
+      ${x.options
+        ? x.options.map(o => `
+          <label>
+            <input type="radio" name="q${i}"
+                   value="${escapeHtml(o)}">
+            ${escapeHtml(o)}
+          </label>
+        `).join('')
+        : `<p>
+            <input type="text" id="q${i}"
+                   aria-label="Answer ${i+1}"
+                   autocomplete="off">
+           </p>`
+      }
+    </div>
+  `).join('');
+
+  deadline = Date.now() + 30 * 60 * 1000;
+  updateTimer();
+  timerId = setInterval(updateTimer, 500);
+}
+
+function updateTimer() {
+  const remain = Math.max(
+    0, Math.ceil((deadline - Date.now()) / 1000)
+  );
+
+  $('timer').textContent =
+    `${String(Math.floor(remain/60)).padStart(2,'0')}:` +
+    `${String(remain%60).padStart(2,'0')}`;
+
+  if (remain === 0) submitExam(true);
+}
+
+function normalize(v) {
+  return String(v).trim().toLowerCase()
+    .replace(/\s+/g,'')
+    .replace(/[०-९]/g,
+      c => String('०१२३४५६७८९'.indexOf(c)))
+    .replace(/[൦-൯]/g,
+      c => String('൦൧൨൩൪൫൬൭൮൯'.indexOf(c)));
+}
+
+function submitExam(auto=false) {
+  if (submitted) return;
+  if (!auto && !confirm('Submit your exam?')) return;
+
+  submitted = true;
+  clearInterval(timerId);
+
+  let score = 0;
+  let correct = 0;
+
+  const results = questions.map((x,i) => {
+    const node = x.options
+      ? document.querySelector(`input[name=q${i}]:checked`)
+      : $(`q${i}`);
+
+    const answer = node ? node.value : '';
+    const ok = normalize(answer) === normalize(x.a);
+
+    if (ok) {
+      score += x.m;
+      correct++;
+    }
+
+    return {x,i,answer,ok};
+  });
+
+  $('exam').classList.add('hidden');
+  $('result').classList.remove('hidden');
+
+  $('score').textContent =
+    `${$('studentDisplay').textContent}: ${score} / 30`;
+
+  $('summary').textContent =
+    `${correct} correct · ${questions.length-correct} incorrect` +
+    (auto ? ' · Time completed' : '');
+
+  saveResult(results);
+
+  $('review').innerHTML = results.map(
+    ({x,i,answer,ok}) => `
+      <div class="resultitem">
+        <strong>${i+1}. ${escapeHtml(x.q)}</strong>
+        <p class="${ok?'correct':'wrong'}">
+          ${ok?'✓ Correct':'✕ Incorrect'}
+          · ${ok?x.m:0}/${x.m}
+        </p>
+        <p>Your answer:
+          ${escapeHtml(answer || 'Not answered')}
+        </p>
+        ${ok ? '' : `
+          <p><strong>Correct answer:
+            ${escapeHtml(x.a)}
+          </strong></p>
+          ${x.explain
+            ? `<p>${escapeHtml(x.explain)}</p>`
+            : ''}
+        `}
+      </div>
+    `
+  ).join('');
+
+  window.scrollTo(0,0);
+}
+
+function saveResult(results) {
+  const status = $('saveStatus');
+  const form = $('resultForm');
+
+  form.action = SCRIPT_URL;
+
+  $('formName').value =
+    $('studentDisplay').textContent.trim();
+
+  $('formAnswers').value =
+    JSON.stringify(results.map(r => r.answer));
+
+  status.textContent =
+    'Result sent for submission. Please check the Result Board or Google Sheet to confirm saving.';
+
+  $('boardLink').href = SCRIPT_URL;
+  $('boardLink').style.display = 'inline';
+
+  form.submit();
+}
+</script>
+</body>
+</html>
