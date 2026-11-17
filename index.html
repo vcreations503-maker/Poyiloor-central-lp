@@ -814,6 +814,50 @@ document.addEventListener(
 </script>
 
 
+<section id="videos" style="padding:60px 20px;background:#eef4f1">
+  <div style="max-width:1100px;margin:auto">
+    <h2 style="color:#0f3a2e">School Video Gallery</h2>
+    <p>Watch our school activities and celebrations.</p>
+    <div id="school-video-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px"></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  const ids = [
+    "SHg-H3ZA1XQ",
+    "s2MHc2PL_yc",
+    "xZz6aB0fHzs",
+    "bCa94p0qLug",
+    "Cpt3J_CtBK4",
+    "DtsXdF_Sn-I",
+    "CubqRy5rwPg"
+  ];
+
+  const gallery = document.getElementById("school-video-list");
+
+  ids.forEach((id, i) => {
+    const card = document.createElement("div");
+    card.style.cssText = "background:white;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px #0002";
+
+    const frame = document.createElement("iframe");
+    frame.src = "https://www.youtube-nocookie.com/embed/" + id;
+    frame.title = "School Video " + (i + 1);
+    frame.loading = "lazy";
+    frame.allow = "accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share";
+    frame.allowFullscreen = true;
+    frame.style.cssText = "width:100%;aspect-ratio:16/9;border:0;display:block";
+
+    const title = document.createElement("p");
+    title.textContent = "School Video " + (i + 1);
+    title.style.cssText = "padding:12px 16px;margin:0;font-weight:800;color:#17503f";
+
+    card.append(frame, title);
+    gallery.appendChild(card);
+  });
+})();
+</script>
+  
     <!-- ADMISSION -->
     <section class="admit" id="admission">
       <div class="wrap">
