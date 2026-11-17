@@ -328,7 +328,7 @@ const number=document.createElement("span");
 number.className="muted";
 number.textContent=(index+1)+". ";
 line.append(number);
-sentence.split(/\s+/).forEach(word=>{
+String(sentence).trim().split(/\s+/).forEach(word=>{
 const btn=document.createElement("button");
 btn.className="word";
 btn.textContent=word;
