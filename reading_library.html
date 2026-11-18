@@ -423,7 +423,32 @@ writers.forEach(w=>{
 
   const portrait=document.createElement("div");
   portrait.className="portrait";
-  portrait.textContent="📚";
+  
+const writerPhotos = {
+  "വൈക്കം മുഹമ്മദ് ബഷീർ":
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Basheer.jpg",
+
+  "കുമാരനാശാൻ":
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kumaran_Asan.JPG"
+};
+
+const photoUrl = writerPhotos[w[0]];
+
+if (photoUrl) {
+  const img = document.createElement("img");
+  img.src = photoUrl;
+  img.alt = w[0];
+  img.loading = "lazy";
+
+  img.onerror = function() {
+    portrait.textContent = "📚";
+  };
+
+  portrait.appendChild(img);
+} else {
+  portrait.textContent = "📚";
+}
+
 
   const title=document.createElement("h3");
   title.textContent=w[0];
