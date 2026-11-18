@@ -1,14 +1,432 @@
-<!doctype html>
-<html lang="ml"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Digital Reading Library | Poyiloor Central LP School</title><style>
-:root{--green:#12543c;--gold:#f6c44b;--ink:#18332a}*{box-sizing:border-box}body{margin:0;background:#f3f8f4;color:var(--ink);font-family:system-ui,'Noto Sans Malayalam',sans-serif}header{background:linear-gradient(125deg,#0c4231,#20825a);color:white;padding:24px 18px 38px}main,.wrap{max-width:1050px;margin:auto;padding:0 18px}header .wrap{padding:0}a{color:inherit}nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}nav a{text-decoration:none;font-weight:700}h1{font-size:clamp(30px,6vw,48px);margin:32px 0 8px}header p{max-width:650px;opacity:.94}h2{font-size:25px;margin:32px 0 15px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.tile{border:0;border-radius:22px;background:white;padding:23px;text-align:left;box-shadow:0 6px 25px #0b493015;display:block;text-decoration:none}.tile .emoji{font-size:53px}.tile h3{font-size:23px;margin:10px 0 7px}.tile p{color:#51645c;margin:0 0 16px}.cta{display:inline-block;background:var(--green);color:white;border-radius:12px;padding:10px 16px;font-weight:750;text-decoration:none}button{cursor:pointer;font:inherit}.tabs{display:flex;gap:8px;overflow-x:auto;padding:5px 0 12px}.tabs button{border:1px solid #b6d6c2;background:white;border-radius:50px;padding:10px 17px;white-space:nowrap}.tabs button[aria-selected=true]{background:var(--green);color:white}.reader{background:white;border-radius:20px;padding:20px;margin:12px 0;box-shadow:0 4px 18px #0b49300c}.reader h3{margin-top:0}.line{line-height:2.1;font-size:20px}.word{border:0;background:transparent;padding:3px 5px;border-radius:6px;color:inherit}.word:focus,.word:hover{background:#e4f5d8}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.actions button{background:#e4f2e8;color:#0c4932;border:0;border-radius:10px;padding:9px 13px;font-weight:700}.writers{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.writer{background:white;border-radius:17px;padding:18px}.writer .portrait{font-size:35px}.note{background:#fff8df;border-left:4px solid #d9a72c;padding:12px;border-radius:8px;font-size:14px}footer{text-align:center;padding:35px 15px;color:#60766b}@media(max-width:520px){.line{font-size:19px}}
-</style></head><body><header><div class="wrap"><nav><a href="index.html">← School Website</a><span>📚 POYILOOR CENTRAL LP SCHOOL</span></nav><h1>Digital Reading Library</h1><p>വായിക്കാം • കേൾക്കാം • പഠിക്കാം • വളരാം<br>Read, Listen, Learn & Explore</p></div></header><main><section><h2>Choose Your Reading World</h2><div class="cards"><a class="tile" href="english_reading_corner_classwise.html"><div class="emoji">🌍📘</div><h3>English Reading Corner</h3><p>Classes 1–5 · 100 Reading Cards</p><span class="cta">Start English →</span></a><a class="tile" href="#malayalam"><div class="emoji">🌴📗</div><h3>മലയാളം വായനാമൂല</h3><p>കഥകൾ, വാക്കുകൾ, വായനാപരിശീലനം</p><span class="cta">വായന തുടങ്ങാം →</span></a></div></section><section id="malayalam"><h2>📗 മലയാളം വായനാമൂല</h2><p>ക്ലാസ് തിരഞ്ഞെടുക്കൂ. വാക്കിൽ തൊട്ടാൽ ഉച്ചാരണം കേൾക്കാൻ ശ്രമിക്കാം.</p><div class="tabs" id="tabs"></div><div id="stories"></div><p class="note">🔊 Android ഫോണിൽ മലയാളം ശബ്ദം ലഭിക്കുന്നത് ഇൻസ്റ്റാൾ ചെയ്ത Text-to-Speech voice അനുസരിച്ചാണ്. ശബ്ദം കേൾക്കുന്നില്ലെങ്കിൽ മലയാളം voice ക്രമീകരിക്കണം. ഈ പേജിലെ ശബ്ദം യന്ത്രവായനയാണ്; അധ്യാപകൻ പരിശോധിച്ച റെക്കോർഡിങ് അല്ല.</p></section><section><h2>✍️ എഴുത്തുകാരെ അറിയാം</h2><div class="writers" id="writers"></div></section></main><footer>© POYILOOR CENTRAL LP SCHOOL · Digital Reading Library</footer><script>
-const reading={
-1:[{title:'ആനയും കുട്ടിയും',lines:['ഒരു ആന വന്നു.','ആനയ്ക്ക് വലിയ ചെവിയുണ്ട്.','കുട്ടി ആനയെ കണ്ടു.','ആന തുമ്പിക്കൈ ഉയർത്തി.','കുട്ടി സന്തോഷിച്ചു.']},{title:'എന്റെ പൂവ്',lines:['ഇത് ഒരു പൂവാണ്.','പൂവിന് നല്ല നിറമുണ്ട്.','ഒരു പൂമ്പാറ്റ വന്നു.','അത് പൂവിൽ ഇരുന്നു.','ഞാൻ പൂവിനെ നോക്കി.']}],
-2:[{title:'മഴയുടെ പാട്ട്',lines:['രാവിലെ ആകാശം മൂടിക്കെട്ടി.','ചെറിയ തുള്ളികൾ വീഴാൻ തുടങ്ങി.','മീനു കുടയുമായി പുറത്തുവന്നു.','മുറ്റത്ത് വെള്ളം നിറഞ്ഞു.','ഒരു കുരുവി മരക്കൊമ്പിൽ ഇരുന്നു.','മീനു അതിന് അരി നൽകി.','മഴ നിന്നപ്പോൾ സൂര്യൻ തെളിഞ്ഞു.']}],
-3:[{title:'ബുദ്ധിയുള്ള കാക്ക',lines:['ഒരു കാക്കയ്ക്ക് വലിയ ദാഹം തോന്നി.','അത് വെള്ളം തേടി പറന്നു.','ഒരു കുടത്തിൽ കുറച്ച് വെള്ളം കണ്ടു.','കാക്കയ്ക്ക് വെള്ളം കുടിക്കാൻ കഴിഞ്ഞില്ല.','അത് ചെറിയ കല്ലുകൾ ശേഖരിച്ചു.','കല്ലുകൾ ഓരോന്നായി കുടത്തിലിട്ടു.','വെള്ളം മുകളിലേക്ക് ഉയർന്നു.','കാക്ക വെള്ളം കുടിച്ച് സന്തോഷിച്ചു.','പ്രശ്നങ്ങൾ ചിന്തിച്ച് പരിഹരിക്കാം.']}],
-4:[{title:'ഷെറു ഭായിയുടെ പച്ചക്കാടൻ ദൗത്യം',lines:['ഷെറു ഭായി ഒരു ദിവസം കാട്ടിലൂടെ നടന്നു.','പുഴയുടെ കരയിൽ പ്ലാസ്റ്റിക് കുപ്പികൾ കിടക്കുന്നത് കണ്ടു.','അവിടെ താമസിക്കുന്ന മൃഗങ്ങൾ വിഷമത്തിലായിരുന്നു.','ഷെറു ഭായി തന്റെ കൂട്ടുകാരെ വിളിച്ചുകൂട്ടി.','എല്ലാവരും ചേർന്ന് പുഴക്കര വൃത്തിയാക്കി.','കുപ്പികൾ പ്രത്യേകം ശേഖരിച്ചു.','പിന്നീട് മരത്തൈകൾ നട്ടു.','കുരങ്ങനും മുയലും സന്തോഷത്തോടെ കൈയടിച്ചു.','കാട് എല്ലാവരുടെയും വീടാണെന്ന് ഷെറു ഭായി പറഞ്ഞു.','ഒരുമിച്ച് പ്രവർത്തിച്ചാൽ വലിയ മാറ്റങ്ങൾ ഉണ്ടാക്കാം.']}],
-5:[{title:'നാളെയുടെ വായനാറോബോട്ട്',lines:['അനു പഴയ യന്ത്രഭാഗങ്ങൾ ഉപയോഗിച്ച് ഒരു ചെറിയ റോബോട്ട് നിർമ്മിച്ചു.','അവൾ അതിന് മിന്നു എന്ന് പേരിട്ടു.','മിന്നുവിന് കഥകൾ വായിച്ചുകേൾപ്പിക്കാൻ കഴിയുമായിരുന്നു.','എന്നാൽ ചില മലയാളം വാക്കുകൾ മിന്നു തെറ്റായി ഉച്ചരിച്ചു.','അനു മുത്തശ്ശിയോട് സഹായം ചോദിച്ചു.','മുത്തശ്ശി ഓരോ വാക്കും വ്യക്തമായി പറഞ്ഞുകൊടുത്തു.','അനു ശരിയായ ഉച്ചാരണങ്ങൾ റെക്കോർഡ് ചെയ്തു.','അവൾ മിന്നുവിന്റെ വായന വീണ്ടും പരീക്ഷിച്ചു.','ഇത്തവണ കുട്ടികൾക്ക് കഥ നന്നായി മനസ്സിലായി.','മിന്നു ഒരു പുസ്തകം വായിച്ചശേഷം ചോദ്യങ്ങളും ചോദിച്ചു.','കുട്ടികൾ കഥയുടെ ആശയം സ്വന്തം വാക്കുകളിൽ പറഞ്ഞു.','യന്ത്രങ്ങൾ പഠനത്തെ സഹായിക്കുമെങ്കിലും മനുഷ്യരുടെ അറിവും കരുതലും പ്രധാനമാണെന്ന് അനു തിരിച്ചറിഞ്ഞു.']}]};
-const writers=[['വൈക്കം മുഹമ്മദ് ബഷീർ','ബേപ്പൂർ സുൽത്താൻ','പാത്തുമ്മയുടെ ആട് · ബാല്യകാലസഖി'],['കുമാരനാശാൻ','മലയാള കവി','വീണപൂവ് · ചണ്ഡാലഭിക്ഷുകി'],['തകഴി ശിവശങ്കരപ്പിള്ള','നോവലിസ്റ്റ്','ചെമ്മീൻ · കയർ'],['സുഗതകുമാരി','കവയിത്രി','രാത്രിമഴ · അമ്പലമണി']];
-let currentClass=1;function speak(t,slow=false){if(!('speechSynthesis'in window)){alert('ഈ ബ്രൗസറിൽ ശബ്ദ സൗകര്യം ലഭ്യമല്ല');return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='ml-IN';u.rate=slow?.72:.92;let voices=speechSynthesis.getVoices();let v=voices.find(x=>x.lang.toLowerCase().startsWith('ml'));if(v)u.voice=v;speechSynthesis.speak(u)}
-function render(){document.getElementById('tabs').innerHTML=[1,2,3,4,5].map(n=>`<button aria-selected="${n===currentClass}" data-class="${n}">Class ${n}</button>`).join('');let box=document.getElementById('stories');box.replaceChildren();reading[currentClass].forEach((story,i)=>{let card=document.createElement('article');card.className='reader';let h=document.createElement('h3');h.textContent=`Card ${i+1} · ${story.title}`;card.append(h);story.lines.forEach(line=>{let p=document.createElement('div');p.className='line';line.split(/\s+/).forEach((word,j)=>{let b=document.createElement('button');b.className='word';b.textContent=word;b.title='ഉച്ചാരണം കേൾക്കാം';b.addEventListener('click',()=>speak(word));p.append(b,document.createTextNode(' '))});card.append(p)});let actions=document.createElement('div');actions.className='actions';[['▶ മുഴുവൻ വായിക്കുക',false],['🐢 പതുക്കെ വായിക്കുക',true]].forEach(([label,slow])=>{let b=document.createElement('button');b.textContent=label;b.addEventListener('click',()=>speak(story.lines.join(' '),slow));actions.append(b)});let stop=document.createElement('button');stop.textContent='■ നിർത്തുക';stop.addEventListener('click',()=>speechSynthesis.cancel());actions.append(stop);card.append(actions);box.append(card)})}document.getElementById('tabs').addEventListener('click',e=>{let b=e.target.closest('[data-class]');if(b){currentClass=Number(b.dataset.class);speechSynthesis.cancel();render()}});document.getElementById('writers').innerHTML=writers.map(([name,tag,books])=>`<div class="writer"><div class="portrait">📖</div><h3>${name}</h3><p><strong>${tag}</strong></p><p>പ്രധാന കൃതികൾ: ${books}</p></div>`).join('');render();
-</script></body></html>
+
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malayalam Reading Corner | Poyiloor Central LP School</title>
+
+<style>
+* {box-sizing:border-box}
+body {
+  margin:0;
+  background:#f4f8f5;
+  color:#19392d;
+  font-family:system-ui,"Noto Sans Malayalam",sans-serif;
+  line-height:1.8;
+}
+header {
+  background:linear-gradient(135deg,#103f30,#21845c);
+  color:white;
+  text-align:center;
+  padding:35px 16px;
+}
+header h1 {margin:8px 0;font-size:clamp(25px,5vw,38px)}
+header p {margin:5px 0}
+.container {max-width:1050px;margin:auto;padding:24px 16px}
+.back {
+  display:inline-block;
+  color:white;
+  text-decoration:none;
+  border:1px solid #ffffff80;
+  padding:6px 15px;
+  border-radius:30px;
+}
+.intro {text-align:center;margin:20px 0 28px}
+.options {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+.option {
+  border:0;
+  border-radius:22px;
+  padding:30px 18px;
+  color:white;
+  cursor:pointer;
+  font:inherit;
+  text-align:left;
+  box-shadow:0 8px 24px #0002;
+}
+.option span {display:block;font-size:46px}
+.option strong {display:block;font-size:22px}
+.option small {display:block;font-size:14px}
+.option.books {background:linear-gradient(135deg,#125e46,#29a479)}
+.option.writers {background:linear-gradient(135deg,#623a8e,#a06cce)}
+.option.active {outline:4px solid #f4c44b}
+.panel {display:none;margin-top:28px}
+.panel.active {display:block}
+.class-tabs {
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin:20px 0;
+}
+.class-tabs button {
+  border:1px solid #bdd8c8;
+  background:white;
+  color:#17503f;
+  border-radius:30px;
+  padding:10px 17px;
+  font:inherit;
+  font-weight:700;
+  cursor:pointer;
+}
+.class-tabs button.active {background:#17503f;color:white}
+.card-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+.story,.writer {
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 4px 18px #0000000c;
+}
+.story h3,.writer h3 {margin-top:0;color:#17503f}
+.story-line {
+  padding:9px 12px;
+  border-radius:10px;
+  background:#f0f7f2;
+  margin:7px 0;
+  cursor:pointer;
+}
+.story-line:hover {background:#dceee2}
+.story-line button {
+  background:transparent;
+  border:0;
+  font:inherit;
+  color:inherit;
+  text-align:left;
+  cursor:pointer;
+  width:100%;
+}
+.controls {display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.controls button {
+  background:#17503f;
+  color:white;
+  border:0;
+  border-radius:10px;
+  padding:9px 14px;
+  cursor:pointer;
+}
+.writer-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+.writer .portrait {
+  background:#e7efe9;
+  border-radius:14px;
+  height:145px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:56px;
+}
+.writer p {margin:8px 0}
+.note {color:#64766b;font-size:13px}
+footer {
+  background:#103f30;
+  color:white;
+  text-align:center;
+  padding:24px;
+  margin-top:45px;
+}
+@media(max-width:600px){
+  .options {grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <a class="back" href="index.html#portal">
+    ← Student Portal
+  </a>
+  <p>POYILOOR CENTRAL LP SCHOOL</p>
+  <h1>📗 മലയാളം വായനാമൂല</h1>
+  <p>വായിക്കാം • കേൾക്കാം • അറിവ് നേടാം</p>
+</header>
+
+<main class="container">
+  <div class="intro">
+    <h2>വായനയുടെ മനോഹര ലോകത്തേക്ക് സ്വാഗതം!</h2>
+    <p>നിങ്ങൾക്ക് ഇഷ്ടമുള്ള വിഭാഗം തിരഞ്ഞെടുക്കൂ.</p>
+  </div>
+
+  <div class="options">
+    <button class="option books"
+            onclick="showPanel('books',this)">
+      <span>📖</span>
+      <strong>വായനാ കാർഡുകൾ</strong>
+      <small>ക്ലാസ് 1 മുതൽ 5 വരെ കഥകൾ</small>
+    </button>
+
+    <button class="option writers"
+            onclick="showPanel('writers',this)">
+      <span>✍️</span>
+      <strong>എഴുത്തുകാരുടെ ലോകം</strong>
+      <small>ചിത്രങ്ങൾ • കൃതികൾ • സാഹിത്യപരിചയം</small>
+    </button>
+  </div>
+
+  <section class="panel" id="books">
+    <h2>📖 വായനാ കാർഡുകൾ</h2>
+    <p>നിങ്ങളുടെ ക്ലാസ് തിരഞ്ഞെടുക്കൂ.</p>
+
+    <div class="class-tabs" id="classTabs"></div>
+    <div class="card-grid" id="stories"></div>
+
+    <p class="note">
+      ശബ്ദ സൗകര്യം ഫോണിലെ മലയാളം Voice
+      ലഭ്യതയെ ആശ്രയിച്ചിരിക്കും.
+    </p>
+  </section>
+
+  <section class="panel" id="writers">
+    <h2>✍️ നമ്മുടെ സാഹിത്യകാരന്മാർ</h2>
+    <p>മലയാള സാഹിത്യത്തിലെ പ്രമുഖരെ പരിചയപ്പെടാം.</p>
+    <div class="writer-grid" id="writerGrid"></div>
+  </section>
+</main>
+
+<footer>
+  POYILOOR CENTRAL LP SCHOOL<br>
+  Digital Reading Library
+</footer>
+
+<script>
+const stories = {
+  1: [
+    {
+      title:"ആനയും കുട്ടിയും",
+      lines:[
+        "ഒരു ആന വന്നു.",
+        "ആനയ്ക്ക് വലിയ ചെവിയുണ്ട്.",
+        "കുട്ടി ആനയെ കണ്ടു.",
+        "ആന തുമ്പിക്കൈ ഉയർത്തി.",
+        "കുട്ടി സന്തോഷിച്ചു."
+      ]
+    }
+  ],
+  2: [
+    {
+      title:"എന്റെ പൂന്തോട്ടം",
+      lines:[
+        "എന്റെ വീട്ടിൽ ഒരു പൂന്തോട്ടമുണ്ട്.",
+        "അവിടെ നിറയെ പൂക്കളുണ്ട്.",
+        "ചുവന്ന പൂക്കളും മഞ്ഞ പൂക്കളും ഉണ്ട്.",
+        "രാവിലെ പൂമ്പാറ്റകൾ വരും.",
+        "അവ പൂക്കളിൽ ഇരിക്കും.",
+        "ഞാൻ ദിവസവും ചെടികൾ നനയ്ക്കും."
+      ]
+    }
+  ],
+  3: [
+    {
+      title:"ബുദ്ധിമാനായ മുയൽ",
+      lines:[
+        "ഒരു കാട്ടിൽ ഒരു മുയൽ ജീവിച്ചിരുന്നു.",
+        "അവൻ വളരെ ബുദ്ധിമാനായിരുന്നു.",
+        "ഒരു ദിവസം കാട്ടിൽ വലിയ മഴ പെയ്തു.",
+        "ചെറിയ മൃഗങ്ങൾ ഭയപ്പെട്ടു.",
+        "മുയൽ അവരെ സുരക്ഷിതമായ സ്ഥലത്തേക്ക് നയിച്ചു.",
+        "എല്ലാവരും അവനെ അഭിനന്ദിച്ചു.",
+        "ഒരുമയോടെ അവർ അപകടത്തെ അതിജീവിച്ചു.",
+        "ബുദ്ധിയും സഹകരണവും വലിയ ശക്തിയാണ്."
+      ]
+    }
+  ],
+  4: [
+    {
+      title:"ഷെറു ഭായിയുടെ നല്ല പ്രവൃത്തി",
+      lines:[
+        "ഒരു ദിവസം ഷെറു ഭായി ഗ്രാമത്തിലൂടെ നടക്കുകയായിരുന്നു.",
+        "അപ്പോൾ വഴിയരികിൽ ഒരു കുട്ടി വിഷമിച്ചിരിക്കുന്നത് കണ്ടു.",
+        "കുട്ടിയുടെ പുസ്തകസഞ്ചി നഷ്ടപ്പെട്ടിരുന്നു.",
+        "ഷെറു ഭായി അവനെ സഹായിക്കാൻ തീരുമാനിച്ചു.",
+        "അവർ ഒരുമിച്ച് സഞ്ചി അന്വേഷിച്ചു.",
+        "അടുത്തുള്ള കടയുടെ മുന്നിൽ സഞ്ചി കണ്ടെത്തി.",
+        "കുട്ടിയുടെ മുഖത്ത് സന്തോഷം നിറഞ്ഞു.",
+        "ഷെറു ഭായി അവനെ വീട്ടിലേക്ക് യാത്രയാക്കി.",
+        "സഹായമനസ്കതയാണ് യഥാർത്ഥ വീരത്വമെന്ന് കുട്ടി മനസ്സിലാക്കി.",
+        "ആ ദിവസം അവൻ ഒരിക്കലും മറന്നില്ല."
+      ]
+    }
+  ],
+  5: [
+    {
+      title:"ഭാവിയിലെ വിദ്യാലയം",
+      lines:[
+        "അനുവിന് ശാസ്ത്രകഥകൾ വായിക്കാൻ വലിയ ഇഷ്ടമായിരുന്നു.",
+        "ഒരു ദിവസം അവൾ ഭാവിയിലെ വിദ്യാലയത്തെക്കുറിച്ച് സ്വപ്നം കണ്ടു.",
+        "അവിടെ കുട്ടികളെ സഹായിക്കാൻ റോബോട്ടുകൾ ഉണ്ടായിരുന്നു.",
+        "വായിക്കാൻ പ്രയാസമുള്ള വാക്കുകൾ പുസ്തകങ്ങൾ തന്നെ വായിച്ചുകേൾപ്പിച്ചു.",
+        "കുട്ടികൾ പുതിയ പരീക്ഷണങ്ങൾ നടത്തി.",
+        "അധ്യാപകർ അവരുടെ സംശയങ്ങൾക്ക് മറുപടി നൽകി.",
+        "ഓരോ കുട്ടിക്കും സ്വന്തം വേഗത്തിൽ പഠിക്കാൻ കഴിഞ്ഞു.",
+        "എന്നാൽ ഒരു കാര്യം അനുവിനെ കൂടുതൽ സന്തോഷിപ്പിച്ചു.",
+        "കൂട്ടുകാരുമായി ചേർന്ന് പഠിക്കുന്ന സന്തോഷം അവിടെയും ഉണ്ടായിരുന്നു.",
+        "സാങ്കേതികവിദ്യ പഠനത്തെ സഹായിക്കാനുള്ള ഉപകരണമാണെന്ന് അവൾ തിരിച്ചറിഞ്ഞു.",
+        "പിറ്റേന്ന് അവൾ തന്റെ സ്വപ്നം അധ്യാപകനോട് പറഞ്ഞു.",
+        "എല്ലാവരും ചേർന്ന് ഒരു ചെറിയ ശാസ്ത്രപ്രദർശനം സംഘടിപ്പിക്കാൻ തീരുമാനിച്ചു."
+      ]
+    }
+  ]
+};
+
+const writers = [
+  ["വൈക്കം മുഹമ്മദ് ബഷീർ",
+   "ബേപ്പൂർ സുൽത്താൻ",
+   "പാത്തുമ്മയുടെ ആട്, ബാല്യകാലസഖി"],
+  ["കുമാരനാശാൻ",
+   "മഹാകവി",
+   "വീണപൂവ്, ചണ്ഡാലഭിക്ഷുകി"],
+  ["വള്ളത്തോൾ നാരായണമേനോൻ",
+   "മഹാകവി",
+   "സാഹിത്യമഞ്ജരി, മഗ്ദലനമറിയം"],
+  ["ഉള്ളൂർ എസ്. പരമേശ്വരയ്യർ",
+   "മഹാകവി",
+   "ഉമാകേരളം, കർണഭൂഷണം"],
+  ["തകഴി ശിവശങ്കരപ്പിള്ള",
+   "നോവലിസ്റ്റ്",
+   "ചെമ്മീൻ, കയർ"],
+  ["എം. ടി. വാസുദേവൻ നായർ",
+   "എഴുത്തുകാരൻ",
+   "നാലുകെട്ട്, രണ്ടാമൂഴം"],
+  ["ഒ. എൻ. വി. കുറുപ്പ്",
+   "കവി",
+   "ഭൂമിക്കൊരു ചരമഗീതം, ഉപ്പ്"],
+  ["സുഗതകുമാരി",
+   "കവയിത്രി",
+   "രാത്രിമഴ, അമ്പലമണി"],
+  ["അക്കിത്തം അച്യുതൻ നമ്പൂതിരി",
+   "കവി",
+   "ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം"],
+  ["കുഞ്ഞുണ്ണിമാഷ്",
+   "ബാലസാഹിത്യകാരൻ",
+   "കുഞ്ഞുണ്ണിക്കവിതകൾ"]
+];
+
+function showPanel(id,button){
+  document.querySelectorAll(".panel").forEach(
+    el=>el.classList.remove("active")
+  );
+  document.querySelectorAll(".option").forEach(
+    el=>el.classList.remove("active")
+  );
+  document.getElementById(id).classList.add("active");
+  button.classList.add("active");
+}
+
+let currentClass=1;
+
+function selectClass(n){
+  currentClass=n;
+  speechSynthesis.cancel();
+
+  document.querySelectorAll(".class-tabs button")
+    .forEach(b=>b.classList.toggle(
+      "active",Number(b.dataset.class)===n
+    ));
+
+  const box=document.getElementById("stories");
+  box.innerHTML="";
+
+  stories[n].forEach(story=>{
+    const card=document.createElement("article");
+    card.className="story";
+
+    const title=document.createElement("h3");
+    title.textContent=story.title;
+    card.appendChild(title);
+
+    story.lines.forEach(line=>{
+      const div=document.createElement("div");
+      div.className="story-line";
+
+      const btn=document.createElement("button");
+      btn.textContent="🔊 "+line;
+      btn.onclick=()=>speak(line);
+
+      div.appendChild(btn);
+      card.appendChild(div);
+    });
+
+    const controls=document.createElement("div");
+    controls.className="controls";
+
+    const all=document.createElement("button");
+    all.textContent="▶ Read All";
+    all.onclick=()=>speak(story.lines.join(" "));
+
+    const slow=document.createElement("button");
+    slow.textContent="🐢 Read Slowly";
+    slow.onclick=()=>speak(story.lines.join(" "),0.7);
+
+    const stop=document.createElement("button");
+    stop.textContent="■ Stop";
+    stop.onclick=()=>speechSynthesis.cancel();
+
+    controls.append(all,slow,stop);
+    card.appendChild(controls);
+    box.appendChild(card);
+  });
+}
+
+function speak(text,rate=0.9){
+  if(!("speechSynthesis" in window)){
+    alert("ഈ ഫോണിൽ Text-to-Speech ലഭ്യമല്ല.");
+    return;
+  }
+  speechSynthesis.cancel();
+  const utterance=new SpeechSynthesisUtterance(text);
+  utterance.lang="ml-IN";
+  utterance.rate=rate;
+
+  const voices=speechSynthesis.getVoices();
+  const ml=voices.find(v=>
+    v.lang.toLowerCase().startsWith("ml")
+  );
+  if(ml) utterance.voice=ml;
+
+  speechSynthesis.speak(utterance);
+}
+
+const tabs=document.getElementById("classTabs");
+for(let n=1;n<=5;n++){
+  const b=document.createElement("button");
+  b.textContent="Class "+n;
+  b.dataset.class=n;
+  b.onclick=()=>selectClass(n);
+  tabs.appendChild(b);
+}
+selectClass(1);
+
+const writerGrid=document.getElementById("writerGrid");
+
+writers.forEach(w=>{
+  const card=document.createElement("article");
+  card.className="writer";
+
+  const portrait=document.createElement("div");
+  portrait.className="portrait";
+  portrait.textContent="📚";
+
+  const title=document.createElement("h3");
+  title.textContent=w[0];
+
+  const role=document.createElement("p");
+  role.textContent=w[1];
+
+  const books=document.createElement("p");
+  books.textContent="പ്രധാന കൃതികൾ: "+w[2];
+
+  card.append(portrait,title,role,books);
+  writerGrid.appendChild(card);
+});
+</script>
+</body>
+</html>
