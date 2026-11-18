@@ -887,66 +887,222 @@ document.addEventListener(
 
     
 
+
 <!-- STUDENT PORTAL -->
-<section id="portal">
+<section id="portal" class="alt">
   <div class="wrap">
-    <h2>Student Portal</h2>
-    <p>Select your class to start learning.</p>
+    <h2>🎓 Student Portal</h2>
+    <p>Choose your class or explore our reading library.</p>
 
-    <div class="portal">
-      <h3>Class 4 - CM KIDS EXAM</h3>
-      <p>
-        Login with your student code.
-        Attend exams, view scores and
-        track your learning progress.
-      </p>
+    <div class="student-hub">
 
-      <a class="btn gold"
-         href="https://poyiloor-cm-kids-progress.delicatedepot4.chatgpt.site/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Open CM Kids Portal
-      </a>
-    </div>
+      <!-- CLASS 4 -->
+      <details class="hub-card">
+        <summary>
+          <span class="hub-icon">🎒</span>
+          <span>
+            <strong>Class 4</strong>
+            <small>Exams • Quizzes • Notes</small>
+          </span>
+          <span class="hub-arrow">⌄</span>
+        </summary>
 
-    <div class="portal" style="margin-top:20px">
-      <h3>Class 5 - Mathematics Exam</h3>
-      <p>
-        Total Marks: 30<br>
-        Duration: 30 Minutes
-      </p>
+        <div class="hub-content">
+          <h3>CM Kids Exam Portal</h3>
+          <p>
+            Attend model exams, check scores
+            and track your learning progress.
+          </p>
+          <a class="hub-btn"
+             href="https://poyiloor-cm-kids-progress.delicatedepot4.chatgpt.site/">
+            Open CM Kids Portal →
+          </a>
+        </div>
+      </details>
 
-      <a class="btn gold"
-         href="class5_math_exam.html"
-         target="_blank"
-         rel="noopener noreferrer">
-        Start Mathematics Exam
-      </a>
-      
-<p style="margin-top:15px;">
-  <a class="btn gold"
-     href="https://script.google.com/macros/s/AKfycbwIv-gKzx2DyAixjNJ3P5949TCdY5ZhfqNoCUW5llGqw6jIXvoXqQYVJnY4h7dNGUsD/exec"
-     target="_blank"
-     rel="noopener noreferrer">
-    🏆 View Result Board & Rank List
-  </a>
-</p>
+      <!-- CLASS 5 -->
+      <details class="hub-card">
+        <summary>
+          <span class="hub-icon">🧮</span>
+          <span>
+            <strong>Class 5</strong>
+            <small>Mathematics • Exams • Results</small>
+          </span>
+          <span class="hub-arrow">⌄</span>
+        </summary>
 
-<p style="margin-top:15px;">
-  <a class="btn"
-     href="english_reading_corner_classwise.html"
-     style="background:#167348;color:white;
-            display:inline-block;padding:13px 20px;
-            border-radius:10px;text-decoration:none;
-            font-weight:bold;"
-     >
-    📚 English Reading Corner
-  </a>
-</p>
+        <div class="hub-content">
+          <h3>Mathematics Exam</h3>
+          <p>30 Marks • 30 Minutes</p>
+
+          <a class="hub-btn"
+             href="class5_math_exam.html">
+            Start Mathematics Exam →
+          </a>
+
+          <a class="hub-btn secondary"
+             href="https://script.google.com/macros/s/AKfycbwIv-gKzx2DyAixjNJ3P5949TCdY5ZhfqNoCUW5llGqw6jIXvoXqQYVJnY4h7dNGUsD/exec">
+            🏆 View Result Board
+          </a>
+        </div>
+      </details>
+
+      <!-- DIGITAL LIBRARY -->
+      <div class="hub-card library-hub">
+        <div class="library-top">
+          <span class="hub-icon">📚</span>
+          <div>
+            <strong>Digital Reading Library</strong>
+            <small>
+              English • Malayalam • Literature
+            </small>
+          </div>
+        </div>
+
+        <div class="library-links">
+          <a href="english_reading_corner_classwise.html"
+             class="english-link">
+            📘 English Reading
+            <small>100 Reading Cards</small>
+          </a>
+
+          <a href="reading_library.html"
+             class="malayalam-link">
+            📗 മലയാളം വായനാമൂല
+            <small>കഥകൾ • സാഹിത്യം</small>
+          </a>
+        </div>
+      </div>
 
     </div>
   </div>
 </section>
+
+<style>
+.student-hub {
+  display: grid;
+  gap: 20px;
+  max-width: 850px;
+  margin: 25px auto 0;
+}
+
+.hub-card {
+  background: #fff;
+  border: 1px solid #e0e9e4;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px #0000000a;
+}
+
+.hub-card summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.hub-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.hub-icon {
+  font-size: 38px;
+}
+
+.hub-card strong {
+  display: block;
+  font-size: 22px;
+  color: #17503f;
+}
+
+.hub-card small {
+  display: block;
+  color: #667a70;
+  font-size: 13px;
+}
+
+.hub-arrow {
+  margin-left: auto;
+  font-size: 28px;
+}
+
+.hub-content {
+  padding: 10px 24px 26px;
+  border-top: 1px solid #e5eee8;
+}
+
+.hub-content h3 {
+  color: #17503f;
+}
+
+.hub-btn {
+  display: inline-block;
+  background: #17503f;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  margin: 8px 8px 0 0;
+}
+
+.hub-btn.secondary {
+  background: #e9f2ec;
+  color: #17503f;
+}
+
+.library-hub {
+  padding: 24px;
+}
+
+.library-top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.library-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.library-links a {
+  display: block;
+  padding: 22px;
+  border-radius: 15px;
+  color: white;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.library-links small {
+  color: #ffffffdd;
+  margin-top: 8px;
+}
+
+.english-link {
+  background: linear-gradient(135deg,#173e79,#327fbd);
+}
+
+.malayalam-link {
+  background: linear-gradient(135deg,#15533c,#269b72);
+}
+
+@media (max-width:600px) {
+  .library-links {
+    grid-template-columns: 1fr;
+  }
+
+  .hub-card summary {
+    padding: 18px;
+  }
+}
+</style>
+
 
 
     <!-- CONTACT -->
