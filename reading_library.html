@@ -666,12 +666,211 @@ function speak(text,rate=0.9){
  speechSynthesis.speak(u);
 }
 
-function selectClass(n){
- speechSynthesis.cancel();
- document.querySelectorAll(".class-tabs button")
-   .forEach(b=>b.classList.toggle(
-     "active",Number(b.dataset.class)===n
-   ));
+
+let currentReadingClass = 1;
+
+function selectClass(n) {
+  currentReadingClass = n;
+
+  if ("speechSynthesis" in window) {
+    speechSynthesis.cancel();
+  }
+
+  document.querySelectorAll(".tabs button").forEach(b => {
+    b.classList.toggle("active", Number(b.dataset.n) === n);
+  });
+
+  showReadingCardList();
+}
+
+function showReadingCardList() {
+  if ("speechSynthesis" in window) {
+    speechSynthesis.cancel();
+  }
+
+  const root =
+    document.getElementById("stories") ||
+    document.getElementById("storyGrid");
+
+  if (!root) return;
+
+  root.innerHTML = "";
+
+  root.style.display = "grid";
+  root.style.gridTemplateColumns =
+    "repeat(auto-fit, minmax(145px, 1fr))";
+  root.style.gap = "14px";
+
+  const items = stories[currentReadingClass] || [];
+
+  items.forEach((item, index) => {
+    const title = Array.isArray(item)
+      ? item[0]
+      : item.title;
+
+    const card = document.createElement("button");
+
+    card.type = "button";
+
+    card.style.cssText = `
+      background:#f5fbf6;
+      border:2px solid #d1e8d8;
+      border-radius:18px;
+      padding:25px 12px;
+      min-height:155px;
+      text-align:center;
+      font-family:inherit;
+      cursor:pointer;
+      color:#164631;
+    `;
+
+    const emoji = [
+      "📖","🌸","🐱","🌳","🌱",
+      "🤝","🌊","📚","🐦","🏫",
+      "⚽","🌙","👵","☔","🏡",
+      "🐝","🎨","💚","🏖️","⭐"
+    ][index % 20];
+
+    const icon = document.createElement("div");
+    icon.style.fontSize = "38px";
+    icon.textContent = emoji;
+
+    const number = document.createElement("div");
+    number.style.cssText =
+      "font-weight:800;margin-top:12px;font-size:14px";
+    number.textContent = "Reading Card " + (index + 1);
+
+    const subtitle = document.createElement("div");
+    subtitle.style.cssText =
+      "font-size:12px;margin-top:7px;color:#61776b";
+    subtitle.textContent =
+      title.replace(/^\d+[\.\-\s]*/, "")
+           .replace(/^കാർഡ്\s*\d+\s*[-–]?\s*/, "");
+
+    card.append(icon, number, subtitle);
+
+    card.onclick = () => openMalayalamCard(index);
+
+    root.appendChild(card);
+  });
+}
+
+function openMalayalamCard(index) {
+  const root =
+    document.getElementById("stories") ||
+    document.getElementById("storyGrid");
+
+  if (!root) return;
+
+  const item = stories[currentReadingClass][index];
+
+  const title = Array.isArray(item)
+    ? item[0]
+    : item.title;
+
+  const lines = Array.isArray(item)
+    ? item[1]
+    : item.lines;
+
+  root.innerHTML = "";
+  root.style.display = "block";
+
+  const back = document.createElement("button");
+  back.textContent = "← Back to Reading Cards";
+  back.style.cssText = `
+    background:#176a49;
+    color:white;
+    border:0;
+    border-radius:12px;
+    padding:12px 18px;
+    margin-bottom:20px;
+    font-family:inherit;
+    cursor:pointer;
+  `;
+
+  back.onclick = showReadingCardList;
+  root.appendChild(back);
+
+  const card = document.createElement("article");
+  card.style.cssText = `
+    background:white;
+    border:1px solid #d5e8da;
+    border-radius:20px;
+    padding:24px;
+    max-width:760px;
+    margin:auto;
+    box-shadow:0 5px 20px #00000010;
+  `;
+
+  const heading = document.createElement("h2");
+  heading.textContent = title;
+  heading.style.color = "#17503f";
+  card.appendChild(heading);
+
+  lines.forEach(line => {
+    const sentence = document.createElement("button");
+    sentence.textContent = "🔊 " + line;
+
+    sentence.style.cssText = `
+      display:block;
+      width:100%;
+      text-align:left;
+      background:#f0f8f1;
+      border:0;
+      border-radius:12px;
+      padding:14px;
+      margin:10px 0;
+      font-family:inherit;
+      font-size:16px;
+      line-height:1.9;
+      cursor:pointer;
+      color:#20382d;
+    `;
+
+    sentence.onclick = () => speak(line);
+    card.appendChild(sentence);
+  });
+
+  const actions = document.createElement("div");
+  actions.style.cssText = `
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:22px;
+  `;
+
+  const buttons = [
+    ["▶ Listen", () => speak(lines.join(" "))],
+    ["🐢 Read Slowly", () => speak(lines.join(" "), 0.7)],
+    ["■ Stop", () => speechSynthesis.cancel()],
+    ["→ Next Card", () => {
+      const total = stories[currentReadingClass].length;
+      openMalayalamCard((index + 1) % total);
+    }]
+  ];
+
+  buttons.forEach(([label, action]) => {
+    const btn = document.createElement("button");
+    btn.textContent = label;
+
+    btn.style.cssText = `
+      background:#176a49;
+      color:white;
+      border:0;
+      border-radius:10px;
+      padding:11px 15px;
+      font-family:inherit;
+      cursor:pointer;
+    `;
+
+    btn.onclick = action;
+    actions.appendChild(btn);
+  });
+
+  card.appendChild(actions);
+  root.appendChild(card);
+}
+
 
  const box=document.getElementById("stories");
  box.replaceChildren();
