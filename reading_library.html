@@ -3,1005 +3,509 @@
 <html lang="ml">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Malayalam Reading Corner | Poyiloor Central LP School</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <style>
 *{box-sizing:border-box}
-:root{
-  --green:#17503f;
-  --dark:#103f30;
-  --gold:#f2b632;
-}
-body{
-  margin:0;
-  background:#f3f7f4;
-  color:#20372d;
-  font-family:"Noto Sans Malayalam",system-ui,sans-serif;
-  line-height:1.8;
-}
-button,a{font:inherit}
-button{cursor:pointer}
-header{
-  background:linear-gradient(135deg,#103f30,#248a62);
-  color:white;
-  text-align:center;
-  padding:28px 16px 42px;
-}
-header h1{
-  font-size:clamp(26px,5vw,42px);
-  margin:12px 0;
-}
-header p{margin:6px 0}
-.back{
-  display:inline-block;
-  border:1px solid #ffffff80;
-  color:white;
-  text-decoration:none;
-  padding:6px 16px;
-  border-radius:30px;
-  margin-bottom:12px;
-}
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:25px 16px;
-}
-.intro{text-align:center;margin:12px 0 30px}
-.intro h2{color:var(--green)}
-.options{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:20px;
-}
-.option{
-  border:0;
-  border-radius:24px;
-  color:white;
-  padding:30px;
-  text-align:left;
-  box-shadow:0 8px 24px #0002;
-  transition:transform .2s;
-}
-.option:hover{transform:translateY(-4px)}
-.option.active{outline:4px solid var(--gold)}
-.option .emoji{display:block;font-size:50px}
-.option strong{
-  display:block;
-  font-size:23px;
-  margin:8px 0;
-}
-.option small{font-size:14px}
-.option.books{
-  background:linear-gradient(135deg,#12654b,#27a47b);
-}
-.option.writers{
-  background:linear-gradient(135deg,#52327f,#9465c7);
-}
-.panel{display:none;margin-top:32px}
-.panel.active{display:block}
-.panel h2{color:var(--green)}
-.class-tabs{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:20px 0;
-}
-.class-tabs button{
-  border:1px solid #b6d4c2;
-  border-radius:30px;
-  padding:10px 17px;
-  background:white;
-  color:var(--green);
-  font-weight:700;
-}
-.class-tabs button.active{
-  background:var(--green);
-  color:white;
-}
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
-}
-.story,.writer{
-  background:white;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 5px 20px #00000010;
-}
-.story{padding:23px}
-.story h3{color:var(--green);margin-top:0}
-.story-line{
-  background:#eff7f1;
-  border-radius:10px;
-  margin:8px 0;
-}
-.story-line button{
-  border:0;
-  background:transparent;
-  color:#20372d;
-  padding:12px;
-  text-align:left;
-  width:100%;
-}
-.story-line:hover{background:#dceee2}
-.controls{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:16px;
-}
-.controls button{
-  border:0;
-  background:var(--green);
-  color:white;
-  padding:10px 13px;
-  border-radius:10px;
-  font-size:13px;
-}
-.writer-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;
-  margin-top:25px;
-}
-.writer .portrait{
-  height:245px;
-  background:#e5eee8;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:58px;
-  overflow:hidden;
-}
-.writer .portrait img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 22%;
-}
-.writer-info{padding:18px}
-.writer h3{
-  margin:0 0 6px;
-  font-size:19px;
-  color:var(--green);
-}
-.writer .role{
-  display:inline-block;
-  background:#e7f3eb;
-  color:#176145;
-  padding:3px 10px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:700;
-}
-.writer p{font-size:14px;margin:12px 0}
-.writer .bio{color:#56675e}
-.writer .photo-credit{
-  font-size:11px;
-  color:#697b71;
-}
-.writer .photo-credit a{color:#17503f}
-.writer .quiz{
-  background:#f5f1ff;
-  border-radius:12px;
-  padding:12px;
-  margin-top:12px;
-}
-.writer .quiz summary{
-  cursor:pointer;
-  font-size:13px;
-  font-weight:700;
-}
-.writer .quiz p{margin-bottom:0}
-.note{font-size:13px;color:#65786c}
-footer{
-  margin-top:45px;
-  background:var(--dark);
-  color:white;
-  text-align:center;
-  padding:25px;
-}
-:focus-visible{
-  outline:3px solid var(--gold);
-  outline-offset:3px;
-}
+:root{--green:#176b49;--dark:#143e2d;--light:#f2f9f4}
+body{margin:0;background:#edf5ef;color:var(--dark);font-family:"Noto Sans Malayalam",sans-serif}
+header{background:linear-gradient(115deg,#125139,#23845d);color:white;text-align:center;padding:25px 12px 38px}
+header h1{font-size:clamp(25px,5vw,39px);margin:12px 0}
+header p{margin:8px}
+main{max-width:1100px;margin:30px auto;padding:0 15px}
+.page{background:white;border-radius:22px;padding:25px;box-shadow:0 6px 22px #0000000a}
+h2{font-size:24px}
+button{font-family:inherit;cursor:pointer}
+.back{background:var(--green);color:white;border:0;border-radius:11px;padding:11px 18px;margin-bottom:20px}
+.choice-grid,.class-grid,.card-grid,.writer-grid{display:grid;gap:15px}
+.choice-grid{grid-template-columns:repeat(2,1fr)}
+.class-grid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}
+.card-grid{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}
+.writer-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.choice,.class-choice,.mini-card{border:2px solid #d0e9d8;background:#f5fbf6;border-radius:19px;padding:24px 12px;text-align:center;color:var(--dark)}
+.choice{padding:30px 14px}
+.choice strong,.class-choice strong,.mini-card strong{display:block;margin:10px 0 5px}
+.choice small,.mini-card small{display:block;color:#60786b}
+.emoji{display:block;font-size:42px}
+.choice:hover,.class-choice:hover,.mini-card:hover{border-color:var(--green);background:#eaf7ed}
+.story{max-width:800px;margin:auto}
+.story h2{text-align:center}
+.sentence{display:block;width:100%;background:#f2f9f3;border:1px solid #dcece0;border-radius:12px;padding:15px;margin:10px 0;text-align:left;font-size:17px;line-height:2;color:#173e2d}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.actions button{background:var(--green);border:0;color:white;padding:12px 16px;border-radius:10px}
+.writer{border:1px solid #dce9df;border-radius:17px;overflow:hidden;background:#fff}
+.portrait{height:185px;background:#e7f0e9;display:flex;align-items:center;justify-content:center;font-size:50px}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.writer-content{padding:15px}
+.writer-content h3{margin:0 0 8px;font-size:18px}
+.writer-content p{font-size:13px;line-height:1.9}
+.writer details{background:#f1f7f2;border-radius:10px;padding:10px;font-size:13px}
+.writer summary{cursor:pointer;font-weight:700}
+.writer a{font-size:11px;color:var(--green)}
+.note{font-size:13px;color:#6c7b70}
+footer{text-align:center;background:#123e2d;color:white;padding:24px;margin-top:35px}
 @media(max-width:600px){
-  .options{grid-template-columns:1fr}
-  .option{padding:25px}
-  .writer-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:12px;
-  }
-  .writer .portrait{height:175px}
-  .writer-info{padding:12px}
-  .writer h3{font-size:15px}
-}
-@media(max-width:380px){
-  .writer-grid{grid-template-columns:1fr}
+main{margin:15px auto}
+.page{padding:15px}
+.choice-grid{grid-template-columns:1fr}
+.card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.mini-card{padding:20px 8px}
+.mini-card strong{font-size:13px}
+.writer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.writer-content{padding:10px}
+.writer-content h3{font-size:14px}
+.portrait{height:150px}
 }
 </style>
 </head>
-
 <body>
-
 <header>
-  <a href="index.html#portal" class="back">
-    ← Student Portal
-  </a>
-  <p>POYILOOR CENTRAL LP SCHOOL</p>
-  <h1>📗 മലയാളം വായനാമൂല</h1>
-  <p>വായിക്കാം • കേൾക്കാം • അറിവ് നേടാം</p>
+<p><strong>POYILOOR CENTRAL LP SCHOOL</strong></p>
+<h1>📚 മലയാളം വായനാമൂല</h1>
+<p>വായിക്കാം • കേൾക്കാം • പഠിക്കാം</p>
 </header>
 
-<main class="container">
-  <div class="intro">
-    <h2>വായനയുടെ മനോഹര ലോകത്തേക്ക് സ്വാഗതം!</h2>
-    <p>നിങ്ങൾക്ക് ഇഷ്ടമുള്ള വിഭാഗം തിരഞ്ഞെടുക്കൂ.</p>
-  </div>
-
-  <div class="options">
-    <button class="option books"
-      onclick="showPanel('books',this)"
-      aria-controls="books">
-      <span class="emoji">📖</span>
-      <strong>വായനാ കാർഡുകൾ</strong>
-      <small>ക്ലാസ് 1 മുതൽ 5 വരെ കഥകൾ</small>
-    </button>
-
-    <button class="option writers"
-      onclick="showPanel('writers',this)"
-      aria-controls="writers">
-      <span class="emoji">✍️</span>
-      <strong>എഴുത്തുകാരുടെ ലോകം</strong>
-      <small>യഥാർത്ഥ ചിത്രങ്ങൾ • കൃതികൾ • ക്വിസ്</small>
-    </button>
-  </div>
-
-  <section id="books" class="panel">
-    <h2>📖 വായനാ കാർഡുകൾ</h2>
-    <p>നിങ്ങളുടെ ക്ലാസ് തിരഞ്ഞെടുക്കൂ.</p>
-    <div class="class-tabs" id="classTabs"></div>
-    <div class="card-grid" id="stories"></div>
-    <p class="note">
-      മലയാളം ശബ്ദം ലഭിക്കുന്നത് ഫോണിലെ
-      Text-to-Speech സൗകര്യത്തെ ആശ്രയിച്ചിരിക്കും.
-    </p>
-  </section>
-
-  <section id="writers" class="panel">
-    <h2>✍️ മലയാള സാഹിത്യത്തിന്റെ നക്ഷത്രങ്ങൾ</h2>
-    <p>
-      നമ്മുടെ പ്രിയപ്പെട്ട എഴുത്തുകാരെ അറിയാം.
-      അവരുടെ ചിത്രങ്ങളും കൃതികളും പരിചയപ്പെടാം.
-    </p>
-    <div class="writer-grid" id="writerGrid"></div>
-    <p class="note">
-      ചിത്രങ്ങൾ Wikipedia/Wikimedia-യിൽ നിന്നാണ്
-      ലഭ്യമാക്കുന്നത്. ലഭ്യമല്ലാത്ത ചിത്രങ്ങൾക്ക്
-      പകരം പുസ്തകചിഹ്നം കാണിക്കും.
-    </p>
-  </section>
+<main>
+<div class="page">
+<div id="app"></div>
+</div>
 </main>
 
 <footer>
-  <strong>POYILOOR CENTRAL LP SCHOOL</strong>
-  <p>Digital Reading Library • Malayalam</p>
+POYILOOR CENTRAL LP SCHOOL
+<p>Digital Reading Library</p>
 </footer>
 
 <script>
-// READING CARDS
+"use strict";
 
-const storyTopics = [
-  {
-    title:"പൂന്തോട്ടത്തിലെ കൂട്ടുകാർ",
-    lines:[
-      "മീനയ്ക്ക് ഒരു പൂന്തോട്ടമുണ്ട്.",
-      "അവിടെ പല നിറത്തിലുള്ള പൂക്കളുണ്ട്.",
-      "ഒരു പൂമ്പാറ്റ പൂവിൽ വന്നിരുന്നു.",
-      "മീന പൂമ്പാറ്റയെ നോക്കി നിന്നു.",
-      "അവൾ ചെടികൾക്ക് വെള്ളം നൽകി."
-    ]
-  },
-  {
-    title:"കുഞ്ഞാനയുടെ സന്തോഷം",
-    lines:[
-      "കാട്ടിൽ ഒരു കുഞ്ഞാന ഉണ്ടായിരുന്നു.",
-      "അവന് വെള്ളത്തിൽ കളിക്കാൻ ഇഷ്ടമാണ്.",
-      "അമ്മയാന അവനെ പുഴയിലേക്ക് കൊണ്ടുപോയി.",
-      "കുഞ്ഞാന തുമ്പിക്കൈയിൽ വെള്ളമെടുത്തു.",
-      "അവൻ സന്തോഷത്തോടെ വെള്ളം ചീറ്റി."
-    ]
-  },
-  {
-    title:"മഴവില്ലിന്റെ നിറങ്ങൾ",
-    lines:[
-      "ഒരു ദിവസം നല്ല മഴ പെയ്തു.",
-      "മഴ കഴിഞ്ഞപ്പോൾ സൂര്യൻ തെളിഞ്ഞു.",
-      "ആകാശത്ത് മനോഹരമായ മഴവില്ല് കണ്ടു.",
-      "കുട്ടികൾ മഴവില്ലിന്റെ നിറങ്ങൾ എണ്ണി.",
-      "അവർ സന്തോഷത്തോടെ പാട്ടുപാടി."
-    ]
-  },
-  {
-    title:"അമ്മുവിന്റെ പുസ്തകം",
-    lines:[
-      "അമ്മുവിന് കഥകൾ വായിക്കാൻ ഇഷ്ടമാണ്.",
-      "അവൾ ദിവസവും പുസ്തകം വായിക്കും.",
-      "ഒരു ദിവസം അവൾ പുതിയ കഥ കണ്ടെത്തി.",
-      "കഥ കൂട്ടുകാരെയും വായിച്ചുകേൾപ്പിച്ചു.",
-      "എല്ലാവർക്കും കഥ വളരെ ഇഷ്ടപ്പെട്ടു."
-    ]
-  },
-  {
-    title:"ബുദ്ധിമാനായ മുയൽ",
-    lines:[
-      "കാട്ടിൽ ഒരു ചെറിയ മുയൽ ജീവിച്ചിരുന്നു.",
-      "ഒരു ദിവസം അവൻ വലിയ കുഴി കണ്ടു.",
-      "അതിൽ ഒരു മാൻകുട്ടി വീണിരുന്നു.",
-      "മുയൽ കൂട്ടുകാരെ സഹായത്തിന് വിളിച്ചു.",
-      "എല്ലാവരും ചേർന്ന് മാൻകുട്ടിയെ രക്ഷിച്ചു."
-    ]
-  },
-  {
-    title:"കാക്കയുടെ ബുദ്ധി",
-    lines:[
-      "ഒരു കാക്കയ്ക്ക് വലിയ ദാഹമുണ്ടായി.",
-      "അവൻ ഒരു കുടത്തിൽ വെള്ളം കണ്ടു.",
-      "വെള്ളം കുടത്തിന്റെ അടിയിലായിരുന്നു.",
-      "കാക്ക ചെറിയ കല്ലുകൾ കുടത്തിലിട്ടു.",
-      "വെള്ളം ഉയർന്നപ്പോൾ അവൻ കുടിച്ചു."
-    ]
-  },
-  {
-    title:"നല്ല കൂട്ടുകാരൻ",
-    lines:[
-      "അപ്പുവും രാഹുലും നല്ല കൂട്ടുകാരാണ്.",
-      "ഒരു ദിവസം രാഹുലിന്റെ പെൻസിൽ നഷ്ടപ്പെട്ടു.",
-      "അപ്പു തന്റെ പെൻസിൽ പങ്കുവെച്ചു.",
-      "രാഹുൽ അവനോട് നന്ദി പറഞ്ഞു.",
-      "അവർ സന്തോഷത്തോടെ പഠനം തുടർന്നു."
-    ]
-  },
-  {
-    title:"മരത്തിന്റെ സമ്മാനം",
-    lines:[
-      "വീടിനു മുന്നിൽ ഒരു മാവുണ്ടായിരുന്നു.",
-      "വേനലിൽ മാവ് തണൽ നൽകി.",
-      "മാവിൽ ധാരാളം മാങ്ങകൾ ഉണ്ടായി.",
-      "പക്ഷികൾ മരത്തിൽ കൂടുകൂട്ടി.",
-      "കുട്ടികൾ മരത്തെ സ്നേഹിച്ചു."
-    ]
-  },
-  {
-    title:"കുഞ്ഞു റോബോട്ട്",
-    lines:[
-      "അനു ഒരു ചെറിയ റോബോട്ട് നിർമ്മിച്ചു.",
-      "റോബോട്ടിന് സംസാരിക്കാൻ കഴിയുമായിരുന്നു.",
-      "അത് അനുവിനെ പഠിക്കാൻ സഹായിച്ചു.",
-      "ഒരു ദിവസം റോബോട്ട് പ്രവർത്തിക്കാതായി.",
-      "അനു പ്രശ്നം കണ്ടെത്തി ശരിയാക്കി."
-    ]
-  },
-  {
-    title:"ചന്ദ്രനിലേക്കൊരു യാത്ര",
-    lines:[
-      "അമലിന് ബഹിരാകാശം വളരെ ഇഷ്ടമാണ്.",
-      "അവൻ ഒരു റോക്കറ്റിന്റെ ചിത്രം വരച്ചു.",
-      "രാത്രിയിൽ ചന്ദ്രനിലേക്ക് പോകുന്നത് സ്വപ്നം കണ്ടു.",
-      "സ്വപ്നത്തിൽ അവൻ ചന്ദ്രനിൽ ഇറങ്ങി.",
-      "ഉണർന്നപ്പോൾ ശാസ്ത്രജ്ഞനാകാൻ തീരുമാനിച്ചു."
-    ]
-  },
-  {
-    title:"ഷെറു ഭായിയുടെ സഹായം",
-    lines:[
-      "ഷെറു ഭായി ഗ്രാമത്തിലൂടെ നടക്കുകയായിരുന്നു.",
-      "വഴിയിൽ ഒരു കുട്ടി കരയുന്നത് കണ്ടു.",
-      "കുട്ടിയുടെ പുസ്തകസഞ്ചി നഷ്ടപ്പെട്ടിരുന്നു.",
-      "ഷെറു ഭായി സഞ്ചി കണ്ടെത്താൻ സഹായിച്ചു.",
-      "കുട്ടി സന്തോഷത്തോടെ നന്ദി പറഞ്ഞു."
-    ]
-  },
-  {
-    title:"കാട്ടിലെ രഹസ്യം",
-    lines:[
-      "മൂന്ന് കൂട്ടുകാർ കാട്ടിലൂടെ നടന്നു.",
-      "അവർ ഒരു വിചിത്ര ശബ്ദം കേട്ടു.",
-      "ശബ്ദം വന്ന സ്ഥലത്തേക്ക് ശ്രദ്ധയോടെ നോക്കി.",
-      "അവിടെ ഒരു കുഞ്ഞുപക്ഷി കുടുങ്ങിയിരുന്നു.",
-      "കുട്ടികൾ പക്ഷിയെ സുരക്ഷിതമായി രക്ഷിച്ചു."
-    ]
-  },
-  {
-    title:"സത്യസന്ധനായ കുട്ടി",
-    lines:[
-      "അർജുൻ വഴിയിൽ ഒരു പേഴ്സ് കണ്ടു.",
-      "അതിൽ പണവും ഒരു തിരിച്ചറിയൽ കാർഡുമുണ്ടായിരുന്നു.",
-      "അവൻ പേഴ്സ് അധ്യാപകനെ ഏൽപ്പിച്ചു.",
-      "അധ്യാപകൻ ഉടമയെ കണ്ടെത്തി.",
-      "അർജുന്റെ സത്യസന്ധതയെ എല്ലാവരും അഭിനന്ദിച്ചു."
-    ]
-  },
-  {
-    title:"കടലിലെ കുഞ്ഞുമീൻ",
-    lines:[
-      "കടലിൽ ഒരു കുഞ്ഞുമീൻ ജീവിച്ചിരുന്നു.",
-      "അവൾ കൂട്ടുകാരോടൊപ്പം നീന്തി കളിച്ചു.",
-      "ഒരു ദിവസം കടലിൽ പ്ലാസ്റ്റിക് മാലിന്യം കണ്ടു.",
-      "മാലിന്യം കടൽജീവികൾക്ക് അപകടമാണെന്ന് മനസ്സിലാക്കി.",
-      "കടൽ വൃത്തിയായി സൂക്ഷിക്കണമെന്ന് അവൾ ആഗ്രഹിച്ചു."
-    ]
-  },
-  {
-    title:"മുത്തശ്ശിയുടെ കഥ",
-    lines:[
-      "രാത്രിയിൽ കുട്ടികൾ മുത്തശ്ശിയുടെ അടുത്തിരുന്നു.",
-      "മുത്തശ്ശി ഒരു പഴയ നാടോടിക്കഥ പറഞ്ഞു.",
-      "കഥയിൽ ബുദ്ധിമാനായ ഒരു കർഷകനുണ്ടായിരുന്നു.",
-      "അവൻ തന്റെ ബുദ്ധികൊണ്ട് പ്രശ്നം പരിഹരിച്ചു.",
-      "കുട്ടികൾ കഥയുടെ പാഠം മനസ്സിലാക്കി."
-    ]
-  },
-  {
-    title:"പുതിയ വിദ്യാലയം",
-    lines:[
-      "ഗ്രാമത്തിൽ ഒരു പുതിയ വിദ്യാലയം തുറന്നു.",
-      "അവിടെ മനോഹരമായ പുസ്തകശാലയുണ്ടായിരുന്നു.",
-      "കുട്ടികൾക്ക് കഥകൾ വായിക്കാൻ കഴിഞ്ഞു.",
-      "അധ്യാപകർ പുതിയ പ്രവർത്തനങ്ങൾ ഒരുക്കി.",
-      "എല്ലാവരും സന്തോഷത്തോടെ പഠിച്ചു."
-    ]
-  },
-  {
-    title:"വിത്തിന്റെ യാത്ര",
-    lines:[
-      "ഒരു ചെറിയ വിത്ത് മണ്ണിൽ വീണു.",
-      "മഴ പെയ്തപ്പോൾ വിത്തിന് വെള്ളം ലഭിച്ചു.",
-      "കുറച്ച് ദിവസങ്ങൾക്ക് ശേഷം മുള പൊട്ടി.",
-      "മുള വളർന്ന് ചെറിയ ചെടിയായി.",
-      "കാലക്രമേണ അത് വലിയ മരമായി."
-    ]
-  },
-  {
-    title:"നക്ഷത്രങ്ങളെ എണ്ണിയ കുട്ടി",
-    lines:[
-      "രാത്രിയിൽ ആകാശം നക്ഷത്രങ്ങളാൽ നിറഞ്ഞു.",
-      "നിഹാൽ നക്ഷത്രങ്ങളെ എണ്ണാൻ തുടങ്ങി.",
-      "എണ്ണിയിട്ടും അവയ്ക്ക് അവസാനമില്ലായിരുന്നു.",
-      "അവൻ അച്ഛനോട് നക്ഷത്രങ്ങളെക്കുറിച്ച് ചോദിച്ചു.",
-      "അച്ഛൻ അവന് ബഹിരാകാശത്തെക്കുറിച്ച് പറഞ്ഞുകൊടുത്തു."
-    ]
-  },
-  {
-    title:"ഒരുമയുടെ വിജയം",
-    lines:[
-      "സ്കൂളിൽ ഒരു പൂന്തോട്ടം നിർമ്മിക്കാൻ തീരുമാനിച്ചു.",
-      "കുട്ടികൾ പല സംഘങ്ങളായി തിരിഞ്ഞു.",
-      "ചിലർ മണ്ണൊരുക്കി, ചിലർ ചെടികൾ നട്ടു.",
-      "മറ്റുള്ളവർ ചെടികൾക്ക് വെള്ളം നൽകി.",
-      "ഒരുമിച്ച് പ്രവർത്തിച്ചപ്പോൾ പൂന്തോട്ടം മനോഹരമായി."
-    ]
-  },
-  {
-    title:"നല്ലൊരു നാളേക്കായി",
-    lines:[
-      "കുട്ടികൾ പരിസ്ഥിതി ദിനം ആഘോഷിച്ചു.",
-      "അവർ സ്കൂൾ പരിസരം വൃത്തിയാക്കി.",
-      "പ്ലാസ്റ്റിക് മാലിന്യങ്ങൾ പ്രത്യേകം ശേഖരിച്ചു.",
-      "എല്ലാവരും ഓരോ വൃക്ഷത്തൈ നട്ടു.",
-      "പ്രകൃതിയെ സംരക്ഷിക്കുമെന്ന് പ്രതിജ്ഞ ചെയ്തു."
-    ]
-  }
+const app=document.getElementById("app");
+let selectedClass=1;
+let selectedCard=0;
+
+// 20 ORIGINAL READING TOPICS
+const topics=[
+["പൂന്തോട്ടം","🌸",[
+"മീനയ്ക്ക് ഒരു പൂന്തോട്ടമുണ്ട്.",
+"അവിടെ മനോഹരമായ പൂക്കളുണ്ട്.",
+"ഒരു പൂമ്പാറ്റ പൂവിൽ വന്നിരുന്നു.",
+"മീന പൂമ്പാറ്റയെ നോക്കി നിന്നു.",
+"അവൾ ചെടികൾക്ക് വെള്ളം നൽകി."
+]],
+["കുഞ്ഞാന","🐘",[
+"കാട്ടിൽ ഒരു കുഞ്ഞാനയുണ്ടായിരുന്നു.",
+"അവന് വെള്ളത്തിൽ കളിക്കാൻ ഇഷ്ടമാണ്.",
+"അമ്മയാന അവനെ പുഴയിലേക്ക് കൊണ്ടുപോയി.",
+"കുഞ്ഞാന തുമ്പിക്കൈയിൽ വെള്ളമെടുത്തു.",
+"അവൻ സന്തോഷത്തോടെ വെള്ളം ചീറ്റി."
+]],
+["മഴവില്ല്","🌈",[
+"ഒരു ദിവസം നല്ല മഴ പെയ്തു.",
+"മഴ കഴിഞ്ഞപ്പോൾ സൂര്യൻ തെളിഞ്ഞു.",
+"ആകാശത്ത് മഴവില്ല് കണ്ടു.",
+"കുട്ടികൾ മഴവില്ലിന്റെ നിറങ്ങൾ എണ്ണി.",
+"അവർ സന്തോഷത്തോടെ പാട്ടുപാടി."
+]],
+["അമ്മുവിന്റെ പുസ്തകം","📚",[
+"അമ്മുവിന് കഥകൾ വായിക്കാൻ ഇഷ്ടമാണ്.",
+"അവൾ ദിവസവും പുസ്തകം വായിക്കും.",
+"ഒരു ദിവസം പുതിയൊരു കഥ കണ്ടെത്തി.",
+"കഥ കൂട്ടുകാർക്ക് വായിച്ചുകേൾപ്പിച്ചു.",
+"എല്ലാവർക്കും കഥ ഇഷ്ടപ്പെട്ടു."
+]],
+["മുയലിന്റെ ബുദ്ധി","🐰",[
+"കാട്ടിൽ ഒരു മുയൽ ജീവിച്ചിരുന്നു.",
+"ഒരു ദിവസം അവൻ വലിയ കുഴി കണ്ടു.",
+"അതിൽ ഒരു മാൻകുട്ടി വീണിരുന്നു.",
+"മുയൽ കൂട്ടുകാരെ സഹായത്തിന് വിളിച്ചു.",
+"എല്ലാവരും ചേർന്ന് മാൻകുട്ടിയെ രക്ഷിച്ചു."
+]],
+["ദാഹിച്ച കാക്ക","🐦",[
+"ഒരു കാക്കയ്ക്ക് വലിയ ദാഹമുണ്ടായി.",
+"അവൻ ഒരു കുടത്തിൽ വെള്ളം കണ്ടു.",
+"വെള്ളം കുടത്തിന്റെ അടിയിലായിരുന്നു.",
+"കാക്ക ചെറിയ കല്ലുകൾ കുടത്തിലിട്ടു.",
+"വെള്ളം ഉയർന്നപ്പോൾ അവൻ കുടിച്ചു."
+]],
+["നല്ല കൂട്ടുകാരൻ","🤝",[
+"അപ്പുവും രാഹുലും കൂട്ടുകാരാണ്.",
+"രാഹുലിന്റെ പെൻസിൽ നഷ്ടപ്പെട്ടു.",
+"അപ്പു തന്റെ പെൻസിൽ പങ്കുവെച്ചു.",
+"രാഹുൽ അവനോട് നന്ദി പറഞ്ഞു.",
+"അവർ സന്തോഷത്തോടെ പഠിച്ചു."
+]],
+["മാവിന്റെ തണൽ","🌳",[
+"വീടിനു മുന്നിൽ ഒരു മാവുണ്ടായിരുന്നു.",
+"വേനലിൽ മാവ് തണൽ നൽകി.",
+"മാവിൽ ധാരാളം മാങ്ങകൾ ഉണ്ടായി.",
+"പക്ഷികൾ മരത്തിൽ കൂടുകൂട്ടി.",
+"കുട്ടികൾ മരത്തെ സ്നേഹിച്ചു."
+]],
+["കുഞ്ഞു റോബോട്ട്","🤖",[
+"അനു ഒരു ചെറിയ റോബോട്ട് നിർമ്മിച്ചു.",
+"റോബോട്ടിന് സംസാരിക്കാൻ കഴിയുമായിരുന്നു.",
+"അത് അനുവിനെ പഠിക്കാൻ സഹായിച്ചു.",
+"ഒരു ദിവസം റോബോട്ട് പ്രവർത്തിക്കാതായി.",
+"അനു പ്രശ്നം കണ്ടെത്തി ശരിയാക്കി."
+]],
+["ചന്ദ്രയാത്ര","🚀",[
+"അമലിന് ബഹിരാകാശം ഇഷ്ടമാണ്.",
+"അവൻ ഒരു റോക്കറ്റിന്റെ ചിത്രം വരച്ചു.",
+"ചന്ദ്രനിലേക്ക് പോകുന്നത് സ്വപ്നം കണ്ടു.",
+"സ്വപ്നത്തിൽ അവൻ ചന്ദ്രനിൽ ഇറങ്ങി.",
+"ഉണർന്നപ്പോൾ ശാസ്ത്രജ്ഞനാകാൻ തീരുമാനിച്ചു."
+]],
+["ഷെറു ഭായിയുടെ സഹായം","🦁",[
+"ഷെറു ഭായി ഗ്രാമത്തിലൂടെ നടന്നു.",
+"വഴിയിൽ ഒരു കുട്ടി കരയുന്നത് കണ്ടു.",
+"കുട്ടിയുടെ പുസ്തകസഞ്ചി നഷ്ടപ്പെട്ടിരുന്നു.",
+"ഷെറു ഭായി സഞ്ചി കണ്ടെത്താൻ സഹായിച്ചു.",
+"കുട്ടി സന്തോഷത്തോടെ നന്ദി പറഞ്ഞു."
+]],
+["കാട്ടിലെ രഹസ്യം","🌲",[
+"മൂന്ന് കൂട്ടുകാർ കാട്ടിലൂടെ നടന്നു.",
+"അവർ ഒരു വിചിത്ര ശബ്ദം കേട്ടു.",
+"ശബ്ദം വന്ന സ്ഥലത്തേക്ക് നോക്കി.",
+"അവിടെ ഒരു കുഞ്ഞുപക്ഷി കുടുങ്ങിയിരുന്നു.",
+"കുട്ടികൾ പക്ഷിയെ രക്ഷിച്ചു."
+]],
+["സത്യസന്ധനായ കുട്ടി","⭐",[
+"അർജുൻ വഴിയിൽ ഒരു പേഴ്സ് കണ്ടു.",
+"അതിൽ പണവും തിരിച്ചറിയൽ കാർഡുമുണ്ടായിരുന്നു.",
+"അവൻ പേഴ്സ് അധ്യാപകനെ ഏൽപ്പിച്ചു.",
+"അധ്യാപകൻ ഉടമയെ കണ്ടെത്തി.",
+"എല്ലാവരും അർജുനെ അഭിനന്ദിച്ചു."
+]],
+["കടലിലെ കുഞ്ഞുമീൻ","🐟",[
+"കടലിൽ ഒരു കുഞ്ഞുമീൻ ജീവിച്ചിരുന്നു.",
+"അവൾ കൂട്ടുകാരോടൊപ്പം നീന്തി.",
+"ഒരു ദിവസം പ്ലാസ്റ്റിക് മാലിന്യം കണ്ടു.",
+"മാലിന്യം കടൽജീവികൾക്ക് അപകടമാണ്.",
+"കടൽ വൃത്തിയായി സൂക്ഷിക്കണം."
+]],
+["മുത്തശ്ശിയുടെ കഥ","👵",[
+"കുട്ടികൾ മുത്തശ്ശിയുടെ അടുത്തിരുന്നു.",
+"മുത്തശ്ശി ഒരു നാടോടിക്കഥ പറഞ്ഞു.",
+"കഥയിൽ ബുദ്ധിമാനായ കർഷകനുണ്ടായിരുന്നു.",
+"അവൻ തന്റെ ബുദ്ധികൊണ്ട് വിജയിച്ചു.",
+"കുട്ടികൾ കഥയുടെ പാഠം മനസ്സിലാക്കി."
+]],
+["പുതിയ വിദ്യാലയം","🏫",[
+"ഗ്രാമത്തിൽ ഒരു വിദ്യാലയം തുറന്നു.",
+"അവിടെ മനോഹരമായ പുസ്തകശാലയുണ്ടായിരുന്നു.",
+"കുട്ടികൾ കഥകൾ വായിച്ചു.",
+"അധ്യാപകർ പുതിയ പ്രവർത്തനങ്ങൾ ഒരുക്കി.",
+"എല്ലാവരും സന്തോഷത്തോടെ പഠിച്ചു."
+]],
+["വിത്തിന്റെ യാത്ര","🌱",[
+"ഒരു ചെറിയ വിത്ത് മണ്ണിൽ വീണു.",
+"മഴ പെയ്തപ്പോൾ വിത്തിന് വെള്ളം ലഭിച്ചു.",
+"കുറച്ച് ദിവസങ്ങൾക്ക് ശേഷം മുള പൊട്ടി.",
+"മുള വളർന്ന് ചെറിയ ചെടിയായി.",
+"കാലക്രമേണ അത് വലിയ മരമായി."
+]],
+["നക്ഷത്രങ്ങൾ","🌟",[
+"രാത്രിയിൽ ആകാശം നക്ഷത്രങ്ങളാൽ നിറഞ്ഞു.",
+"നിഹാൽ നക്ഷത്രങ്ങളെ എണ്ണാൻ തുടങ്ങി.",
+"എണ്ണിയിട്ടും അവയ്ക്ക് അവസാനമില്ലായിരുന്നു.",
+"അവൻ അച്ഛനോട് നക്ഷത്രങ്ങളെക്കുറിച്ച് ചോദിച്ചു.",
+"അച്ഛൻ ബഹിരാകാശത്തെക്കുറിച്ച് പറഞ്ഞുകൊടുത്തു."
+]],
+["ഒരുമയുടെ വിജയം","💚",[
+"സ്കൂളിൽ പൂന്തോട്ടം നിർമ്മിക്കാൻ തീരുമാനിച്ചു.",
+"കുട്ടികൾ സംഘങ്ങളായി തിരിഞ്ഞു.",
+"ചിലർ മണ്ണൊരുക്കി, ചിലർ ചെടികൾ നട്ടു.",
+"മറ്റുള്ളവർ ചെടികൾക്ക് വെള്ളം നൽകി.",
+"ഒരുമിച്ച് പ്രവർത്തിച്ചപ്പോൾ പൂന്തോട്ടം മനോഹരമായി."
+]],
+["നല്ലൊരു നാളെ","🌍",[
+"കുട്ടികൾ പരിസ്ഥിതി ദിനം ആഘോഷിച്ചു.",
+"അവർ സ്കൂൾ പരിസരം വൃത്തിയാക്കി.",
+"പ്ലാസ്റ്റിക് മാലിന്യങ്ങൾ പ്രത്യേകം ശേഖരിച്ചു.",
+"എല്ലാവരും ഓരോ വൃക്ഷത്തൈ നട്ടു.",
+"പ്രകൃതിയെ സംരക്ഷിക്കുമെന്ന് പ്രതിജ്ഞ ചെയ്തു."
+]]
 ];
 
-const classAdditions = {
-  1: [],
-  2: [
-    "ഈ അനുഭവം എല്ലാവർക്കും സന്തോഷം നൽകി.",
-    "കുട്ടികൾ അതിനെക്കുറിച്ച് വീട്ടിൽ സംസാരിച്ചു."
-  ],
-  3: [
-    "അന്ന് നടന്ന സംഭവം എല്ലാവർക്കും ഓർമ്മയായി.",
-    "അതിനെക്കുറിച്ച് അവർ അധ്യാപകനോട് സംസാരിച്ചു.",
-    "അധ്യാപകൻ അവരുടെ അഭിപ്രായങ്ങൾ ശ്രദ്ധിച്ചു.",
-    "ഓരോരുത്തരും പുതിയ കാര്യങ്ങൾ മനസ്സിലാക്കി."
-  ],
-  4: [
-    "അന്ന് നടന്ന സംഭവത്തെക്കുറിച്ച് കുട്ടികൾ ചിന്തിച്ചു.",
-    "ഓരോരുത്തരും തങ്ങളുടെ അഭിപ്രായം പറഞ്ഞു.",
-    "വ്യത്യസ്ത അഭിപ്രായങ്ങൾ കേൾക്കുന്നത് നല്ല അനുഭവമായിരുന്നു.",
-    "അധ്യാപകൻ അവരുടെ സംശയങ്ങൾക്ക് മറുപടി നൽകി.",
-    "പഠിച്ച കാര്യങ്ങൾ ജീവിതത്തിൽ പ്രയോഗിക്കാൻ അവർ തീരുമാനിച്ചു.",
-    "അടുത്ത ദിവസം കൂട്ടുകാരുമായി അനുഭവങ്ങൾ പങ്കുവെച്ചു."
-  ],
-  5: [
-    "ഈ അനുഭവം കുട്ടികളുടെ മനസ്സിൽ നിരവധി ചോദ്യങ്ങൾ ഉയർത്തി.",
-    "ഒരു സംഭവത്തെ പല രീതിയിൽ മനസ്സിലാക്കാമെന്ന് അവർ തിരിച്ചറിഞ്ഞു.",
-    "കൂടുതൽ വിവരങ്ങൾ കണ്ടെത്താൻ പുസ്തകശാല സന്ദർശിച്ചു.",
-    "വായനയിലൂടെ പുതിയ അറിവുകൾ ലഭിക്കുമെന്ന് മനസ്സിലായി.",
-    "അറിവിനൊപ്പം നല്ല പെരുമാറ്റവും പ്രധാനമാണെന്ന് അധ്യാപകൻ പറഞ്ഞു.",
-    "കൂട്ടുകാരുടെ അഭിപ്രായങ്ങളെ ബഹുമാനിക്കാൻ അവർ പഠിച്ചു.",
-    "സ്വന്തം ചിന്തകൾ വ്യക്തമായി അവതരിപ്പിക്കാൻ ശ്രമിച്ചു.",
-    "ഈ അനുഭവം അവരെ കൂടുതൽ ഉത്തരവാദിത്തമുള്ളവരാക്കി."
-  ]
+// GRADED READING LEVELS
+// 20 topics x 5 classes = 100 cards
+const extra={
+2:[
+"ആ സംഭവത്തെക്കുറിച്ച് കുട്ടികൾ സംസാരിച്ചു.",
+"അവർ പുതിയൊരു കാര്യം മനസ്സിലാക്കി."
+],
+3:[
+"അന്ന് നടന്ന സംഭവം എല്ലാവർക്കും ഓർമ്മയായി.",
+"അതിനെക്കുറിച്ച് കുട്ടികൾ അധ്യാപകനോട് സംസാരിച്ചു.",
+"അധ്യാപകൻ അവരുടെ ചോദ്യങ്ങൾ ശ്രദ്ധിച്ചു.",
+"ഓരോരുത്തരും പുതിയ കാര്യങ്ങൾ പഠിച്ചു."
+],
+4:[
+"ആ അനുഭവത്തെക്കുറിച്ച് കുട്ടികൾ കൂടുതൽ ചിന്തിച്ചു.",
+"അവർ തങ്ങളുടെ അഭിപ്രായങ്ങൾ പരസ്പരം പങ്കുവെച്ചു.",
+"മറ്റുള്ളവരുടെ അഭിപ്രായങ്ങളും ശ്രദ്ധയോടെ കേട്ടു.",
+"അധ്യാപകൻ അവരുടെ സംശയങ്ങൾക്ക് മറുപടി നൽകി.",
+"പഠിച്ച കാര്യങ്ങൾ ജീവിതത്തിൽ പ്രയോഗിക്കാൻ തീരുമാനിച്ചു.",
+"അടുത്ത ദിവസം കൂട്ടുകാരുമായി അനുഭവങ്ങൾ പങ്കുവെച്ചു."
+],
+5:[
+"ഈ അനുഭവം കുട്ടികളുടെ മനസ്സിൽ നിരവധി ചോദ്യങ്ങൾ ഉയർത്തി.",
+"ഒരു സംഭവത്തെ പല രീതിയിൽ മനസ്സിലാക്കാമെന്ന് അവർ തിരിച്ചറിഞ്ഞു.",
+"കൂടുതൽ വിവരങ്ങൾ കണ്ടെത്താൻ പുസ്തകശാല സന്ദർശിച്ചു.",
+"വായനയിലൂടെ പുതിയ അറിവുകൾ ലഭിക്കുമെന്ന് മനസ്സിലായി.",
+"അറിവിനൊപ്പം നല്ല പെരുമാറ്റവും പ്രധാനമാണെന്ന് അധ്യാപകൻ പറഞ്ഞു.",
+"കൂട്ടുകാരുടെ അഭിപ്രായങ്ങളെ ബഹുമാനിക്കാൻ അവർ പഠിച്ചു.",
+"സ്വന്തം ചിന്തകൾ വ്യക്തമായി അവതരിപ്പിക്കാൻ ശ്രമിച്ചു.",
+"ഈ അനുഭവം അവരെ കൂടുതൽ ഉത്തരവാദിത്തമുള്ളവരാക്കി."
+]
 };
 
-const stories = {};
-
-for (let cls = 1; cls <= 5; cls++) {
-  stories[cls] = storyTopics.map((topic, index) => ({
-    title: `കാർഡ് ${index + 1} - ${topic.title}`,
-    lines: [
-      ...topic.lines,
-      ...classAdditions[cls]
-    ]
-  }));
+const stories={};
+for(let cls=1;cls<=5;cls++){
+stories[cls]=topics.map((t,i)=>({
+title:t[0],
+emoji:t[1],
+lines:[...t[2],...(extra[cls]||[])],
+number:i+1
+}));
 }
-
 
 // WRITERS
 const writers=[
-{
- name:"വൈക്കം മുഹമ്മദ് ബഷീർ",
- role:"ബേപ്പൂർ സുൽത്താൻ",
- books:"പാത്തുമ്മയുടെ ആട്, ബാല്യകാലസഖി",
- bio:"ലളിതമായ ഭാഷയും നർമ്മവും നിറഞ്ഞ കഥകളിലൂടെ പ്രശസ്തനായ എഴുത്തുകാരൻ.",
- wiki:"Vaikom Muhammad Basheer",
- question:"ബേപ്പൂർ സുൽത്താൻ എന്നറിയപ്പെടുന്നത് ആരാണ്?",
- answer:"വൈക്കം മുഹമ്മദ് ബഷീർ"
-},
-{
- name:"കുമാരനാശാൻ",
- role:"മഹാകവി",
- books:"വീണപൂവ്, ചണ്ഡാലഭിക്ഷുകി",
- bio:"മലയാള കവിതയ്ക്ക് പുതിയ ദിശ നൽകിയ മഹാകവി.",
- wiki:"Kumaran Asan",
- question:"വീണപൂവ് എഴുതിയത് ആരാണ്?",
- answer:"കുമാരനാശാൻ"
-},
-{
- name:"വള്ളത്തോൾ നാരായണമേനോൻ",
- role:"മഹാകവി",
- books:"സാഹിത്യമഞ്ജരി, മഗ്ദലനമറിയം",
- bio:"കേരള കലാമണ്ഡലത്തിന്റെ സ്ഥാപകരിൽ പ്രമുഖൻ.",
- wiki:"Vallathol Narayana Menon",
- question:"കേരള കലാമണ്ഡലവുമായി ബന്ധപ്പെട്ട മഹാകവി ആരാണ്?",
- answer:"വള്ളത്തോൾ"
-},
-{
- name:"ഉള്ളൂർ എസ്. പരമേശ്വരയ്യർ",
- role:"മഹാകവി",
- books:"ഉമാകേര‌ളം, കർണഭൂഷണം",
- bio:"മലയാളത്തിലെ മഹാകവിത്രയത്തിൽ ഒരാൾ.",
- wiki:"Ulloor S. Parameswara Iyer",
- question:"ഉമാകേര‌ളം രചിച്ചത് ആരാണ്?",
- answer:"ഉള്ളൂർ"
-},
-{
- name:"തകഴി ശിവശങ്കരപ്പിള്ള",
- role:"ജ്ഞാനപീഠ ജേതാവ്",
- books:"ചെമ്മീൻ, കയർ",
- bio:"കേരളത്തിലെ സാധാരണ മനുഷ്യരുടെ ജീവിതം ചിത്രീകരിച്ച നോവലിസ്റ്റ്.",
- wiki:"Thakazhi Sivasankara Pillai",
- question:"ചെമ്മീൻ എന്ന നോവൽ എഴുതിയത് ആരാണ്?",
- answer:"തകഴി"
-},
-{
- name:"എം. ടി. വാസുദേവൻ നായർ",
- role:"ജ്ഞാനപീഠ ജേതാവ്",
- books:"നാലുകെട്ട്, രണ്ടാമൂഴം",
- bio:"കഥ, നോവൽ, തിരക്കഥ എന്നീ മേഖലകളിൽ പ്രശസ്തനായ എഴുത്തുകാരൻ.",
- wiki:"M. T. Vasudevan Nair",
- question:"രണ്ടാമൂഴം എഴുതിയത് ആരാണ്?",
- answer:"എം. ടി. വാസുദേവൻ നായർ"
-},
-{
- name:"ഒ. എൻ. വി. കുറുപ്പ്",
- role:"ജ്ഞാനപീഠ ജേതാവ്",
- books:"ഭൂമിക്കൊരു ചരമഗീതം, ഉപ്പ്",
- bio:"പ്രശസ്ത കവിയും ഗാനരചയിതാവും.",
- wiki:"O. N. V. Kurup",
- question:"ഭൂമിക്കൊരു ചരമഗീതം ആരുടെ കൃതിയാണ്?",
- answer:"ഒ. എൻ. വി. കുറുപ്പ്"
-},
-{
- name:"സുഗതകുമാരി",
- role:"കവയിത്രി",
- books:"രാത്രിമഴ, അമ്പലമണി",
- bio:"പ്രകൃതിസ്നേഹവും മനുഷ്യസ്നേഹവും കവിതകളിൽ അവതരിപ്പിച്ച കവയിത്രി.",
- wiki:"Sugathakumari",
- question:"രാത്രിമഴ എന്ന കൃതി രചിച്ചത് ആരാണ്?",
- answer:"സുഗതകുമാരി"
-},
-{
- name:"അക്കിത്തം അച്യുതൻ നമ്പൂതിരി",
- role:"ജ്ഞാനപീഠ ജേതാവ്",
- books:"ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം",
- bio:"മലയാളത്തിലെ പ്രശസ്ത കവിയും ചിന്തകനും.",
- wiki:"Akkitham Achuthan Namboothiri",
- question:"ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം ആരുടെ കൃതിയാണ്?",
- answer:"അക്കിത്തം"
-},
-{
- name:"കുഞ്ഞുണ്ണിമാഷ്",
- role:"ബാലസാഹിത്യകാരൻ",
- books:"കുഞ്ഞുണ്ണിക്കവിതകൾ",
- bio:"ചെറിയ വരികളിലൂടെ വലിയ ആശയങ്ങൾ പറഞ്ഞ പ്രിയപ്പെട്ട കവി.",
- wiki:"Kunjunni Mash",
- question:"ചെറിയ കവിതകളിലൂടെ കുട്ടികളുടെ പ്രിയങ്കരനായ കവി ആരാണ്?",
- answer:"കുഞ്ഞുണ്ണിമാഷ്"
-}
+["വൈക്കം മുഹമ്മദ് ബഷീർ","ബേപ്പൂർ സുൽത്താൻ","ബാല്യകാലസഖി, പാത്തുമ്മയുടെ ആട്","നർമ്മവും ലളിതമായ ഭാഷയും കൊണ്ട് പ്രശസ്തനായ കഥാകൃത്ത്.","ബേപ്പൂർ സുൽത്താൻ ആരാണ്?","വൈക്കം മുഹമ്മദ് ബഷീർ"],
+["കുമാരനാശാൻ","മഹാകവി","വീണപൂവ്, ചണ്ഡാലഭിക്ഷുകി","മലയാള കവിതയുടെ നവോത്ഥാനത്തിന് വലിയ സംഭാവന നൽകി.","വീണപൂവ് രചിച്ചതാര്?","കുമാരനാശാൻ"],
+["വള്ളത്തോൾ നാരായണമേനോൻ","മഹാകവി","സാഹിത്യമഞ്ജരി, മഗ്ദലനമറിയം","കേരള കലാമണ്ഡലത്തിന്റെ സ്ഥാപകരിൽ പ്രമുഖൻ.","കേരള കലാമണ്ഡലവുമായി ബന്ധപ്പെട്ട മഹാകവി ആരാണ്?","വള്ളത്തോൾ"],
+["ഉള്ളൂർ എസ്. പരമേശ്വരയ്യർ","മഹാകവി","ഉമാകേര‌ളം, കർണഭൂഷണം","മലയാളത്തിലെ മഹാകവിത്രയത്തിൽ ഒരാൾ.","ഉമാകേര‌ളം എഴുതിയതാര്?","ഉള്ളൂർ"],
+["തകഴി ശിവശങ്കരപ്പിള്ള","ജ്ഞാനപീഠ ജേതാവ്","ചെമ്മീൻ, കയർ","സാധാരണ മനുഷ്യരുടെ ജീവിതം അവതരിപ്പിച്ച നോവലിസ്റ്റ്.","ചെമ്മീൻ എഴുതിയതാര്?","തകഴി"],
+["എം. ടി. വാസുദേവൻ നായർ","ജ്ഞാനപീഠ ജേതാവ്","നാലുകെട്ട്, രണ്ടാമൂഴം","പ്രശസ്ത കഥാകൃത്തും നോവലിസ്റ്റും തിരക്കഥാകൃത്തും.","രണ്ടാമൂഴം എഴുതിയതാര്?","എം. ടി."],
+["ഒ. എൻ. വി. കുറുപ്പ്","ജ്ഞാനപീഠ ജേതാവ്","ഭൂമിക്കൊരു ചരമഗീതം, ഉപ്പ്","പ്രശസ്ത കവിയും ഗാനരചയിതാവും.","ഭൂമിക്കൊരു ചരമഗീതം ആരുടെ കൃതിയാണ്?","ഒ. എൻ. വി."],
+["സുഗതകുമാരി","കവയിത്രി","രാത്രിമഴ, അമ്പലമണി","പ്രകൃതിസ്നേഹവും മനുഷ്യസ്നേഹവും കവിതകളിൽ അവതരിപ്പിച്ചു.","രാത്രിമഴ എഴുതിയതാര്?","സുഗതകുമാരി"],
+["അക്കിത്തം അച്യുതൻ നമ്പൂതിരി","ജ്ഞാനപീഠ ജേതാവ്","ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം","മലയാളത്തിലെ പ്രശസ്ത കവിയും ചിന്തകനും.","ഇരുപതാം നൂറ്റാണ്ടിന്റെ ഇതിഹാസം എഴുതിയതാര്?","അക്കിത്തം"],
+["കുഞ്ഞുണ്ണിമാഷ്","ബാലസാഹിത്യകാരൻ","കുഞ്ഞുണ്ണിക്കവിതകൾ","ചെറിയ വരികളിലൂടെ വലിയ ആശയങ്ങൾ പറഞ്ഞ കവി.","കുഞ്ഞുണ്ണിക്കവിതകളുടെ രചയിതാവ് ആരാണ്?","കുഞ്ഞുണ്ണിമാഷ്"]
 ];
 
-// PANEL NAVIGATION
-function showPanel(id,button){
- document.querySelectorAll(".panel").forEach(p=>{
-   p.classList.toggle("active",p.id===id);
- });
- document.querySelectorAll(".option").forEach(b=>{
-   b.classList.toggle("active",b===button);
- });
- document.getElementById(id).scrollIntoView({
-   behavior:"smooth",block:"start"
- });
+function stopAudio(){
+if("speechSynthesis" in window) speechSynthesis.cancel();
 }
 
-// SPEECH
 function speak(text,rate=0.9){
- if(!("speechSynthesis" in window)){
-   alert("ഈ ഫോണിൽ ശബ്ദസൗകര്യം ലഭ്യമല്ല.");
-   return;
- }
- speechSynthesis.cancel();
- const u=new SpeechSynthesisUtterance(text);
- u.lang="ml-IN";
- u.rate=rate;
- const voice=speechSynthesis.getVoices()
-   .find(v=>v.lang.toLowerCase().startsWith("ml"));
- if(voice)u.voice=voice;
- speechSynthesis.speak(u);
+if(!("speechSynthesis" in window)){
+alert("ഈ ഉപകരണത്തിൽ ശബ്ദ സൗകര്യം ലഭ്യമല്ല.");
+return;
+}
+stopAudio();
+const utterance=new SpeechSynthesisUtterance(text);
+utterance.lang="ml-IN";
+utterance.rate=rate;
+const voices=speechSynthesis.getVoices();
+const voice=voices.find(v=>v.lang.toLowerCase().startsWith("ml"));
+if(voice) utterance.voice=voice;
+speechSynthesis.speak(utterance);
 }
 
-
-let currentReadingClass = 1;
-
-function selectClass(n) {
-  currentReadingClass = n;
-
-  if ("speechSynthesis" in window) {
-    speechSynthesis.cancel();
-  }
-
-  document.querySelectorAll(".tabs button").forEach(b => {
-    b.classList.toggle("active", Number(b.dataset.n) === n);
-  });
-
-  showReadingCardList();
+function el(tag,className,text){
+const e=document.createElement(tag);
+if(className)e.className=className;
+if(text!==undefined)e.textContent=text;
+return e;
 }
 
-function showReadingCardList() {
-  if ("speechSynthesis" in window) {
-    speechSynthesis.cancel();
-  }
-
-  const root =
-    document.getElementById("stories") ||
-    document.getElementById("storyGrid");
-
-  if (!root) return;
-
-  root.innerHTML = "";
-
-  root.style.display = "grid";
-  root.style.gridTemplateColumns =
-    "repeat(auto-fit, minmax(145px, 1fr))";
-  root.style.gap = "14px";
-
-  const items = stories[currentReadingClass] || [];
-
-  items.forEach((item, index) => {
-    const title = Array.isArray(item)
-      ? item[0]
-      : item.title;
-
-    const card = document.createElement("button");
-
-    card.type = "button";
-
-    card.style.cssText = `
-      background:#f5fbf6;
-      border:2px solid #d1e8d8;
-      border-radius:18px;
-      padding:25px 12px;
-      min-height:155px;
-      text-align:center;
-      font-family:inherit;
-      cursor:pointer;
-      color:#164631;
-    `;
-
-    const emoji = [
-      "📖","🌸","🐱","🌳","🌱",
-      "🤝","🌊","📚","🐦","🏫",
-      "⚽","🌙","👵","☔","🏡",
-      "🐝","🎨","💚","🏖️","⭐"
-    ][index % 20];
-
-    const icon = document.createElement("div");
-    icon.style.fontSize = "38px";
-    icon.textContent = emoji;
-
-    const number = document.createElement("div");
-    number.style.cssText =
-      "font-weight:800;margin-top:12px;font-size:14px";
-    number.textContent = "Reading Card " + (index + 1);
-
-    const subtitle = document.createElement("div");
-    subtitle.style.cssText =
-      "font-size:12px;margin-top:7px;color:#61776b";
-    subtitle.textContent =
-      title.replace(/^\d+[\.\-\s]*/, "")
-           .replace(/^കാർഡ്\s*\d+\s*[-–]?\s*/, "");
-
-    card.append(icon, number, subtitle);
-
-    card.onclick = () => openMalayalamCard(index);
-
-    root.appendChild(card);
-  });
+function clear(){
+stopAudio();
+app.replaceChildren();
+window.scrollTo({top:0,behavior:"instant"});
 }
 
-function openMalayalamCard(index) {
-  const root =
-    document.getElementById("stories") ||
-    document.getElementById("storyGrid");
-
-  if (!root) return;
-
-  const item = stories[currentReadingClass][index];
-
-  const title = Array.isArray(item)
-    ? item[0]
-    : item.title;
-
-  const lines = Array.isArray(item)
-    ? item[1]
-    : item.lines;
-
-  root.innerHTML = "";
-  root.style.display = "block";
-
-  const back = document.createElement("button");
-  back.textContent = "← Back to Reading Cards";
-  back.style.cssText = `
-    background:#176a49;
-    color:white;
-    border:0;
-    border-radius:12px;
-    padding:12px 18px;
-    margin-bottom:20px;
-    font-family:inherit;
-    cursor:pointer;
-  `;
-
-  back.onclick = showReadingCardList;
-  root.appendChild(back);
-
-  const card = document.createElement("article");
-  card.style.cssText = `
-    background:white;
-    border:1px solid #d5e8da;
-    border-radius:20px;
-    padding:24px;
-    max-width:760px;
-    margin:auto;
-    box-shadow:0 5px 20px #00000010;
-  `;
-
-  const heading = document.createElement("h2");
-  heading.textContent = title;
-  heading.style.color = "#17503f";
-  card.appendChild(heading);
-
-  lines.forEach(line => {
-    const sentence = document.createElement("button");
-    sentence.textContent = "🔊 " + line;
-
-    sentence.style.cssText = `
-      display:block;
-      width:100%;
-      text-align:left;
-      background:#f0f8f1;
-      border:0;
-      border-radius:12px;
-      padding:14px;
-      margin:10px 0;
-      font-family:inherit;
-      font-size:16px;
-      line-height:1.9;
-      cursor:pointer;
-      color:#20382d;
-    `;
-
-    sentence.onclick = () => speak(line);
-    card.appendChild(sentence);
-  });
-
-  const actions = document.createElement("div");
-  actions.style.cssText = `
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:22px;
-  `;
-
-  const buttons = [
-    ["▶ Listen", () => speak(lines.join(" "))],
-    ["🐢 Read Slowly", () => speak(lines.join(" "), 0.7)],
-    ["■ Stop", () => speechSynthesis.cancel()],
-    ["→ Next Card", () => {
-      const total = stories[currentReadingClass].length;
-      openMalayalamCard((index + 1) % total);
-    }]
-  ];
-
-  buttons.forEach(([label, action]) => {
-    const btn = document.createElement("button");
-    btn.textContent = label;
-
-    btn.style.cssText = `
-      background:#176a49;
-      color:white;
-      border:0;
-      border-radius:10px;
-      padding:11px 15px;
-      font-family:inherit;
-      cursor:pointer;
-    `;
-
-    btn.onclick = action;
-    actions.appendChild(btn);
-  });
-
-  card.appendChild(actions);
-  root.appendChild(card);
+function backButton(label,action){
+const b=el("button","back",label);
+b.onclick=action;
+return b;
 }
 
+function home(){
+clear();
+app.appendChild(el("h2","","സ്വാഗതം!"));
+app.appendChild(el("p","","നിങ്ങൾക്ക് ഇഷ്ടമുള്ള വിഭാഗം തിരഞ്ഞെടുക്കൂ."));
+const grid=el("div","choice-grid");
 
- const box=document.getElementById("stories");
- box.replaceChildren();
+const reading=el("button","choice");
+reading.append(
+el("span","emoji","📖"),
+el("strong","","വായനാ കാർഡുകൾ"),
+el("small","","Class 1 മുതൽ Class 5 വരെ")
+);
+reading.onclick=classPage;
 
- stories[n].forEach(story=>{
-   const card=document.createElement("article");
-   card.className="story";
+const writer=el("button","choice");
+writer.append(
+el("span","emoji","✍️"),
+el("strong","","എഴുത്തുകാരുടെ ലോകം"),
+el("small","","10 മലയാള സാഹിത്യകാരന്മാർ")
+);
+writer.onclick=writerPage;
 
-   const title=document.createElement("h3");
-   title.textContent=story.title;
-   card.appendChild(title);
-
-   story.lines.forEach(line=>{
-     const div=document.createElement("div");
-     div.className="story-line";
-
-     const button=document.createElement("button");
-     button.textContent="🔊 "+line;
-     button.onclick=()=>speak(line);
-
-     div.appendChild(button);
-     card.appendChild(div);
-   });
-
-   const controls=document.createElement("div");
-   controls.className="controls";
-
-   [
-     ["▶ Read All",()=>speak(story.lines.join(" "))],
-     ["🐢 Read Slowly",()=>speak(story.lines.join(" "),0.7)],
-     ["■ Stop",()=>speechSynthesis.cancel()]
-   ].forEach(([label,action])=>{
-     const b=document.createElement("button");
-     b.textContent=label;
-     b.onclick=action;
-     controls.appendChild(b);
-   });
-
-   card.appendChild(controls);
-   box.appendChild(card);
- });
+grid.append(reading,writer);
+app.appendChild(grid);
 }
 
-const tabs=document.getElementById("classTabs");
-for(let n=1;n<=5;n++){
- const b=document.createElement("button");
- b.textContent="Class "+n;
- b.dataset.class=n;
- b.onclick=()=>selectClass(n);
- tabs.appendChild(b);
+function classPage(){
+clear();
+app.appendChild(backButton("← പ്രധാന പേജിലേക്ക്",home));
+app.appendChild(el("h2","","നിങ്ങളുടെ ക്ലാസ് തിരഞ്ഞെടുക്കൂ"));
+const grid=el("div","class-grid");
+for(let i=1;i<=5;i++){
+const b=el("button","class-choice");
+b.append(
+el("span","emoji","📗"),
+el("strong","","Class "+i),
+el("small","","20 Reading Cards")
+);
+b.onclick=()=>cardList(i);
+grid.appendChild(b);
 }
-selectClass(1);
-
-// WRITER CARDS
-const writerGrid=document.getElementById("writerGrid");
-
-function makeElement(tag,className,text){
- const el=document.createElement(tag);
- if(className)el.className=className;
- if(text!==undefined)el.textContent=text;
- return el;
+app.appendChild(grid);
 }
 
-writers.forEach(w=>{
- const card=makeElement("article","writer");
- const portrait=makeElement("div","portrait","📚");
- const info=makeElement("div","writer-info");
+function cardList(cls){
+clear();
+selectedClass=cls;
+app.appendChild(backButton("← Change Class",classPage));
+app.appendChild(el("h2","","Class "+cls+" - Reading Cards 1 to 20"));
 
- const title=makeElement("h3","",w.name);
- const role=makeElement("span","role",w.role);
- const books=makeElement("p","",
-   "📚 പ്രധാന കൃതികൾ: "+w.books);
- const bio=makeElement("p","bio",w.bio);
+const grid=el("div","card-grid");
 
- const quiz=makeElement("details","quiz");
- const question=makeElement("summary","",w.question);
- const answer=makeElement("p","","ഉത്തരം: "+w.answer);
- quiz.append(question,answer);
+stories[cls].forEach((story,i)=>{
+const b=el("button","mini-card");
+b.append(
+el("span","emoji",story.emoji),
+el("strong","","Reading Card "+(i+1)),
+el("small","",story.title)
+);
+b.onclick=()=>openCard(cls,i);
+grid.appendChild(b);
+});
+app.appendChild(grid);
+}
 
- const credit=makeElement("p","photo-credit");
- const source=document.createElement("a");
- source.href="https://en.wikipedia.org/wiki/"+
-   encodeURIComponent(w.wiki.replaceAll(" ","_"));
- source.target="_blank";
- source.rel="noopener noreferrer";
- source.textContent="ചിത്ര ഉറവിടം / Wikipedia";
- credit.appendChild(source);
+function openCard(cls,index){
+clear();
+selectedClass=cls;
+selectedCard=index;
+const story=stories[cls][index];
 
- info.append(title,role,books,bio,quiz,credit);
- card.append(portrait,info);
- writerGrid.appendChild(card);
+app.appendChild(backButton("← Back to Reading Cards",()=>cardList(cls)));
 
- loadWriterPhoto(w,portrait);
+const article=el("article","story");
+article.appendChild(el("h2","",story.emoji+" "+story.title));
+article.appendChild(el("p","note","Class "+cls+" • Reading Card "+(index+1)));
+
+story.lines.forEach(line=>{
+const b=el("button","sentence","🔊  "+line);
+b.onclick=()=>speak(line);
+article.appendChild(b);
 });
 
-// FETCH VERIFIED ARTICLE THUMBNAIL
-async function loadWriterPhoto(writer,portrait){
- const page=writer.wiki.replaceAll(" ","_");
- const api="https://en.wikipedia.org/w/api.php"+
-   "?action=query&prop=pageimages"+
-   "&piprop=thumbnail&pithumbsize=500"+
-   "&redirects=1&format=json&origin=*"+
-   "&titles="+encodeURIComponent(page);
+const actions=el("div","actions");
+const options=[
+["▶ Listen",()=>speak(story.lines.join(" "))],
+["🐢 Read Slowly",()=>speak(story.lines.join(" "),0.7)],
+["■ Stop",stopAudio],
+["← Previous",()=>openCard(cls,(index+19)%20)],
+["Next Card →",()=>openCard(cls,(index+1)%20)]
+];
 
- try{
-   const response=await fetch(api);
-   if(!response.ok)throw new Error("Photo unavailable");
-
-   const data=await response.json();
-   const pages=Object.values(data.query?.pages||{});
-   const url=pages[0]?.thumbnail?.source;
-
-   if(!url)return;
-
-   const img=document.createElement("img");
-   img.alt=writer.name;
-   img.loading="lazy";
-   img.referrerPolicy="no-referrer";
-
-   img.onload=()=>{
-     portrait.replaceChildren(img);
-   };
-   img.onerror=()=>{
-     portrait.textContent="📚";
-   };
-   img.src=url;
- }catch(error){
-   portrait.textContent="📚";
- }
+options.forEach(([label,action])=>{
+const b=el("button","",label);
+b.onclick=action;
+actions.appendChild(b);
+});
+article.appendChild(actions);
+app.appendChild(article);
 }
-</script>
 
+// WIKIPEDIA PORTRAIT LOADING
+// Images are optional. No image failure blocks the page.
+const wikiTitles=[
+"Vaikom Muhammad Basheer",
+"Kumaran Asan",
+"Vallathol Narayana Menon",
+"Ulloor S. Parameswara Iyer",
+"Thakazhi Sivasankara Pillai",
+"M. T. Vasudevan Nair",
+"O. N. V. Kurup",
+"Sugathakumari",
+"Akkitham Achuthan Namboothiri",
+"Kunjunni Mash"
+];
+
+function loadPortrait(container,index){
+const title=wikiTitles[index];
+const url="https://en.wikipedia.org/w/api.php?"+
+"action=query&prop=pageimages&piprop=thumbnail"+
+"&pithumbsize=400&format=json&origin=*"+
+"&titles="+encodeURIComponent(title);
+
+fetch(url)
+.then(r=>{
+if(!r.ok)throw Error("Image unavailable");
+return r.json();
+})
+.then(data=>{
+const pages=Object.values(data.query?.pages||{});
+const src=pages[0]?.thumbnail?.source;
+if(!src)return;
+const img=new Image();
+img.alt=writers[index][0];
+img.loading="lazy";
+img.onload=()=>container.replaceChildren(img);
+img.onerror=()=>{};
+img.src=src;
+})
+.catch(()=>{});
+}
+
+function writerPage(){
+clear();
+app.appendChild(backButton("← പ്രധാന പേജിലേക്ക്",home));
+app.appendChild(el("h2","","✍️ എഴുത്തുകാരുടെ ലോകം"));
+app.appendChild(el("p","","മലയാളത്തിലെ പ്രമുഖ സാഹിത്യകാരന്മാരെ പരിചയപ്പെടാം."));
+
+const grid=el("div","writer-grid");
+
+writers.forEach((w,i)=>{
+const card=el("article","writer");
+const portrait=el("div","portrait","📚");
+loadPortrait(portrait,i);
+
+const info=el("div","writer-content");
+info.append(
+el("h3","",w[0]),
+el("p","",w[1]),
+el("p","","📖 പ്രധാന കൃതികൾ: "+w[2]),
+el("p","",w[3])
+);
+
+const quiz=el("details");
+const question=el("summary","",w[4]);
+quiz.append(question,el("p","","ഉത്തരം: "+w[5]));
+info.appendChild(quiz);
+
+const link=el("a","","എഴുത്തുകാരനെക്കുറിച്ച് കൂടുതൽ അറിയാം");
+link.href="https://en.wikipedia.org/wiki/"+
+encodeURIComponent(wikiTitles[i].replaceAll(" ","_"));
+link.target="_blank";
+link.rel="noopener noreferrer";
+info.appendChild(link);
+
+card.append(portrait,info);
+grid.appendChild(card);
+});
+app.appendChild(grid);
+}
+
+// START APPLICATION
+home();
+</script>
 </body>
 </html>
