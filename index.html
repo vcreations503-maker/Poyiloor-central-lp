@@ -12,8 +12,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-
-
   <style>
     :root {
       --green: #17503f;
@@ -24,13 +22,9 @@
       --white: #ffffff;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -41,9 +35,7 @@
       font-size: 17px;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     img {
       max-width: 100%;
@@ -59,6 +51,8 @@
     header {
       background: var(--dark-green);
       color: white;
+      position: relative;
+      z-index: 100;
     }
 
     header .wrap {
@@ -68,6 +62,7 @@
       gap: 16px;
       padding-top: 12px;
       padding-bottom: 12px;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -98,18 +93,24 @@
 
     nav {
       display: flex;
-      gap: 18px;
+      gap: 10px;
       flex-wrap: wrap;
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 800;
     }
 
     nav a {
       text-decoration: none;
+      color: white;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.09);
     }
 
-    nav a:hover {
-      color: var(--gold);
+    nav a:hover,
+    nav a:focus-visible {
+      background: var(--gold);
+      color: var(--dark-green);
     }
 
     .hero {
@@ -173,13 +174,9 @@
       color: white;
     }
 
-    section {
-      padding: 60px 0;
-    }
+    section { padding: 60px 0; }
 
-    section.alt {
-      background: var(--mist);
-    }
+    section.alt { background: var(--mist); }
 
     h2 {
       font-size: clamp(27px, 4vw, 36px);
@@ -206,9 +203,7 @@
       margin: 0 0 10px;
     }
 
-    .strengths p {
-      margin: 0;
-    }
+    .strengths p { margin: 0; }
 
     .gallery {
       display: grid;
@@ -240,9 +235,7 @@
       color: white;
     }
 
-    .admit h2 {
-      color: white;
-    }
+    .admit h2 { color: white; }
 
     .admit .num {
       font-size: clamp(28px, 6vw, 44px);
@@ -293,41 +286,146 @@
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding: 45px 0;
-      }
+      .hero { padding: 45px 0; }
 
       header .wrap {
         flex-direction: column;
+        align-items: center;
       }
 
       nav {
         justify-content: center;
-        gap: 12px;
+        gap: 7px;
       }
 
-      .brand {
-        text-align: center;
+      nav a {
+        font-size: 12px;
+        padding: 8px 10px;
       }
 
-      .contact dl {
-        grid-template-columns: 1fr;
+      .brand { text-align: center; }
+
+      .contact dl { grid-template-columns: 1fr; }
+
+      .contact dd { margin-bottom: 10px; }
+    }
+
+    /* CM KIDS ANNOUNCEMENT */
+    .cm-ticker {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 49px;
+      background: linear-gradient(90deg,#103d30,#17664b);
+      color: white;
+      text-decoration: none;
+      overflow: hidden;
+      position: relative;
+      z-index: 20;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .cm-live {
+      background: #d52332;
+      padding: 8px 12px;
+      margin-left: 8px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      animation: cm-pulse 1.5s infinite;
+    }
+
+    .cm-live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: white;
+      animation: cm-blink 1s infinite;
+    }
+
+    .cm-ticker-window {
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .cm-ticker-text {
+      display: inline-block;
+      padding-left: 100%;
+      white-space: nowrap;
+      font-size: 14px;
+      font-weight: 800;
+      animation: cm-scroll 22s linear infinite;
+    }
+
+    .cm-ticker-arrow {
+      color: var(--gold);
+      padding: 0 12px;
+      flex-shrink: 0;
+    }
+
+    .cm-ticker:hover .cm-ticker-text {
+      animation-play-state: paused;
+    }
+
+    @keyframes cm-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
+    @keyframes cm-blink {
+      0%,100% { opacity: 1; }
+      50% { opacity: .15; }
+    }
+
+    @keyframes cm-pulse {
+      0%,100% { box-shadow: 0 0 0 0 #ff425455; }
+      50% { box-shadow: 0 0 0 5px #ff425400; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cm-ticker-text,
+      .cm-live,
+      .cm-live-dot {
+        animation: none;
       }
 
-      .contact dd {
-        margin-bottom: 10px;
-      }
+      .cm-ticker-text { padding-left: 0; }
     }
   </style>
 </head>
 
 <body>
 
-  
-<body>
+<!-- SCHOOL HEADER -->
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="logo">
+        <img src="logo.png" alt="Poyiloor Central LP School Logo">
+      </span>
+      <span>POYILOOR CENTRAL LP SCHOOL</span>
+    </a>
+
+    <nav aria-label="Main navigation">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#portal">Student Portal</a>
+      <a href="#admission">Admission</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
 <!-- CM KIDS LIVE ANNOUNCEMENT -->
-<a href="#portal" class="cm-ticker" aria-label="Open CM Kids Exam Portal">
+<a href="#portal" class="cm-ticker"
+   aria-label="Open CM Kids Exam Portal">
 
   <span class="cm-live">
     <span class="cm-live-dot"></span>
@@ -347,139 +445,41 @@
   <span class="cm-ticker-arrow">❯</span>
 </a>
 
-<style>
-.cm-ticker {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 49px;
-  background: linear-gradient(90deg,#103d30,#17664b);
-  color: #fff;
-  text-decoration: none;
-  overflow: hidden;
-  position: relative;
-  z-index: 20;
-  border-bottom: 2px solid #f2b632;
-}
+<main>
 
-.cm-live {
-  position: relative;
-  z-index: 2;
-  background: #d52332;
-  padding: 8px 12px;
-  margin-left: 8px;
-  border-radius: 5px;
-  font-size: 12px;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-  animation: cm-pulse 1.5s infinite;
-}
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="wrap hero-grid">
 
-.cm-live-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: white;
-  animation: cm-blink 1s infinite;
-}
+    <div>
+      <span class="since">Established 1928</span>
 
-.cm-ticker-window {
-  flex: 1;
-  overflow: hidden;
-  white-space: nowrap;
-}
+      <h1>Achieving Excellence Together</h1>
 
-.cm-ticker-text {
-  display: inline-block;
-  padding-left: 100%;
-  white-space: nowrap;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: .4px;
-  animation: cm-scroll 22s linear infinite;
-}
+      <p>
+        Welcome to Poyiloor Central LP School,
+        Kannur, Kerala. A place where children
+        learn, explore, create and grow with
+        confidence.
+      </p>
 
-.cm-ticker-arrow {
-  color: #f2b632;
-  padding: 0 12px;
-  font-size: 18px;
-  flex-shrink: 0;
-}
+      <a class="btn gold" href="#admission">
+        Admission Open
+      </a>
 
-.cm-ticker:hover .cm-ticker-text {
-  animation-play-state: paused;
-}
-
-@keyframes cm-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes cm-blink {
-  0%,100% { opacity: 1; }
-  50% { opacity: .15; }
-}
-
-@keyframes cm-pulse {
-  0%,100% { box-shadow: 0 0 0 0 #ff425455; }
-  50% { box-shadow: 0 0 0 5px #ff425400; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cm-ticker-text,
-  .cm-live,
-  .cm-live-dot {
-    animation: none;
-  }
-
-  .cm-ticker-text {
-    padding-left: 0;
-  }
-}
-</style>
-
-  <!-- HEADER -->
-
-
-    <!-- HERO -->
-    <div class="hero">
-      <div class="wrap hero-grid">
-
-        <div>
-          <span class="since">Established 1928</span>
-
-          <h1>Achieving Excellence Together</h1>
-
-          <p>
-            Welcome to Poyiloor Central LP School,
-            Kannur, Kerala. A place where children
-            learn, explore, create and grow with
-            confidence.
-          </p>
-
-          <a class="btn gold" href="#admission">
-            Admission Open
-          </a>
-
-          <a class="btn line" href="tel:+919072915659">
-            Call Us
-          </a>
-        </div>
-
-        <div class="hero-image">
-          <img src="school-front.jpg"
-               alt="Poyiloor Central LP School Building">
-        </div>
-
-      </div>
+      <a class="btn line" href="tel:+919072915659">
+        Call Us
+      </a>
     </div>
+
+    <div class="hero-image">
+      <img src="school-front.jpg"
+           alt="Poyiloor Central LP School Building">
+    </div>
+
+  </div>
+</div>
+
 
 <!-- DAILY WELCOME SECTION START -->
 <section id="daily-welcome" class="welcome-section">
