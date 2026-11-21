@@ -2,1240 +2,791 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Poyiloor Central LP School | Kannur</title>
-  <meta name="description" content="Poyiloor Central LP School, Kannur, Kerala. Classes 1 to 5. Established in 1928.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --green: #17503f;
-      --dark-green: #0f3a2e;
-      --gold: #f2b632;
-      --ink: #1d2a26;
-      --mist: #eef4f1;
-      --white: #ffffff;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: 'Nunito', sans-serif;
-      color: var(--ink);
-      background: var(--white);
-      line-height: 1.6;
-      font-size: 17px;
-    }
-
-    a { color: inherit; }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .wrap {
-      max-width: 1100px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    header {
-      background: var(--dark-green);
-      color: white;
-      position: relative;
-      z-index: 100;
-    }
-
-    header .wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .logo {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: white;
-      overflow: hidden;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    nav {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      padding: 9px 12px;
-      border-radius: 8px;
-      background: rgba(255,255,255,0.09);
-    }
-
-    nav a:hover,
-    nav a:focus-visible {
-      background: var(--gold);
-      color: var(--dark-green);
-    }
-
-    .hero {
-      background: var(--green);
-      color: white;
-      padding: 70px 0;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-      align-items: center;
-    }
-
-    .since {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--dark-green);
-      font-weight: 800;
-      padding: 5px 16px;
-      border-radius: 30px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.12;
-      margin: 0 0 20px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-
-    .hero-image img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: 18px;
-      border: 5px solid var(--gold);
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 10px;
-      font-weight: 800;
-      text-decoration: none;
-      margin: 0 8px 10px 0;
-    }
-
-    .btn.gold {
-      background: var(--gold);
-      color: var(--dark-green);
-    }
-
-    .btn.line {
-      border: 2px solid white;
-      color: white;
-    }
-
-    section { padding: 60px 0; }
-
-    section.alt { background: var(--mist); }
-
-    h2 {
-      font-size: clamp(27px, 4vw, 36px);
-      color: var(--dark-green);
-      margin: 0 0 22px;
-      line-height: 1.2;
-    }
-
-    .strengths {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .strengths div {
-      background: white;
-      border-left: 6px solid var(--gold);
-      padding: 22px;
-      border-radius: 10px;
-    }
-
-    .strengths h3 {
-      color: var(--green);
-      margin: 0 0 10px;
-    }
-
-    .strengths p { margin: 0; }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .photo {
-      background: var(--mist);
-      border-radius: 14px;
-      overflow: hidden;
-    }
-
-    .photo img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-    }
-
-    .photo p {
-      text-align: center;
-      font-weight: 800;
-      padding: 10px;
-      margin: 0;
-    }
-
-    .admit {
-      background: var(--dark-green);
-      color: white;
-    }
-
-    .admit h2 { color: white; }
-
-    .admit .num {
-      font-size: clamp(28px, 6vw, 44px);
-      font-weight: 800;
-      color: var(--gold);
-      margin: 12px 0 22px;
-    }
-
-    .portal {
-      border: 2px dashed var(--green);
-      background: white;
-      border-radius: 14px;
-      padding: 25px;
-    }
-
-    .contact dl {
-      display: grid;
-      grid-template-columns: max-content 1fr;
-      gap: 12px 20px;
-      margin: 0;
-    }
-
-    .contact dt {
-      font-weight: 800;
-      color: var(--green);
-    }
-
-    .contact dd {
-      margin: 0;
-      overflow-wrap: anywhere;
-    }
-
-    footer {
-      background: var(--dark-green);
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      font-size: 15px;
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--gold);
-      outline-offset: 3px;
-    }
-
-    @media (max-width: 700px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero { padding: 45px 0; }
-
-      header .wrap {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      nav {
-        justify-content: center;
-        gap: 7px;
-      }
-
-      nav a {
-        font-size: 12px;
-        padding: 8px 10px;
-      }
-
-      .brand { text-align: center; }
-
-      .contact dl { grid-template-columns: 1fr; }
-
-      .contact dd { margin-bottom: 10px; }
-    }
-
-    /* CM KIDS ANNOUNCEMENT */
-    .cm-ticker {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      height: 49px;
-      background: linear-gradient(90deg,#103d30,#17664b);
-      color: white;
-      text-decoration: none;
-      overflow: hidden;
-      position: relative;
-      z-index: 20;
-      border-bottom: 2px solid var(--gold);
-    }
-
-    .cm-live {
-      background: #d52332;
-      padding: 8px 12px;
-      margin-left: 8px;
-      border-radius: 5px;
-      font-size: 12px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-shrink: 0;
-      animation: cm-pulse 1.5s infinite;
-    }
-
-    .cm-live-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: white;
-      animation: cm-blink 1s infinite;
-    }
-
-    .cm-ticker-window {
-      flex: 1;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-
-    .cm-ticker-text {
-      display: inline-block;
-      padding-left: 100%;
-      white-space: nowrap;
-      font-size: 14px;
-      font-weight: 800;
-      animation: cm-scroll 22s linear infinite;
-    }
-
-    .cm-ticker-arrow {
-      color: var(--gold);
-      padding: 0 12px;
-      flex-shrink: 0;
-    }
-
-    .cm-ticker:hover .cm-ticker-text {
-      animation-play-state: paused;
-    }
-
-    @keyframes cm-scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-100%); }
-    }
-
-    @keyframes cm-blink {
-      0%,100% { opacity: 1; }
-      50% { opacity: .15; }
-    }
-
-    @keyframes cm-pulse {
-      0%,100% { box-shadow: 0 0 0 0 #ff425455; }
-      50% { box-shadow: 0 0 0 5px #ff425400; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .cm-ticker-text,
-      .cm-live,
-      .cm-live-dot {
-        animation: none;
-      }
-
-      .cm-ticker-text { padding-left: 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POYILOOR CENTRAL LP SCHOOL | Kannur</title>
+<meta name="description" content="Official website of Poyiloor Central LP School, Kannur. Established 1928. Classes 1 to 5.">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green:#17503f;
+  --dark:#0f3a2e;
+  --gold:#f2b632;
+  --light:#eef4f1;
+  --ink:#20352b;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:90px}
+body {
+  margin:0;
+  font-family:Nunito,Arial,sans-serif;
+  color:var(--ink);
+  line-height:1.6;
+}
+a {color:inherit}
+img {max-width:100%;display:block}
+button {font:inherit}
+.wrap {max-width:1150px;margin:auto;padding:0 20px}
+section {padding:65px 0}
+.alt {background:#f1f7f3}
+h2 {font-size:clamp(27px,4vw,39px);color:var(--dark);line-height:1.2;margin:0 0 18px}
+.section-sub {color:#64776b;margin-bottom:28px}
+.tag {
+  color:#31835d;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.btn {
+  display:inline-block;
+  text-decoration:none;
+  padding:13px 22px;
+  border-radius:10px;
+  font-weight:900;
+  margin:5px 8px 5px 0;
+}
+.btn.gold {background:var(--gold);color:var(--dark)}
+.btn.green {background:var(--green);color:white}
+.btn.line {border:2px solid white;color:white}
+
+/* HEADER */
+.topbar {background:#092e24;color:white;padding:7px 0;font-size:12px}
+.topbar .wrap {display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header {
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 3px 20px #00000012;
+}
+.header-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:85px;
+  gap:20px;
+}
+.brand {display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img {width:58px;height:58px;object-fit:contain;border-radius:50%}
+.brand strong {display:block;color:var(--dark);font-size:16px;line-height:1.25}
+.brand small {display:block;color:#75877b;font-size:11px}
+nav {display:flex;gap:5px;align-items:center}
+nav a {
+  padding:9px;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:900;
+  border-radius:7px;
+}
+nav a:hover {background:var(--light)}
+nav .special {background:var(--green);color:white;padding:10px 14px}
+.menu-btn {display:none;background:var(--green);color:white;border:0;border-radius:8px;padding:10px 15px}
+
+/* ANNOUNCEMENT */
+.ticker {
+  height:46px;
+  background:linear-gradient(90deg,#103d30,#17664b);
+  display:flex;
+  align-items:center;
+  color:white;
+  text-decoration:none;
+  overflow:hidden;
+  border-bottom:2px solid var(--gold);
+}
+.live {
+  margin:0 10px;
+  background:#d52332;
+  padding:6px 12px;
+  border-radius:5px;
+  font-weight:900;
+  font-size:12px;
+  animation:pulse 1.5s infinite;
+}
+.ticker-window {flex:1;overflow:hidden;white-space:nowrap}
+.ticker-text {
+  display:inline-block;
+  padding-left:100%;
+  white-space:nowrap;
+  font-size:13px;
+  font-weight:900;
+  animation:scroll 24s linear infinite;
+}
+.ticker:hover .ticker-text {animation-play-state:paused}
+@keyframes scroll {to{transform:translateX(-100%)}}
+@keyframes pulse {50%{opacity:.6}}
+
+/* HERO */
+.hero {
+  background:radial-gradient(circle at 85% 10%,#277b59,transparent 40%),
+             linear-gradient(130deg,#103b2e,#17503f);
+  color:white;
+  padding:75px 0 90px;
+}
+.hero-grid {display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px}
+.since {
+  display:inline-block;
+  background:var(--gold);
+  color:var(--dark);
+  padding:7px 17px;
+  border-radius:30px;
+  font-weight:900;
+  font-size:13px;
+  margin-bottom:22px;
+}
+.hero h1 {
+  font-size:clamp(40px,5.5vw,68px);
+  line-height:1.08;
+  letter-spacing:-1px;
+  margin:0 0 22px;
+  font-weight:900;
+}
+.hero h1 span {color:var(--gold)}
+.hero p {font-size:17px;color:#e3eee7;max-width:490px}
+.hero-photo {position:relative}
+.hero-photo img {
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border:5px solid var(--gold);
+  border-radius:20px;
+  box-shadow:0 20px 50px #0005;
+}
+.photo-label {
+  position:absolute;
+  bottom:-17px;
+  left:20px;
+  background:white;
+  color:var(--dark);
+  border-radius:10px;
+  padding:10px 17px;
+  font-size:12px;
+  font-weight:900;
+}
+
+/* QUICK LINKS */
+.quick {margin-top:-28px;position:relative;z-index:2}
+.quick-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.quick-card {
+  background:white;
+  padding:19px;
+  border-radius:15px;
+  box-shadow:0 8px 28px #00000017;
+  border:1px solid #e1ebe4;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  transition:.2s;
+}
+.quick-card:hover {transform:translateY(-4px)}
+.quick-card .emoji {font-size:28px}
+.quick-card strong {display:block;color:var(--dark);font-size:14px}
+.quick-card small {font-size:11px;color:#73867b}
+
+/* WELCOME */
+.welcome-card {
+  text-align:center;
+  background:linear-gradient(135deg,#fff,#e9f5ed);
+  border:1px solid #dcebe1;
+  padding:35px 24px;
+  border-radius:23px;
+}
+.welcome-card h2 {margin:12px 0}
+#welcome-date {color:#73867b;font-weight:800}
+.welcome-line {width:65px;height:4px;background:var(--gold);margin:23px auto;border-radius:5px}
+#welcome-quote {font-size:clamp(19px,3vw,25px);font-weight:900;color:var(--green)}
+#welcome-author {color:#64776b}
+
+/* ABOUT AND FEATURES */
+.about-grid {display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center}
+.about-box {background:#e9f4ed;border-left:5px solid var(--gold);padding:30px;border-radius:18px}
+.about-box h3 {color:var(--green)}
+.feature-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feature {
+  background:white;
+  padding:24px;
+  border-radius:16px;
+  border:1px solid #e0e9e4;
+  box-shadow:0 5px 20px #00000008;
+}
+.feature .emoji {font-size:30px}
+.feature h3 {font-size:17px;color:var(--green)}
+.feature p {font-size:14px;color:#68796f}
+
+/* GALLERY */
+.album-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.album-card {
+  padding:0;
+  border:0;
+  background:white;
+  text-align:left;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 6px 22px #0002;
+  cursor:pointer;
+}
+.album-card img {width:100%;height:280px;object-fit:cover}
+.album-info {padding:18px 22px}
+.album-info h3 {margin:0;color:var(--green)}
+.album-info p {margin:5px 0;color:#777}
+.viewer[hidden] {display:none}
+.viewer {
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#07140ff8;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.viewer-top {display:flex;justify-content:space-between;align-items:center;width:100%;max-width:1100px}
+.viewer button {border:0;background:transparent;color:white;font-size:30px;cursor:pointer;padding:12px}
+.viewer-main {display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;max-width:1100px;flex:1;min-height:0}
+.viewer-main img {max-width:calc(100% - 95px);max-height:75vh;object-fit:contain}
+#photoCounter {color:var(--gold);font-weight:900}
+
+/* VIDEOS */
+.video-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.video-card {background:white;border-radius:15px;overflow:hidden;box-shadow:0 5px 20px #0002}
+.video-card iframe {width:100%;aspect-ratio:16/9;border:0;display:block}
+.video-card p {padding:12px 16px;margin:0;color:var(--green);font-weight:900}
+
+/* STUDENT PORTAL */
+.student-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.hub-card {background:white;border:1px solid #e0e9e4;border-radius:20px;overflow:hidden;box-shadow:0 5px 20px #0001}
+.hub-card summary {display:flex;align-items:center;gap:16px;padding:24px;cursor:pointer;list-style:none}
+.hub-card summary::-webkit-details-marker {display:none}
+.hub-icon {font-size:36px}
+.hub-card strong {display:block;font-size:21px;color:var(--green)}
+.hub-card small {display:block;font-size:12px;color:#708177}
+.hub-arrow {margin-left:auto;font-size:27px}
+.hub-content {padding:15px 24px 26px;border-top:1px solid #e5eee8}
+.hub-content h3 {color:var(--green)}
+.hub-btn {
+  display:inline-block;
+  background:var(--green);
+  color:white;
+  padding:12px 17px;
+  margin:7px 7px 0 0;
+  border-radius:10px;
+  font-weight:900;
+  font-size:14px;
+  text-decoration:none;
+}
+.hub-btn.secondary {background:#e8f2eb;color:var(--green)}
+.library {grid-column:1/-1;padding:26px}
+.library-links {display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:20px}
+.library-links a {display:block;color:white;padding:23px;border-radius:15px;text-decoration:none;font-weight:900}
+.library-links small {color:#ffffffdd}
+.english {background:linear-gradient(135deg,#173e79,#327fbd)}
+.malayalam {background:linear-gradient(135deg,#15533c,#269b72)}
+
+/* ADMISSION */
+.admit {background:linear-gradient(130deg,#0f3a2e,#17503f);color:white}
+.admit h2 {color:white}
+.admit-grid {display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.num {font-size:clamp(30px,5vw,46px);font-weight:900;color:var(--gold)}
+
+/* CONTACT */
+.contact-grid {display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact dl {display:grid;grid-template-columns:max-content 1fr;gap:13px 20px}
+.contact dt {font-weight:900;color:var(--green)}
+.contact dd {margin:0;overflow-wrap:anywhere}
+.contact-box {background:white;border-radius:20px;padding:30px;align-self:center}
+.contact-box h3 {color:var(--green)}
+
+/* CREATOR */
+.creator-section {background:#eef4f1;padding:35px 20px}
+.creator-card {
+  max-width:650px;
+  margin:auto;
+  background:white;
+  border:1px solid #dce8df;
+  border-radius:22px;
+  padding:24px;
+  display:flex;
+  align-items:center;
+  gap:22px;
+  box-shadow:0 8px 28px #0001;
+}
+.creator-photo {width:105px;height:105px;flex-shrink:0;border:3px solid var(--gold);border-radius:20px;overflow:hidden}
+.creator-photo img {width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.creator-info h2 {font-size:24px;margin:5px 0}
+.creator-info p {margin:5px 0}
+.creator-label {font-size:11px;font-weight:900;letter-spacing:1px;color:#3d8860}
+.creator-role {font-size:14px;color:#4e665a}
+.creator-ai {font-size:12px;color:#6b8274}
+footer {background:var(--dark);color:white;text-align:center;padding:27px 15px;font-size:14px}
+
+/* MOBILE */
+@media(max-width:950px) {
+  .menu-btn {display:block}
+  nav {
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:white;
+    padding:15px 20px;
+    box-shadow:0 12px 20px #0002;
+    flex-direction:column;
+    align-items:stretch;
+  }
+  nav.open {display:flex}
+  nav a {padding:12px}
+  .hero-grid,.about-grid,.admit-grid,.contact-grid {grid-template-columns:1fr}
+  .quick-grid,.feature-grid {grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px) {
+  .hero {padding:48px 0 65px}
+  .hero h1 {font-size:43px}
+  .hero-grid {gap:35px}
+  .brand strong {font-size:12px}
+  .brand img {width:48px;height:48px}
+  .quick-grid {grid-template-columns:1fr 1fr;gap:10px}
+  .quick-card {padding:13px;gap:8px}
+  .quick-card .emoji {font-size:23px}
+  .quick-card strong {font-size:12px}
+  .feature-grid,.album-grid,.student-grid,.library-links {grid-template-columns:1fr}
+  .library {grid-column:auto}
+  .album-card img {height:220px}
+  .creator-card {flex-direction:column;text-align:center}
+  .contact dl {grid-template-columns:1fr;gap:4px}
+  .contact dd {margin-bottom:12px}
+  section {padding:50px 0}
+}
+@media(prefers-reduced-motion:reduce) {
+  .ticker-text,.live {animation:none}
+  .ticker-text {padding-left:0}
+}
+</style>
 </head>
 
 <body>
 
-<!-- SCHOOL HEADER -->
-<header>
+<div class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top">
-      <span class="logo">
-        <img src="logo.png" alt="Poyiloor Central LP School Logo">
-      </span>
-      <span>POYILOOR CENTRAL LP SCHOOL</span>
-    </a>
+    <span>📍 Poyiloor, Kannur, Kerala | Estd. 1928</span>
+    <span>📞 9072915659</span>
+  </div>
+</div>
 
-    <nav aria-label="Main navigation">
+<header>
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <img src="logo.png" alt="Poyiloor Central LP School Logo">
+      <span>
+        <strong>POYILOOR CENTRAL LP SCHOOL</strong>
+        <small>Achieving Excellence Together</small>
+      </span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">☰ Menu</button>
+    <nav id="mainNav" aria-label="Main Navigation">
       <a href="#top">Home</a>
       <a href="#about">About</a>
       <a href="#features">Features</a>
       <a href="#gallery">Gallery</a>
-      <a href="#portal">Student Portal</a>
+      <a href="#videos">Videos</a>
       <a href="#admission">Admission</a>
       <a href="#contact">Contact</a>
+      <a href="#portal" class="special">Student Portal →</a>
     </nav>
   </div>
 </header>
 
-<!-- CM KIDS LIVE ANNOUNCEMENT -->
-<a href="#portal" class="cm-ticker"
-   aria-label="Open CM Kids Exam Portal">
-
-  <span class="cm-live">
-    <span class="cm-live-dot"></span>
-    LIVE
-  </span>
-
-  <span class="cm-ticker-window">
-    <span class="cm-ticker-text">
-      📢 IMPORTANT ANNOUNCEMENT!
-      🎓 CM KIDS 2026–27 EXAM PREPARATION PORTAL IS NOW OPEN!
-      📚 Daily Model Exams • GK Questions • Practice Tests
-      🏆 Join Now and Improve Your Score!
-      ✨ CLICK HERE TO JOIN ✨
+<a href="#portal" class="ticker" aria-label="Go to CM Kids Portal">
+  <span class="live">● LIVE</span>
+  <span class="ticker-window">
+    <span class="ticker-text">
+      📢 IMPORTANT ANNOUNCEMENT! 🎓 CM KIDS 2026–27 EXAM PREPARATION PORTAL IS NOW OPEN! 📚 Daily Model Exams • GK Questions • Practice Tests 🏆 CLICK HERE TO JOIN!
     </span>
   </span>
-
-  <span class="cm-ticker-arrow">❯</span>
+  <span style="padding:0 12px;color:#f2b632">❯</span>
 </a>
 
 <main>
 
-<!-- HERO -->
-<div class="hero" id="top">
+<section class="hero" id="top">
   <div class="wrap hero-grid">
-
     <div>
-      <span class="since">Established 1928</span>
-
-      <h1>Achieving Excellence Together</h1>
-
-      <p>
-        Welcome to Poyiloor Central LP School,
-        Kannur, Kerala. A place where children
-        learn, explore, create and grow with
-        confidence.
-      </p>
-
-      <a class="btn gold" href="#admission">
-        Admission Open
-      </a>
-
-      <a class="btn line" href="tel:+919072915659">
-        Call Us
-      </a>
+      <span class="since">✦ Established 1928</span>
+      <h1>Achieving<br><span>Excellence</span><br>Together.</h1>
+      <p>Welcome to Poyiloor Central LP School, Kannur, Kerala. A place where children learn, explore, create and grow with confidence.</p>
+      <a class="btn gold" href="#admission">Admission Open →</a>
+      <a class="btn line" href="#portal">Explore Student Portal</a>
     </div>
-
-    <div class="hero-image">
-      <img src="school-front.jpg"
-           alt="Poyiloor Central LP School Building">
+    <div class="hero-photo">
+      <img src="school-front.jpg" alt="Poyiloor Central LP School Building">
+      <span class="photo-label">🏫 POYILOOR CENTRAL LP SCHOOL</span>
     </div>
+  </div>
+</section>
 
+<div class="quick">
+  <div class="wrap quick-grid">
+    <a class="quick-card" href="#portal"><span class="emoji">🎓</span><span><strong>Student Portal</strong><small>Exams & Learning</small></span></a>
+    <a class="quick-card" href="#gallery"><span class="emoji">📸</span><span><strong>School Gallery</strong><small>Our Memories</small></span></a>
+    <a class="quick-card" href="#features"><span class="emoji">📚</span><span><strong>Academics</strong><small>Learning Together</small></span></a>
+    <a class="quick-card" href="#admission"><span class="emoji">🏫</span><span><strong>Admissions</strong><small>Join Our Family</small></span></a>
   </div>
 </div>
 
-
-<!-- DAILY WELCOME SECTION START -->
-<section id="daily-welcome" class="welcome-section">
+<section class="alt" id="daily-welcome">
   <div class="wrap">
     <div class="welcome-card">
-
-      <div class="welcome-school">
-        ✨ POYILOOR CENTRAL LP SCHOOL
-      </div>
-
-      <h2 id="welcome-greeting">
-        Welcome, Young Learners!
-      </h2>
-
+      <div class="tag">✨ POYILOOR CENTRAL LP SCHOOL</div>
+      <h2 id="welcome-greeting">Welcome, Young Learners!</h2>
       <p id="welcome-date"></p>
-
-      <div class="welcome-divider"></div>
-
-      <div class="welcome-label">
-        📖 THOUGHT OF THE DAY
-      </div>
-
+      <div class="welcome-line"></div>
+      <div class="tag">📖 THOUGHT OF THE DAY</div>
       <p id="welcome-quote"></p>
       <p id="welcome-author"></p>
+      <p style="color:#388c60;font-weight:900">🌱 Learn Something New Every Day</p>
+    </div>
+  </div>
+</section>
 
-      <div class="welcome-footer">
-        🌱 Learn Something New Every Day
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="tag">Our Story</p>
+      <h2>About Our School</h2>
+      <p>Poyiloor Central LP School was established in 1928 under the Poyiloor Muslim Jamath. For almost a century, our school has been providing quality education to children from Classes 1 to 5.</p>
+      <p>Our dedicated teachers provide individual attention to every child, encouraging creativity, confidence and academic excellence.</p>
+      <a class="btn green" href="https://schoolwiki.in/14537" target="_blank" rel="noopener noreferrer">📖 Know More About Us ↗</a>
+    </div>
+    <div class="about-box">
+      <h3>🌱 Our Vision</h3>
+      <p>To nurture confident, creative and responsible young learners.</p>
+      <h3>🎯 Our Mission</h3>
+      <p>To provide inclusive, joyful and meaningful learning experiences for every child.</p>
+      <h3>✨ Our Motto</h3>
+      <p>Achieving Excellence Together</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="features">
+  <div class="wrap">
+    <p class="tag">Learning Beyond Books</p>
+    <h2>What Your Child Will Learn</h2>
+    <p class="section-sub">Building strong foundations through modern and meaningful learning experiences.</p>
+    <div class="feature-grid">
+      <div class="feature"><div class="emoji">🗣️</div><h3>English Communication</h3><p>Daily speaking practice to develop confidence and communication skills.</p></div>
+      <div class="feature"><div class="emoji">💻</div><h3>AI & Technology</h3><p>Introducing children to modern technology and responsible AI learning.</p></div>
+      <div class="feature"><div class="emoji">📖</div><h3>Academic Excellence</h3><p>Reading cards, worksheets, assessments and scholarship exam preparation.</p></div>
+      <div class="feature"><div class="emoji">🎨</div><h3>Activities & Celebrations</h3><p>School festivals, competitions, creative activities and cultural programmes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap">
+    <p class="tag">Our Memories</p>
+    <h2>Life at Our School</h2>
+    <p class="section-sub">Explore our beautiful school memories.</p>
+    <div class="album-grid">
+      <button class="album-card" onclick="openAlbum('arts')" type="button">
+        <img src="arts-fest-01.jpg.PNG" alt="Arts Festival">
+        <div class="album-info"><h3>Arts Festival</h3><p>4 Photos · View Album →</p></div>
+      </button>
+      <button class="album-card" onclick="openAlbum('campus')" type="button">
+        <img src="school-front.jpg" alt="School Campus">
+        <div class="album-info"><h3>Our School Campus</h3><p>1 Photo · View Album →</p></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="viewer" id="albumViewer" role="dialog" aria-modal="true" aria-label="Photo Album" hidden>
+  <div class="viewer-top">
+    <h3 id="albumTitle"></h3>
+    <button onclick="closeAlbum()" aria-label="Close Album">×</button>
+  </div>
+  <div class="viewer-main">
+    <button onclick="changePhoto(-1)" aria-label="Previous Photo">❮</button>
+    <img id="viewerImage" alt="School Photo">
+    <button onclick="changePhoto(1)" aria-label="Next Photo">❯</button>
+  </div>
+  <p id="photoCounter"></p>
+  <p>Swipe left or right to view photos</p>
+</div>
+
+<section class="alt" id="videos">
+  <div class="wrap">
+    <p class="tag">School Stories</p>
+    <h2>School Video Gallery</h2>
+    <p class="section-sub">Watch our school activities and celebrations.</p>
+    <div class="video-grid" id="school-video-list"></div>
+  </div>
+</section>
+
+<section id="portal">
+  <div class="wrap">
+    <p class="tag">Learn • Practice • Achieve</p>
+    <h2>🎓 Student Portal</h2>
+    <p class="section-sub">Choose your class or explore our digital reading library.</p>
+
+    <div class="student-grid">
+
+      <details class="hub-card">
+        <summary>
+          <span class="hub-icon">🎒</span>
+          <span><strong>Class 4</strong><small>Exams • Quizzes • Notes</small></span>
+          <span class="hub-arrow">⌄</span>
+        </summary>
+        <div class="hub-content">
+          <h3>CM Kids Exam Portal</h3>
+          <p>Attend model exams, check scores and track your learning progress.</p>
+          <a class="hub-btn" href="https://poyiloor-cm-kids-progress.delicatedepot4.chatgpt.site/">Open CM Kids Portal →</a>
+        </div>
+      </details>
+
+      <details class="hub-card">
+        <summary>
+          <span class="hub-icon">🧮</span>
+          <span><strong>Class 5</strong><small>Mathematics • Exams • Results</small></span>
+          <span class="hub-arrow">⌄</span>
+        </summary>
+        <div class="hub-content">
+          <h3>Mathematics Exam</h3>
+          <p>30 Marks • 30 Minutes</p>
+          <a class="hub-btn" href="class5_math_exam.html">Start Mathematics Exam →</a>
+          <a class="hub-btn secondary" target="_blank" rel="noopener noreferrer" href="https://script.google.com/macros/s/AKfycbwIv-gKzx2DyAixjNJ3P5949TCdY5ZhfqNoCUW5llGqw6jIXvoXqQYVJnY4h7dNGUsD/exec">🏆 View Result Board</a>
+        </div>
+      </details>
+
+      <div class="hub-card library">
+        <div style="display:flex;align-items:center;gap:16px">
+          <span class="hub-icon">📚</span>
+          <span><strong>Digital Reading Library</strong><small>English • Malayalam • Literature</small></span>
+        </div>
+        <div class="library-links">
+          <a class="english" href="english_reading_corner_classwise.html">📘 English Reading<small>100 Reading Cards</small></a>
+          <a class="malayalam" href="reading_library.html">📗 മലയാളം വായനാമൂല<small>കഥകൾ • സാഹിത്യം</small></a>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<style>
-.welcome-section {
-  padding: 35px 0;
-  background: #f4f8f5;
-}
+<section class="admit" id="admission">
+  <div class="wrap admit-grid">
+    <div>
+      <p class="tag" style="color:#f2b632">Join Our School Family</p>
+      <h2>Admission Open – Classes 1 to 5</h2>
+      <p>Contact us for admission details and school visits.</p>
+    </div>
+    <div>
+      <div class="num">9072915659</div>
+      <a class="btn gold" href="tel:+919072915659">Call Now</a>
+      <a class="btn line" href="https://wa.me/919072915659" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
 
-.welcome-card {
-  max-width: 950px;
-  margin: auto;
-  padding: 35px 24px;
-  border-radius: 24px;
-  text-align: center;
-  background: linear-gradient(
-    135deg,
-    #ffffff,
-    #eaf6ee
-  );
-  border: 1px solid #dcebe1;
-  box-shadow: 0 8px 30px #0000000d;
-}
+<section class="alt" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact">
+      <p class="tag">Get in Touch</p>
+      <h2>Contact Us</h2>
+      <dl>
+        <dt>School</dt><dd>Poyiloor Central LP School</dd>
+        <dt>Address</dt><dd>Central Poyiloor, PO Poyiloor, Kannur, Kerala – 670693</dd>
+        <dt>School Code</dt><dd>14537</dd>
+        <dt>Phone</dt><dd><a href="tel:+919072915659">9072915659</a></dd>
+        <dt>Email</dt><dd><a href="mailto:VCreations503@gmail.com">VCreations503@gmail.com</a></dd>
+      </dl>
+    </div>
+    <div class="contact-box">
+      <h3>🏫 POYILOOR CENTRAL LP SCHOOL</h3>
+      <p>Established 1928</p>
+      <p>Achieving Excellence Together</p>
+      <a class="btn green" href="#top">Back to Home ↑</a>
+    </div>
+  </div>
+</section>
 
-.welcome-school {
-  color: #28724e;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
+</main>
 
-#welcome-greeting {
-  color: #14543b;
-  font-size: clamp(25px, 5vw, 38px);
-  margin: 15px 0 8px;
-}
+<section class="creator-section">
+  <div class="creator-card">
+    <div class="creator-photo">
+      <img src="Saad noushad.JPG" alt="Saad Noushad - Website Creator" loading="lazy">
+    </div>
+    <div class="creator-info">
+      <p class="creator-label">CONCEPT & WEBSITE DEVELOPMENT</p>
+      <h2>Saad Noushad</h2>
+      <p class="creator-role">Teacher | Poyiloor Central LP School</p>
+      <p class="creator-ai">✨ Developed with AI Assistance</p>
+    </div>
+  </div>
+</section>
 
-#welcome-date {
-  color: #667b70;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.welcome-divider {
-  width: 65px;
-  height: 4px;
-  margin: 24px auto;
-  border-radius: 5px;
-  background: #f2b632;
-}
-
-.welcome-label {
-  color: #367852;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-#welcome-quote {
-  max-width: 720px;
-  margin: 18px auto 10px;
-  font-size: clamp(19px, 3vw, 25px);
-  font-weight: 800;
-  color: #174e38;
-  line-height: 1.7;
-}
-
-#welcome-author {
-  font-size: 14px;
-  color: #657b70;
-}
-
-.welcome-footer {
-  margin-top: 26px;
-  font-size: 13px;
-  font-weight: 800;
-  color: #3b8961;
-}
-</style>
+<footer>
+  <div class="wrap">
+    © 2026 Poyiloor Central LP School
+    <p>Established 1928 | Achieving Excellence Together</p>
+  </div>
+</footer>
 
 <script>
-(function () {
-  "use strict";
+/* MOBILE NAVIGATION */
+const menuBtn=document.getElementById("menuBtn");
+const mainNav=document.getElementById("mainNav");
 
-  const quotes = [
-    {
-      text: "The beautiful thing about learning is that no one can take it away from you.",
-      author: "B. B. King"
-    },
-    {
-      text: "It always seems impossible until it's done.",
-      author: "Nelson Mandela"
-    },
-    {
-      text: "Well done is better than well said.",
-      author: "Benjamin Franklin"
-    },
-    {
-      text: "The journey of a thousand miles begins with one step.",
-      author: "Lao Tzu"
-    },
-    {
-      text: "Education is the most powerful weapon which you can use to change the world.",
-      author: "Nelson Mandela"
-    },
-    {
-      text: "An investment in knowledge pays the best interest.",
-      author: "Benjamin Franklin"
-    },
-    {
-      text: "Learning never exhausts the mind.",
-      author: "Leonardo da Vinci"
-    },
-    {
-      text: "Every day is a new opportunity to learn.",
-      author: "Daily Learning Message"
-    },
-    {
-      text: "Small steps lead to big achievements.",
-      author: "Daily Learning Message"
-    },
-    {
-      text: "Read a little, learn a lot.",
-      author: "Daily Learning Message"
-    },
-    {
-      text: "Kindness makes every classroom brighter.",
-      author: "Daily Learning Message"
-    },
-    {
-      text: "Ask questions and discover new ideas.",
-      author: "Daily Learning Message"
-    }
+menuBtn.addEventListener("click",()=>{
+  const opened=mainNav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded",String(opened));
+  menuBtn.textContent=opened?"✕ Close":"☰ Menu";
+});
+mainNav.querySelectorAll("a").forEach(a=>{
+  a.addEventListener("click",()=>{
+    mainNav.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded","false");
+    menuBtn.textContent="☰ Menu";
+  });
+});
+
+/* DAILY WELCOME */
+(function(){
+  const quotes=[
+    ["The beautiful thing about learning is that no one can take it away from you.","B. B. King"],
+    ["It always seems impossible until it's done.","Nelson Mandela"],
+    ["Well done is better than well said.","Benjamin Franklin"],
+    ["The journey of a thousand miles begins with one step.","Lao Tzu"],
+    ["Education is the most powerful weapon which you can use to change the world.","Nelson Mandela"],
+    ["An investment in knowledge pays the best interest.","Benjamin Franklin"],
+    ["Learning never exhausts the mind.","Leonardo da Vinci"],
+    ["Every day is a new opportunity to learn.","Daily Learning Message"],
+    ["Small steps lead to big achievements.","Daily Learning Message"],
+    ["Read a little, learn a lot.","Daily Learning Message"],
+    ["Kindness makes every classroom brighter.","Daily Learning Message"],
+    ["Ask questions and discover new ideas.","Daily Learning Message"]
   ];
 
-  const specialDays = {
-    "01-26": {
-      text: "Let us honour our Constitution and the values of our Republic.",
-      author: "Republic Day"
-    },
-    "06-05": {
-      text: "Protect nature today for a greener tomorrow.",
-      author: "World Environment Day"
-    },
-    "06-19": {
-      text: "Open a book and discover a new world.",
-      author: "Reading Day"
-    },
-    "08-15": {
-      text: "Let us celebrate freedom with responsibility.",
-      author: "Independence Day"
-    },
-    "09-05": {
-      text: "Teachers inspire us to discover our potential.",
-      author: "Teachers' Day"
-    },
-    "10-02": {
-      text: "Let truth and non-violence guide our actions.",
-      author: "Gandhi Jayanti"
-    },
-    "11-01": {
-      text: "Let us celebrate our language and culture.",
-      author: "Kerala Piravi"
-    },
-    "11-14": {
-      text: "Every child deserves love, learning and happiness.",
-      author: "Children's Day"
-    }
+  const special={
+    "01-26":["Let us honour our Constitution and the values of our Republic.","Republic Day"],
+    "06-05":["Protect nature today for a greener tomorrow.","World Environment Day"],
+    "06-19":["Open a book and discover a new world.","Reading Day"],
+    "08-15":["Let us celebrate freedom with responsibility.","Independence Day"],
+    "09-05":["Teachers inspire us to discover our potential.","Teachers' Day"],
+    "10-02":["Let truth and non-violence guide our actions.","Gandhi Jayanti"],
+    "11-01":["Let us celebrate our language and culture.","Kerala Piravi"],
+    "11-14":["Every child deserves love, learning and happiness.","Children's Day"]
   };
 
-  function updateWelcome() {
-    const now = new Date();
+  function updateWelcome(){
+    const now=new Date();
+    const parts=new Intl.DateTimeFormat("en-GB",{
+      timeZone:"Asia/Kolkata",
+      year:"numeric",month:"2-digit",day:"2-digit",
+      hour:"2-digit",hourCycle:"h23"
+    }).formatToParts(now);
 
-    const parts = new Intl.DateTimeFormat(
-      "en-GB",
-      {
-        timeZone: "Asia/Kolkata",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        hourCycle: "h23"
-      }
-    ).formatToParts(now);
+    const get=t=>parts.find(p=>p.type===t).value;
+    const hour=Number(get("hour"));
+    const month=get("month");
+    const day=get("day");
+    const year=Number(get("year"));
 
-    const get = type =>
-      parts.find(p => p.type === type).value;
+    let greeting="Welcome, Young Learners! 🌙";
+    if(hour>=5&&hour<12)greeting="Good Morning! ☀️";
+    else if(hour>=12&&hour<17)greeting="Good Afternoon! 🌤️";
+    else if(hour>=17&&hour<21)greeting="Good Evening! 🌆";
 
-    const year = Number(get("year"));
-    const month = get("month");
-    const day = get("day");
-    const hour = Number(get("hour"));
+    document.getElementById("welcome-greeting").textContent=greeting;
+    document.getElementById("welcome-date").textContent=
+      new Intl.DateTimeFormat("en-IN",{
+        timeZone:"Asia/Kolkata",
+        weekday:"long",day:"numeric",month:"long",year:"numeric"
+      }).format(now);
 
-    let greeting = "Welcome, Young Learners! 🌙";
+    const dayNumber=Math.floor(Date.UTC(year,Number(month)-1,Number(day))/86400000);
+    const quote=special[month+"-"+day]||quotes[((dayNumber%quotes.length)+quotes.length)%quotes.length];
 
-    if (hour >= 5 && hour < 12) {
-      greeting = "Good Morning! ☀️";
-    } else if (hour >= 12 && hour < 17) {
-      greeting = "Good Afternoon! 🌤️";
-    } else if (hour >= 17 && hour < 21) {
-      greeting = "Good Evening! 🌆";
-    }
-
-    document.getElementById(
-      "welcome-greeting"
-    ).textContent = greeting;
-
-    document.getElementById(
-      "welcome-date"
-    ).textContent =
-      new Intl.DateTimeFormat(
-        "en-IN",
-        {
-          timeZone: "Asia/Kolkata",
-          weekday: "long",
-          day: "numeric",
-          month: "long",
-          year: "numeric"
-        }
-      ).format(now);
-
-    const key = month + "-" + day;
-
-    const dayNumber = Math.floor(
-      Date.UTC(
-        year,
-        Number(month) - 1,
-        Number(day)
-      ) / 86400000
-    );
-
-    const quote =
-      specialDays[key] ||
-      quotes[
-        ((dayNumber % quotes.length)
-          + quotes.length) % quotes.length
-      ];
-
-    document.getElementById(
-      "welcome-quote"
-    ).textContent = "“" + quote.text + "”";
-
-    document.getElementById(
-      "welcome-author"
-    ).textContent = "— " + quote.author;
+    document.getElementById("welcome-quote").textContent="“"+quote[0]+"”";
+    document.getElementById("welcome-author").textContent="— "+quote[1];
   }
 
   updateWelcome();
-
-  setInterval(updateWelcome, 60000);
+  setInterval(updateWelcome,60000);
 })();
-</script>
-<!-- DAILY WELCOME SECTION END -->
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="wrap">
-        <h2>About Our School</h2>
-
-        <p>
-          Poyiloor Central LP School was established
-          in 1928 under the Poyiloor Muslim Jamath.
-          For almost a century, our school has been
-          providing quality education to children
-          from Classes 1 to 5.
-        </p>
-
-        <p>
-          Our dedicated teachers provide individual
-          attention to every child, encouraging
-          creativity, confidence and academic
-          excellence.
-        </p>
-      </div>
-      
-<a 
-href="https://schoolwiki.in/14537"
-
-   target="_blank"
-   rel="noopener noreferrer"
-   style="
-     display:inline-flex;
-     align-items:center;
-     justify-content:center;
-     gap:10px;
-     margin-top:24px;
-     padding:14px 28px;
-     background:linear-gradient(135deg,#176b49,#24976a);
-     color:#ffffff;
-     font-size:15px;
-     font-weight:700;
-     text-decoration:none;
-     border-radius:30px;
-     box-shadow:0 5px 16px rgba(23,107,73,0.22);
-   ">
-   📖 Know More About Us ↗
-</a>
-
-    </section>
-
-    <!-- FEATURES -->
-    <section class="alt" id="features">
-      <div class="wrap">
-        <h2>What Your Child Will Learn</h2>
-
-        <div class="strengths">
-
-          <div>
-            <h3>English Communication</h3>
-            <p>
-              Daily English speaking practice to
-              develop confidence and communication
-              skills.
-            </p>
-          </div>
-
-          <div>
-            <h3>AI & Technology</h3>
-            <p>
-              Introducing children to modern
-              technology and responsible AI learning.
-            </p>
-          </div>
-
-          <div>
-            <h3>Strong Academic Foundation</h3>
-            <p>
-              Reading cards, worksheets, regular
-              assessments and scholarship exam
-              preparation.
-            </p>
-          </div>
-
-          <div>
-            <h3>Activities & Celebrations</h3>
-            <p>
-              School festivals, competitions,
-              creative activities and cultural
-              programmes.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY -->
-
-<!-- PROFESSIONAL SCHOOL GALLERY -->
-<section id="gallery">
-  <div class="wrap">
-    <h2>Life at Our School</h2>
-    <p>Explore our beautiful school memories.</p>
-
-    <div class="album-grid">
-
-      <!-- ARTS FESTIVAL ALBUM -->
-      <button class="album-card"
-              type="button"
-              onclick="openAlbum('arts')">
-        <img src="arts-fest-01.jpg.PNG"
-             alt="Arts Festival">
-        <div class="album-info">
-          <h3>Arts Festival</h3>
-          <p>4 Photos · View Album</p>
-        </div>
-      </button>
-
-      <!-- SCHOOL CAMPUS ALBUM -->
-      <button class="album-card"
-              type="button"
-              onclick="openAlbum('campus')">
-        <img src="school-front.jpg"
-             alt="School Campus">
-        <div class="album-info">
-          <h3>Our School Campus</h3>
-          <p>1 Photo · View Album</p>
-        </div>
-      </button>
-
-    </div>
-  </div>
-</section>
-
-<!-- PHOTO VIEWER -->
-<div id="albumViewer"
-     class="album-viewer"
-     role="dialog"
-     aria-modal="true"
-     aria-label="Photo album"
-     hidden>
-
-  <div class="viewer-top">
-    <h3 id="albumTitle"></h3>
-    <button type="button"
-            onclick="closeAlbum()"
-            aria-label="Close album">
-      &times;
-    </button>
-  </div>
-
-  <div class="viewer-main">
-    <button type="button"
-            onclick="changePhoto(-1)"
-            aria-label="Previous photo">
-      &#10094;
-    </button>
-
-    <img id="viewerImage" alt="School photo">
-
-    <button type="button"
-            onclick="changePhoto(1)"
-            aria-label="Next photo">
-      &#10095;
-    </button>
-  </div>
-
-  <p id="photoCounter"></p>
-  <p class="swipe-hint">
-    Swipe left or right to view photos
-  </p>
-</div>
-
-<style>
-.album-grid {
-  display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-  margin-top: 25px;
-}
-
-.album-card {
-  display: block;
-  width: 100%;
-  padding: 0;
-  border: 0;
-  border-radius: 16px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 5px 22px #00000018;
-  cursor: pointer;
-  text-align: left;
-  font: inherit;
-  transition: transform .2s;
-}
-
-.album-card:hover {
-  transform: translateY(-5px);
-}
-
-.album-card img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-}
-
-.album-info {
-  padding: 16px;
-}
-
-.album-info h3 {
-  color: #17503f;
-  margin: 0;
-}
-
-.album-info p {
-  margin: 5px 0 0;
-  color: #666;
-  font-size: 14px;
-}
-
-.album-viewer[hidden] {
-  display: none;
-}
-
-.album-viewer {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(8, 20, 16, .97);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.viewer-top {
-  width: 100%;
-  max-width: 1100px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.viewer-top h3 {
-  color: white;
-  margin: 0;
-}
-
-.viewer-top button {
-  font-size: 36px;
-}
-
-.viewer-top button,
-.viewer-main button {
-  background: transparent;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 12px;
-}
-
-.viewer-main {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1100px;
-  flex: 1;
-  min-height: 0;
-  gap: 8px;
-}
-
-.viewer-main img {
-  width: auto;
-  max-width: calc(100% - 100px);
-  max-height: 75vh;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-.viewer-main button {
-  font-size: 30px;
-  flex-shrink: 0;
-}
-
-#photoCounter {
-  color: #f2b632;
-  font-weight: 800;
-  margin: 8px 0;
-}
-
-.swipe-hint {
-  font-size: 13px;
-  color: #ccc;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .viewer-main img {
-    max-width: calc(100% - 76px);
-  }
-
-  .viewer-main button {
-    font-size: 23px;
-    padding: 5px;
-  }
-}
-</style>
-
-<script>
-const albums = {
-  arts: [
+/* SCHOOL PHOTO ALBUM */
+const albums={
+  arts:[
     "arts-fest-01.jpg.PNG",
     "arts-fest-02.PNG",
     "arts-fest-03.PNG",
     "arts-fest-04.PNG"
   ],
-  campus: [
-    "school-front.jpg"
-  ]
+  campus:["school-front.jpg"]
 };
+const albumNames={arts:"Arts Festival",campus:"Our School Campus"};
+const viewer=document.getElementById("albumViewer");
+let activeAlbum=[],currentPhoto=0,touchStartX=0,previousFocus=null;
 
-const albumNames = {
-  arts: "Arts Festival",
-  campus: "Our School Campus"
-};
-
-let activeAlbum = [];
-let currentPhoto = 0;
-let touchStartX = 0;
-let previousFocus = null;
-
-function openAlbum(name) {
-  activeAlbum = albums[name] || [];
-  if (!activeAlbum.length) return;
-
-  currentPhoto = 0;
-  previousFocus = document.activeElement;
-
-  document.getElementById("albumTitle")
-    .textContent = albumNames[name];
-
-  document.getElementById("albumViewer")
-    .hidden = false;
-
-  document.body.style.overflow = "hidden";
-
+function openAlbum(name){
+  activeAlbum=albums[name]||[];
+  if(!activeAlbum.length)return;
+  currentPhoto=0;
+  previousFocus=document.activeElement;
+  document.getElementById("albumTitle").textContent=albumNames[name];
+  viewer.hidden=false;
+  document.body.style.overflow="hidden";
   showPhoto();
-
-  document.querySelector(
-    ".viewer-top button"
-  ).focus();
+  viewer.querySelector(".viewer-top button").focus();
 }
-
-function showPhoto() {
-  const image = document.getElementById(
-    "viewerImage"
-  );
-
-  image.src = activeAlbum[currentPhoto];
-  image.alt = "School photo " +
-    (currentPhoto + 1);
-
-  document.getElementById(
-    "photoCounter"
-  ).textContent =
-    (currentPhoto + 1) +
-    " / " + activeAlbum.length;
+function showPhoto(){
+  const img=document.getElementById("viewerImage");
+  img.src=activeAlbum[currentPhoto];
+  img.alt="School photo "+(currentPhoto+1);
+  document.getElementById("photoCounter").textContent=(currentPhoto+1)+" / "+activeAlbum.length;
 }
-
-function changePhoto(direction) {
-  if (!activeAlbum.length) return;
-
-  currentPhoto = (
-    currentPhoto +
-    direction +
-    activeAlbum.length
-  ) % activeAlbum.length;
-
+function changePhoto(direction){
+  if(!activeAlbum.length)return;
+  currentPhoto=(currentPhoto+direction+activeAlbum.length)%activeAlbum.length;
   showPhoto();
 }
-
-function closeAlbum() {
-  document.getElementById(
-    "albumViewer"
-  ).hidden = true;
-
-  document.body.style.overflow = "";
-
-  if (previousFocus) {
-    previousFocus.focus();
-  }
+function closeAlbum(){
+  viewer.hidden=true;
+  document.body.style.overflow="";
+  if(previousFocus)previousFocus.focus();
 }
-
-const viewer = document.getElementById(
-  "albumViewer"
-);
-
-viewer.addEventListener(
-  "touchstart",
-  function(event) {
-    touchStartX =
-      event.changedTouches[0].screenX;
-  },
-  { passive: true }
-);
-
-viewer.addEventListener(
-  "touchend",
-  function(event) {
-    const difference =
-      event.changedTouches[0].screenX -
-      touchStartX;
-
-    if (Math.abs(difference) > 50) {
-      changePhoto(difference < 0 ? 1 : -1);
-    }
-  },
-  { passive: true }
-);
-
-document.addEventListener(
-  "keydown",
-  function(event) {
-    if (viewer.hidden) return;
-
-    if (event.key === "Escape") {
-      closeAlbum();
-    }
-
-    if (event.key === "ArrowRight") {
-      changePhoto(1);
-    }
-
-    if (event.key === "ArrowLeft") {
-      changePhoto(-1);
-    }
-
-    if (event.key === "Tab") {
-      const controls = Array.from(
-        viewer.querySelectorAll("button")
-      );
-
-      const first = controls[0];
-      const last = controls[controls.length - 1];
-
-      if (event.shiftKey &&
-          document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey &&
-                 document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
+viewer.addEventListener("touchstart",e=>{
+  touchStartX=e.changedTouches[0].screenX;
+},{passive:true});
+viewer.addEventListener("touchend",e=>{
+  const d=e.changedTouches[0].screenX-touchStartX;
+  if(Math.abs(d)>50)changePhoto(d<0?1:-1);
+},{passive:true});
+document.addEventListener("keydown",e=>{
+  if(viewer.hidden)return;
+  if(e.key==="Escape")closeAlbum();
+  if(e.key==="ArrowRight")changePhoto(1);
+  if(e.key==="ArrowLeft")changePhoto(-1);
+  if(e.key==="Tab"){
+    const buttons=Array.from(viewer.querySelectorAll("button"));
+    const first=buttons[0],last=buttons[buttons.length-1];
+    if(e.shiftKey&&document.activeElement===first){
+      e.preventDefault();last.focus();
+    }else if(!e.shiftKey&&document.activeElement===last){
+      e.preventDefault();first.focus();
     }
   }
-);
-</script>
+});
 
-
-<section id="videos" style="padding:60px 20px;background:#eef4f1">
-  <div style="max-width:1100px;margin:auto">
-    <h2 style="color:#0f3a2e">School Video Gallery</h2>
-    <p>Watch our school activities and celebrations.</p>
-    <div id="school-video-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px"></div>
-  </div>
-</section>
-
-<script>
-(function () {
-  const ids = [
+/* SCHOOL VIDEO GALLERY */
+(function(){
+  const ids=[
     "SHg-H3ZA1XQ",
     "s2MHc2PL_yc",
     "xZz6aB0fHzs",
@@ -1244,438 +795,24 @@ document.addEventListener(
     "DtsXdF_Sn-I",
     "CubqRy5rwPg"
   ];
-
-  const gallery = document.getElementById("school-video-list");
-
-  ids.forEach((id, i) => {
-    const card = document.createElement("div");
-    card.style.cssText = "background:white;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px #0002";
-
-    const frame = document.createElement("iframe");
-    frame.src = "https://www.youtube-nocookie.com/embed/" + id;
-    frame.title = "School Video " + (i + 1);
-    frame.loading = "lazy";
-    frame.allow = "accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share";
-    frame.allowFullscreen = true;
-    frame.style.cssText = "width:100%;aspect-ratio:16/9;border:0;display:block";
-
-    const title = document.createElement("p");
-    title.textContent = "School Video " + (i + 1);
-    title.style.cssText = "padding:12px 16px;margin:0;font-weight:800;color:#17503f";
-
-    card.append(frame, title);
+  const gallery=document.getElementById("school-video-list");
+  ids.forEach((id,i)=>{
+    const card=document.createElement("div");
+    card.className="video-card";
+    const frame=document.createElement("iframe");
+    frame.src="https://www.youtube-nocookie.com/embed/"+id;
+    frame.title="School Video "+(i+1);
+    frame.loading="lazy";
+    frame.allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share";
+    frame.allowFullscreen=true;
+    const title=document.createElement("p");
+    title.textContent="School Video "+(i+1);
+    card.append(frame,title);
     gallery.appendChild(card);
   });
 })();
 </script>
-  
-    
-
-    
-
-
-<!-- STUDENT PORTAL -->
-<section id="portal" class="alt">
-  <div class="wrap">
-    <h2>🎓 Student Portal</h2>
-    <p>Choose your class or explore our reading library.</p>
-
-    <div class="student-hub">
-
-      <!-- CLASS 4 -->
-      <details class="hub-card">
-        <summary>
-          <span class="hub-icon">🎒</span>
-          <span>
-            <strong>Class 4</strong>
-            <small>Exams • Quizzes • Notes</small>
-          </span>
-          <span class="hub-arrow">⌄</span>
-        </summary>
-
-        <div class="hub-content">
-          <h3>CM Kids Exam Portal</h3>
-          <p>
-            Attend model exams, check scores
-            and track your learning progress.
-          </p>
-          <a class="hub-btn"
-             href="https://poyiloor-cm-kids-progress.delicatedepot4.chatgpt.site/">
-            Open CM Kids Portal →
-          </a>
-        </div>
-      </details>
-
-      <!-- CLASS 5 -->
-      <details class="hub-card">
-        <summary>
-          <span class="hub-icon">🧮</span>
-          <span>
-            <strong>Class 5</strong>
-            <small>Mathematics • Exams • Results</small>
-          </span>
-          <span class="hub-arrow">⌄</span>
-        </summary>
-
-        <div class="hub-content">
-          <h3>Mathematics Exam</h3>
-          <p>30 Marks • 30 Minutes</p>
-
-          <a class="hub-btn"
-             href="class5_math_exam.html">
-            Start Mathematics Exam →
-          </a>
-
-          <a class="hub-btn secondary"
-             href="https://script.google.com/macros/s/AKfycbwIv-gKzx2DyAixjNJ3P5949TCdY5ZhfqNoCUW5llGqw6jIXvoXqQYVJnY4h7dNGUsD/exec">
-            🏆 View Result Board
-          </a>
-        </div>
-      </details>
-
-      <!-- DIGITAL LIBRARY -->
-      <div class="hub-card library-hub">
-        <div class="library-top">
-          <span class="hub-icon">📚</span>
-          <div>
-            <strong>Digital Reading Library</strong>
-            <small>
-              English • Malayalam • Literature
-            </small>
-          </div>
-        </div>
-
-        <div class="library-links">
-          <a href="english_reading_corner_classwise.html"
-             class="english-link">
-            📘 English Reading
-            <small>100 Reading Cards</small>
-          </a>
-
-          <a href="reading_library.html"
-             class="malayalam-link">
-            📗 മലയാളം വായനാമൂല
-            <small>കഥകൾ • സാഹിത്യം</small>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<style>
-.student-hub {
-  display: grid;
-  gap: 20px;
-  max-width: 850px;
-  margin: 25px auto 0;
-}
-
-.hub-card {
-  background: #fff;
-  border: 1px solid #e0e9e4;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 5px 20px #0000000a;
-}
-
-.hub-card summary {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 24px;
-  cursor: pointer;
-  list-style: none;
-}
-
-.hub-card summary::-webkit-details-marker {
-  display: none;
-}
-
-.hub-icon {
-  font-size: 38px;
-}
-
-.hub-card strong {
-  display: block;
-  font-size: 22px;
-  color: #17503f;
-}
-
-.hub-card small {
-  display: block;
-  color: #667a70;
-  font-size: 13px;
-}
-
-.hub-arrow {
-  margin-left: auto;
-  font-size: 28px;
-}
-
-.hub-content {
-  padding: 10px 24px 26px;
-  border-top: 1px solid #e5eee8;
-}
-
-.hub-content h3 {
-  color: #17503f;
-}
-
-.hub-btn {
-  display: inline-block;
-  background: #17503f;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 800;
-  margin: 8px 8px 0 0;
-}
-
-.hub-btn.secondary {
-  background: #e9f2ec;
-  color: #17503f;
-}
-
-.library-hub {
-  padding: 24px;
-}
-
-.library-top {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.library-links {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 20px;
-}
-
-.library-links a {
-  display: block;
-  padding: 22px;
-  border-radius: 15px;
-  color: white;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.library-links small {
-  color: #ffffffdd;
-  margin-top: 8px;
-}
-
-.english-link {
-  background: linear-gradient(135deg,#173e79,#327fbd);
-}
-
-.malayalam-link {
-  background: linear-gradient(135deg,#15533c,#269b72);
-}
-
-@media (max-width:600px) {
-  .library-links {
-    grid-template-columns: 1fr;
-  }
-
-  .hub-card summary {
-    padding: 18px;
-  }
-}
-</style>
-
-<!-- ADMISSION -->
-    <section class="admit" id="admission">
-      <div class="wrap">
-
-        <h2>Admission Open – Classes 1 to 5</h2>
-
-        <p>
-          Join our school family. Contact us for
-          admission details and school visits.
-        </p>
-
-        <div class="num">9072915659</div>
-
-        <a class="btn gold" href="tel:+919072915659">
-          Call Now
-        </a>
-
-        <a class="btn line"
-           href="https://wa.me/919072915659"
-           target="_blank"
-           rel="noopener noreferrer">
-          WhatsApp Us
-        </a>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="alt contact" id="contact">
-      <div class="wrap">
-
-        <h2>Contact Us</h2>
-
-        <dl>
-          <dt>School</dt>
-          <dd>Poyiloor Central LP School</dd>
-
-          <dt>Address</dt>
-          <dd>
-            Central Poyiloor, PO Poyiloor,
-            Kannur, Kerala – 670693
-          </dd>
-
-          <dt>School Code</dt>
-          <dd>14537</dd>
-
-          <dt>Phone</dt>
-          <dd>
-            <a href="tel:+919072915659">
-              9072915659
-            </a>
-          </dd>
-
-          <dt>Email</dt>
-          <dd>
-            <a href="mailto:VCreations503@gmail.com">
-              VCreations503@gmail.com
-            </a>
-          </dd>
-        </dl>
-
-      </div>
-    </section>
-
-  </main>
-
-<!-- WEBSITE CREATOR CREDIT START -->
-<section class="creator-section">
-  <div class="creator-card">
-
-    <div class="creator-photo">
-      
-<img src="Saad noushad.JPG"
-     alt="Saad Noushad - Website Creator"
-     loading="lazy">
-
-    </div>
-
-    <div class="creator-info">
-      <p class="creator-label">
-        CONCEPT & WEBSITE DEVELOPMENT
-      </p>
-
-      <h2>Saad Noushad</h2>
-
-      <p class="creator-role">
-        Teacher | Poyiloor Central LP School
-      </p>
-
-      <p class="creator-ai">
-        ✨ Developed with AI Assistance
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<style>
-.creator-section {
-  padding: 35px 20px;
-  background: #eef4f1;
-}
-
-.creator-card {
-  max-width: 650px;
-  margin: auto;
-  padding: 24px;
-  background: #ffffff;
-  border: 1px solid #dce8df;
-  border-radius: 22px;
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.06);
-}
-
-.creator-photo {
-  width: 105px;
-  height: 105px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 3px solid #f2b632;
-}
-
-.creator-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-}
-
-.creator-info {
-  flex: 1;
-}
-
-.creator-label {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #3d8860;
-  margin: 0 0 6px;
-}
-
-.creator-info h2 {
-  font-size: 24px;
-  color: #17503f;
-  margin: 0 0 6px;
-}
-
-.creator-role {
-  font-size: 14px;
-  color: #4e665a;
-  margin: 0;
-}
-
-.creator-ai {
-  font-size: 12px;
-  color: #6b8274;
-  margin: 10px 0 0;
-}
-
-@media (max-width: 480px) {
-  .creator-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 25px 18px;
-  }
-
-  .creator-photo {
-    width: 100px;
-    height: 100px;
-  }
-}
-</style>
-<!-- WEBSITE CREATOR CREDIT END -->
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrap">
-      © 2026 Poyiloor Central LP School
-      <p>
-        Established 1928 |
-        Achieving Excellence Together
-      </p>
-    </div>
-  </footer>
 
 </body>
 </html>
+
